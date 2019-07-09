@@ -1,8 +1,17 @@
 <view class="view-title">
-<view>
-<view class="view-anthor">
-<image src="../../images/anthor.png" mode='scaleToFill'></image>
-</view>
-</view>
+  
+      <view class="view-totol">
+        
+          <view class="view-login">
+               <view class="view-anthor">
+
+                     <image src="../../images/anthor.png" mode='scaleToFill'></image>
+               </view>
+          <view style="magin-left:50rpx width:30% display:flex justify-content:right">用户名</view>
+          </view>
+          <view>修改个人信息</view>
+      
+  </view>
+
 </view>
 
