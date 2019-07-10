@@ -1,0 +1,222 @@
+/* pages/index/index.wxss */
+.content-scroll {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 20rpx; */
+    white-space: nowrap;
+    color: #000;
+    background: #eee;
+
+}
+
+/* 轮播图 */
+.indicator-wrap {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-item {
+    display: block;
+    width: 100%;
+    height: 368rpx;
+}
+
+/* 四个按钮区域 */
+.btn_view {
+    position: relative;
+    padding: 0 20rpx;
+    height: 71rpx;
+
+}
+
+.btn_view .four_btn {
+    position: absolute;
+    top: -33rpx;
+    z-index: 9;
+    display: flex;
+    width: 710rpx;
+    height: 104rpx;
+    background-color: #ffffff;
+    box-shadow: 0px -2px 19px 1px rgba(249, 89, 89, 0.24);
+    border-radius: 10px;
+
+}
+
+.btn_view .four_btn .btn_item {
+    width: 25%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.btn_view .four_btn .btn_item image {
+    margin: 10rpx auto 0;
+    width: 52rpx;
+    height: 48rpx;
+    display: block;
+
+}
+
+.btn_view .four_btn .btn_item text {
+    text-align: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 44rpx;
+    color: #595959;
+}
+
+/* 10个按钮分类 */
+.ten_top {
+    width: 100%;
+    text-align: center;
+
+}
+
+.ten_top image {
+    width: 34rpx;
+    height: 20rpx;
+}
+
+.ten_warp {
+    width: 100%;
+    height: 320rpx;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.ten_warp .ten_item {
+    width: 20%;
+
+}
+
+.ten_warp .ten_item image {
+    margin: 0 auto;
+    display: block;
+    width: 84rpx;
+    height: 76rpx;
+
+}
+
+.ten_warp .ten_item text {
+    height: 22rpx;
+    font-family: PingFang-SC-Medium;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 44rpx;
+    color: #595959;
+}
+
+/*   <!-- 每个推荐 --> */
+.recommend_warp {
+    margin: 0 0 10px 0;
+    background: #fff;
+    padding: 0 0 0 12rpx;
+
+}
+
+.recommend_warp .title_box {
+    padding: 24rpx 0 34rpx 0rpx;
+}
+
+.recommend_warp .h2_title {
+    padding: 0 0 0 10rpx;
+    font-family: PingFang-SC-Medium;
+    font-size: 26rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 26rpx;
+    color: #f95959;
+
+    border-left: 2px solid #f95959;
+
+}
+
+/* list */
+.recommend_warp .recom_list {
+    display: flex;
+    margin: 30rpx 0 20rpx 0;
+    padding: 0 0 20rpx 0;
+    border-bottom: 1px solid #eee;
+
+}
+
+.recommend_warp .recom_list .list_left {
+    width: 130rpx;
+    height: 130rpx;
+    background-color: #eeeeee;
+    border: solid 1rpx #eeeeee;
+}
+
+.recommend_warp .recom_list .list_left image {
+    width: 100%;
+    height: 100%;
+}
+
+/* center */
+.recommend_warp .recom_list .list_center {
+    margin: 0 0 0 20rpx;
+    width: 510rpx;
+    align-self: flex-start;
+}
+
+.recommend_warp .recom_list .list_center .center_title {
+    margin: 0 0 0 0;
+    font-family: PingFang-SC-Bold;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    color: #595959;
+    display: block;
+
+}
+
+.recommend_warp .recom_list .list_center .center_standard {
+    display: block;
+    font-family: PingFang-SC-Medium;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 64rpx;
+    color: #989898;
+}
+
+.recommend_warp .recom_list .list_center .center_price {
+    display: block;
+    font-family: PingFang-SC-Bold;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    color: #f95959;
+}
+
+.recommend_warp .recom_list .list_center .center_price .sm_price {
+
+    display: inline-block;
+    margin: 0 0 0 14rpx;
+    font-family: PingFang-SC-Medium;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24rpx;
+    letter-spacing: 0px;
+    color: #989898;
+    text-decoration: line-through;
+}
+
+/* right */
+.recommend_warp .recom_list .list_right image {
+    margin: 80rpx 0 0 0;
+    width: 46rpx;
+    height: 46rpx;
+
+}

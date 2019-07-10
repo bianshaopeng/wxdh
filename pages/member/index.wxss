@@ -1,0 +1,19 @@
+/* pages/member/index.wxss */
+.warp_box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    white-space: nowrap;
+    color: #000;
+    background: #eee;
+}
+
+.manber_bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 730rpx;
+    height: 985rpx;
+    margin: 0 auto;
+}

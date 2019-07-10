@@ -1,0 +1,7 @@
+<!--pages/member/index.wxml-->
+<view class="warp_box">
+    <view class="manber_bg" style="background-image: url('../../images/menber_bg.png')">
+
+
+    </view>
+</view>
