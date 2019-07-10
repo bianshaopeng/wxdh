@@ -1,25 +1,19 @@
-// pages/me/me.js
+// pages/me/recharge/recharge.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
-    viewBoneItem: [{ image: "../../images/shouhou4.png", text: "待付款" }, { image: "../../images/shouhou3.png", text: "待收货" }, { image: "../../images/shouhou2.png", text: "已收货" }, { image: "../../images/shouhou1.png", text: "退款/售后" }]
 
   },
 
-  rechargeClick:function(){
-     wx.navigateTo({
-       url: 'recharge/recharge?type=1',
-     })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
+    console.log(options.type)
   },
 
   /**

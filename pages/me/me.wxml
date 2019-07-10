@@ -17,7 +17,7 @@
 
       <view class='view-second-one'>
         <view style='margin-left:60rpx; margin-top:30rpx; padding-right:40rpx; color:#595959'>钱包</view>
-        <view style='margin-right:60rpx;margin-top:30rpx;padding-left:40rpx; color:#595959'>充值</view>
+        <view bindtap='rechargeClick' style='margin-right:60rpx;margin-top:30rpx;padding-left:40rpx; color:#595959'>充值</view>
       </view>
       <view style='width:90%; margin-left:40rpx; margin-right:32rpx; height:2rpx;  background-color:#FF7F8B'></view>
       <view class='view-second-two'>
