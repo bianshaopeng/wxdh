@@ -19,7 +19,7 @@
 
 .location text {
     display: block;
-    font-family: PingFang-SC-Medium;
+
     font-size: 14rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -64,7 +64,7 @@
     display: inline-block;
     width: 80%;
     height: 50rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -135,7 +135,7 @@
 
 .btn_view .four_btn .btn_item text {
     text-align: center;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -181,7 +181,7 @@
 
 .ten_warp .ten_item text {
     height: 22rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -203,7 +203,7 @@
 
 .recommend_warp .h2_title {
     padding: 0 0 0 10rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 26rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -256,7 +256,7 @@
 
 .recommend_warp .recom_list .list_center .center_standard {
     display: block;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -278,7 +278,7 @@
 
     display: inline-block;
     margin: 0 0 0 14rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;

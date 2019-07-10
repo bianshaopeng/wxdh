@@ -67,7 +67,7 @@
     color: #fff;
     line-height: 250rpx;
     text-align: center;
-    font-family: PingFang-SC-Medium;
+
     font-size: 28rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -76,7 +76,7 @@
 
 .nav_right .right_box .right_list .right_title {
     display: block;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -91,7 +91,7 @@
 
 .nav_right .right_box .right_list .price {
     display: block;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
