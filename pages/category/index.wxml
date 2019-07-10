@@ -1,2 +1,46 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class='caregory'>
+    <!-- left -->
+    <scroll-view class="nav_left" scroll-y>
+
+        <!-- current   bind index 事件当中获取  下标相等的时候-->
+        <view class="nav_box">
+            <viee class="left_item">
+                食品
+
+
+            </viee>
+
+        </view>
+
+
+    </scroll-view>
+    <!-- right -->
+    <scroll-view class='nav_right' scroll-y>
+
+        <view class="right_box">
+            <block wx:for="{{navRightItems}}">
+                <block wx:for="{{item.desc}}" wx:for-item="list">
+                    <view class="right_list">
+                        <view class="img_box">
+                            <image class="" src="{{list.image}}" mode="aspectFill"></image>
+                            <view class="status" wx:if='{{list.status}}'>已售磬</view>
+                        </view>
+                        <view class="right_title">{{list.title}}
+                            <view class="title_standard">{{list.standard}}</view>
+                        </view>
+                        <view class="price">{{list.price}}</view>
+                        <view class="car">
+                            <image src="../../images/car.png" mode="aspectFill">
+                            </image>
+                        </view>
+                    </view>
+                </block>
+            </block>
+
+        </view>
+
+
+
+    </scroll-view>
+
+</view>

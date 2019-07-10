@@ -5,6 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
+    navRightItems: [{
+      title: '食品',
+      desc: [{
+          image: "../../images/cargoty.jpg",
+          title: "新疆薄皮核桃",
+          standard: "500g",
+          price: "￥34",
+          status: true
+        },
+        {
+          image: "../../images/cargoty.jpg",
+          title: "新疆薄皮核桃",
+          standard: "500g",
+          price: "￥34",
+          status: false
+        },
+        {
+          image: "../../images/cargoty.jpg",
+          title: "新疆薄皮核桃",
+          standard: "500g",
+          price: "￥34",
+          status: false
+        },
+        {
+          image: "../../images/cargoty.jpg",
+          title: "新疆薄皮核桃",
+          standard: "500g",
+          price: "￥34",
+          status: false
+        },
+        {
+          image: "../../images/cargoty.jpg",
+          title: "新疆薄皮核桃",
+          standard: "500g",
+          price: "￥34",
+          status: false
+        }
+      ]
+
+    }],
+    curIndex: 0,
+
 
   },
 

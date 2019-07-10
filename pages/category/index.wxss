@@ -1,1 +1,116 @@
 /* pages/category/index.wxss */
+.caregory {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 左边 */
+.nav_left {
+    background: #e0e0e0;
+    width: 24%;
+    height: 100%;
+
+}
+
+.nav_left .nav_box {}
+
+/* roight */
+.nav_right {
+
+    width: 76%;
+    height: 100%;
+    padding: 0 25rpx;
+    background: #fff;
+    box-sizing: border-box;
+
+}
+
+.nav_right .right_box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.nav_right .right_box .right_list {
+    position: relative;
+    width: 250rpx;
+    margin: 20rpx 0 0 0;
+
+
+}
+
+.nav_right .right_box .right_list .img_box {
+    position: relative;
+    width: 250rpx;
+    height: 250rpx;
+    background: #fff;
+
+}
+
+.nav_right .right_box .right_list .img_box image {
+    width: 250rpx;
+    height: 250rpx;
+}
+
+.nav_right .right_box .right_list .img_box .status {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250rpx;
+    height: 250rpx;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    line-height: 250rpx;
+    text-align: center;
+
+    font-size: 28rpx;
+    font-weight: normal;
+    font-stretch: normal;
+
+}
+
+.nav_right .right_box .right_list .right_title {
+    display: block;
+
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 42rpx;
+    color: #454545;
+}
+
+.nav_right .right_box .right_list .right_title .title_standard {
+    display: inline-block;
+    margin: 0 0 0 20rpx;
+}
+
+.nav_right .right_box .right_list .price {
+    display: block;
+
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 48rpx;
+    letter-spacing: 0px;
+    color: #f95959;
+}
+
+.nav_right .right_box .right_list .car {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 48rpx;
+    height: 48rpx;
+
+
+}
+
+.nav_right .right_box .right_list .car image {
+    width: 48rpx;
+    height: 48rpx;
+}

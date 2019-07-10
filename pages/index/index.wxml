@@ -1,5 +1,19 @@
 <!--pages/index/index.wxml-->
+
 <view>
+    <view class="top_serch">
+        <view class="location">
+            <image src="../../images/localion.png" alt="" mode="aspectFill" />
+            <text class="local-title">兰州高新区开发区 </text>
+        </view>
+        <view class="serch">
+            <view class="section">
+                <image src="../../images/serch.png" mode="aspectFill" />
+                <input placeholder="请输入商品名称" focus="" confirm-type="search" />
+
+            </view>
+        </view>
+    </view>
     <!-- 搜索一下全部滚动 -->
     <scroll-view class='content-scroll' scroll-y="true">
         <!-- 轮播图 -->

@@ -1,3 +1,78 @@
+.top_serch {
+    display: flex;
+}
+
+.location {
+    width: 25%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+
+}
+
+.location image {
+    width: 24rpx;
+    height: 30rpx;
+    margin: 0 auto;
+
+}
+
+.location text {
+    display: block;
+
+    font-size: 14rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 40rpx;
+    height: 40rpx;
+    letter-spacing: 0px;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: -o-ellipsis-lastline;
+
+}
+
+.serch {
+    width: 75%;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 10rpx 0 0 0;
+}
+
+.serch .section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 0 0 60rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    border: solid 1rpx #f95a59;
+    line-height: 50rpx;
+
+}
+
+.serch .section image {
+    display: inline-block;
+    width: 31rpx;
+    height: 24rpx;
+    vertical-align: top;
+    margin: 8px 0 0 0;
+
+}
+
+.serch .section input {
+    display: inline-block;
+    width: 80%;
+    height: 50rpx;
+
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50rpx;
+    letter-spacing: 0px;
+    color: #f95a59;
+}
+
 /* pages/index/index.wxss */
 .content-scroll {
     height: 100%;
@@ -60,7 +135,7 @@
 
 .btn_view .four_btn .btn_item text {
     text-align: center;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -106,7 +181,7 @@
 
 .ten_warp .ten_item text {
     height: 22rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -128,7 +203,7 @@
 
 .recommend_warp .h2_title {
     padding: 0 0 0 10rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 26rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -181,7 +256,7 @@
 
 .recommend_warp .recom_list .list_center .center_standard {
     display: block;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -203,7 +278,7 @@
 
     display: inline-block;
     margin: 0 0 0 14rpx;
-    font-family: PingFang-SC-Medium;
+
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
