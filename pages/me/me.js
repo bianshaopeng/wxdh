@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    
+    viewBoneItem: [{ image: "../../images/shouhou4.png", text: "待付款" }, { image: "../../images/shouhou3.png", text: "待收货" }, { image: "../../images/shouhou2.png", text: "已收货" }, { image: "../../images/shouhou1.png", text: "退款/售后" }]
 
   },
 
