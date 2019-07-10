@@ -80,8 +80,9 @@ flex-direction: column;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   padding-left: 20rpx;
-  padding-top: 2rpx;
-  padding-bottom: 2rpx;
+  padding-right: 20rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
   display: flex;
   align-items: center
   
