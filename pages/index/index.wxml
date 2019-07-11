@@ -24,9 +24,9 @@
         </view>
     </view>
     <!-- 搜索一下全部滚动 -->
-    <scroll-view class='content-scroll' scroll-y="true">
+    <scroll-view class="content-scroll" scroll-y="true">
         <!-- 轮播图 -->
-        <view class='indicator-wrap'>
+        <view class="indicator-wrap">
             <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}"
                 interval="{{interval}}" duration="{{duration}}" circular="true"
                 indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff"
