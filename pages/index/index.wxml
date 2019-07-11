@@ -10,6 +10,7 @@
             <view class="section">
                 <image src="../../images/serch.png" mode="aspectFill" />
                 <input placeholder="请输入商品名称" focus="" confirm-type="search" />
+                <text class="close">×</text>
 
 
             </view>

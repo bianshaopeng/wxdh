@@ -17,6 +17,11 @@
                     <view class="shop">{{goods[0].shop}}</view>
                     <view class="price">{{goods[0].price}}</view>
                 </view>
+                <view class="btns">
+                    <view class="jian">-</view>
+                    <view class="number"></view>
+                    <view class="jia">+</view>
+                </view>
 
 
 
