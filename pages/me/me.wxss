@@ -166,6 +166,19 @@ flex-direction: column;
   height: 30rpx;
   margin-right: 30rpx;
 }
+.view-bottom-two-item-kefu{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.view-bottom-two-item-kefu image{
+    width: 35rpx;
+    height: 38rpx;
+    margin-right: 30rpx;
+}
+
 .view-bot{
   width: 100%;
   height: 100%;

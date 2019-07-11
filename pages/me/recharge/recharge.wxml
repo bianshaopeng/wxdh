@@ -1,0 +1,10 @@
+<view class="contair">
+<view class='view-ka'>
+  <input class='view-input' placeholder="请输入充值卡号" placeholder-style="font-size:10pt; color: #989898;"></input>
+  </view>
+  <view class='view-ka'>
+  <input class='view-input' style='margin-top:1rpx' password='true' placeholder='请输入密码' placeholder-style="font-size:10pt; color: #989898;"></input>
+  </view>
+  <button class='view-btn'>充 值</button>
+  
+</view>

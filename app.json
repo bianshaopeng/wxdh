@@ -5,7 +5,12 @@
     "pages/member/index",
     "pages/car/index",
     "pages/logs/logs",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/me/recharge/recharge",
+    "pages/me/cusservice/cusservice",
+    "pages/me/payment/payment",
+    "pages/me/adress/adress",
+   "pages/me/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,7 +21,8 @@
   "tabBar": {
     "selectedColor": "#F95959",
     "color": "#838282",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/2.png",
