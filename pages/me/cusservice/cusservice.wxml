@@ -1,0 +1,15 @@
+<view class="view-contair">
+
+   <view class='view-item'>
+    <text class='view-text'>微信： 556666666</text>
+   </view>
+    <view class='view-item'>
+    <text class='view-text'>QQ： 556666666</text>
+   </view>
+    <view class='view-item'>
+    <text class='view-text'>电话： 556666666</text>
+   </view>
+    <view class='view-item'>
+    <text class='view-text'>客服热线： 556666666</text>
+   </view>
+</view>

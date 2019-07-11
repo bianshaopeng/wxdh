@@ -1,0 +1,14 @@
+<view class="contair">
+<view class='view-ka'>
+  <input class='view-input' placeholder="收货人" placeholder-style="font-size:10pt; color: #989898;"></input>
+  </view>
+  <view class='view-ka'>
+  <input class='view-input' style='margin-top:1rpx' type='number' placeholder='手机号码' placeholder-style="font-size:10pt; color: #989898;"></input>
+  </view>
+   <view class='view-ka'>
+  <input class='view-input' style='margin-top:1rpx'  placeholder='地址' placeholder-style="font-size:10pt; color: #989898;"></input>
+  </view>
+  
+  <button class='view-btn'>确 定</button>
+  
+</view>

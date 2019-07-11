@@ -6,7 +6,10 @@
     "pages/car/index",
     "pages/logs/logs",
     "pages/me/me",
-    "pages/me/recharge/recharge"
+    "pages/me/recharge/recharge",
+    "pages/me/cusservice/cusservice",
+    "pages/me/payment/payment",
+    "pages/me/adress/adress"
   ],
   "window": {
     "backgroundTextStyle": "light",

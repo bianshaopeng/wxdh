@@ -10,7 +10,7 @@
         </view>
         <view class="view-name" >18884488888</view>
       </view>
-      <view class="view-zdress" >修改收货信息</view>
+      <view class="view-zdress" bindtap='adressClick'>修改收货信息</view>
 
     </view>
     <view class='view-second'>
@@ -35,7 +35,7 @@
 
     <view class='view-bottom'>
       <view class='view-bottom-one'>
-        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}">
+        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' bindtap='itemClick'>
           <image src="{{item.image}}" mode='aspectFit'></image>
           <view style='font-size:10pt;color:#595959'>{{item.text}}</view>
         </view>
@@ -69,11 +69,11 @@
     </view>
     <view style='width:100%;  height:5rpx;  background-color:#eeeeee'></view>
     <view class='view-bottom-two-item'>
-      <view class='view-bottom-two-item-text'>客服</view>
+      <view class='view-bottom-two-item-text' bindtap='costomerClick'>客服</view>
     </view>
     <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
     <view class='view-bottom-two-item'>
-      <view class='view-bottom-two-item-text'>注销登录</view>
+      <view class='view-bottom-two-item-text' bindtap='calLogin'>注销登录</view>
     </view>
     <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
   </view>
