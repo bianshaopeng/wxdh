@@ -16,8 +16,34 @@ Page({
       shop: "来自XXXX店铺",
       price: "￥34",
       price_smail: "￥00",
-      numbes: "1"
-    }]
+      number: "1"
+    }],
+    car: {
+      status: false,
+    },
+    guess_like: [{
+        image: "../../images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥00",
+      },
+      {
+        image: "../../images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥35",
+        price_smail: "￥00",
+      },
+      {
+        image: "../../images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥300",
+        price_smail: "￥00",
+      }
+    ]
+
 
   },
 

@@ -1,8 +1,11 @@
 <view class='cart'>
-    <!-- <view class='empty_wrap' wx:if='{{cartArray.length == 0}}'>
-        <image class='empyt_icon' src='/image/shop_cart.png'></image>
-        <text class='empyt_txt' >购物车空空如也，去逛逛吧~</text>
-    </view> -->
+
+    <view class="empty_wrap" wx:if="{{car.empty}}">
+        <image class="empyt_icon" src="../../images/empty_car.png"></image>
+        <text class="empyt_txt">购物车空空如也，快去挑好货呗~</text>
+        <view class="empty_btn"> 逛逛新品首发</view>
+    </view>
+
     <view class="show_car">
         <view class="com_list">
             <!-- left -->
@@ -19,21 +22,51 @@
                 </view>
                 <view class="btns">
                     <view class="jian">-</view>
-                    <view class="number"></view>
+                    <view class="number">{{goods[0].number}}</view>
                     <view class="jia">+</view>
                 </view>
-
-
-
             </view>
-
-
-
         </view>
 
     </view>
 
 
+    <!--  猜你喜欢部分 -->
+    <view class="link_box">
+        <view class="link_h2">猜你喜欢</view>
+        <block wx:for="{{guess_like}}">
+            <view class="com_list">
+                <view class="center_item">
+                    <image class="icon" src="{{item.image}}"></image>
+                    <view class="text_box">
+                        <view class="title">{{item.title}}</view>
+                        <view class="shop">{{item.standard}}</view>
+                        <view class="price">{{item.price}}</view>
+                    </view>
+                    <view class="add_btn">
+                        <view class="add_car">加入购物车</view>
+                        <view class="add_pay">立即购买</view>
+                    </view>
+
+                </view>
+            </view>
 
 
+        </block>
+
+
+    </view>
+
+    <!-- 底部全选框部分 -->
+    <view class="fixBar">
+        <view class='select_all'>
+            <image class='icon' src='{{select}}'></image>
+            <text>全选</text>
+        </view>
+        <view class="total">
+            <text>合计:</text>
+            <text class="money">¥78元</text>
+        </view>
+        <view class="btn_amount">结算</view>
+    </view>
 </view>
