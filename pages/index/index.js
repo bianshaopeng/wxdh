@@ -180,8 +180,8 @@ Page({
     this.setData({
       scorllId: "d"
     })
-
   },
+  
   closeClick:function(){
     this.setData({
       showAll: false,
