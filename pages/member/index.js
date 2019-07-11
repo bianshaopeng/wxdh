@@ -6,6 +6,9 @@ Page({
    */
   data: {
 
+    top_bar: "../../images/top_bar.jpg",
+    center_img: "../../images/center_img.jpg"
+
   },
 
   /**

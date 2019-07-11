@@ -1,5 +1,9 @@
 .top_serch {
     display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
 }
 
 .location {
@@ -7,14 +11,12 @@
     text-align: center;
     box-sizing: border-box;
     padding: 0 20rpx;
-
 }
 
 .location image {
     width: 24rpx;
     height: 30rpx;
     margin: 0 auto;
-
 }
 
 .location text {
@@ -30,7 +32,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-overflow: -o-ellipsis-lastline;
-
 }
 
 .serch {
@@ -46,9 +47,8 @@
     padding: 0 0 0 60rpx;
     height: 50rpx;
     border-radius: 25rpx;
-    border: solid 1rpx #f95a59;
+    border: solid 1rpx #fff;
     line-height: 50rpx;
-
 }
 
 .serch .section image {
@@ -57,7 +57,6 @@
     height: 24rpx;
     vertical-align: top;
     margin: 8px 0 0 0;
-
 }
 
 .serch .section input {
@@ -70,7 +69,32 @@
     font-stretch: normal;
     line-height: 50rpx;
     letter-spacing: 0px;
-    color: #f95a59;
+    color: #fff;
+}
+
+.top_serch .serch_show {
+    /* 默认隐藏 */
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 64rpx;
+    z-index: 999999;
+    width: 100%;
+    height: 300rpx;
+    background: #fff;
+}
+
+.top_serch .serch_show .serch_item {
+    padding: 0 0 0 20rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    border-bottom: 1px solid #eee;
+}
+
+.top_serch .serch_show .serch_active {
+    color: #fff;
+    background: #f95a59;
+
 }
 
 /* pages/index/index.wxss */
@@ -79,11 +103,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* margin-top: 20rpx; */
+    /* margin-top: 78rpx; */
     white-space: nowrap;
     color: #000;
     background: #eee;
-
 }
 
 /* 轮播图 */
@@ -103,7 +126,6 @@
     position: relative;
     padding: 0 20rpx;
     height: 71rpx;
-
 }
 
 .btn_view .four_btn {
@@ -116,7 +138,6 @@
     background-color: #ffffff;
     box-shadow: 0px -2px 19px 1px rgba(249, 89, 89, 0.24);
     border-radius: 10px;
-
 }
 
 .btn_view .four_btn .btn_item {
@@ -130,7 +151,6 @@
     width: 52rpx;
     height: 48rpx;
     display: block;
-
 }
 
 .btn_view .four_btn .btn_item text {
@@ -147,7 +167,6 @@
 .ten_top {
     width: 100%;
     text-align: center;
-
 }
 
 .ten_top image {
@@ -168,7 +187,6 @@
 
 .ten_warp .ten_item {
     width: 20%;
-
 }
 
 .ten_warp .ten_item image {
@@ -176,7 +194,6 @@
     display: block;
     width: 84rpx;
     height: 76rpx;
-
 }
 
 .ten_warp .ten_item text {
@@ -194,7 +211,6 @@
     margin: 0 0 10px 0;
     background: #fff;
     padding: 0 0 0 12rpx;
-
 }
 
 .recommend_warp .title_box {
@@ -211,7 +227,6 @@
     color: #f95959;
 
     border-left: 2px solid #f95959;
-
 }
 
 /* list */
@@ -220,7 +235,6 @@
     margin: 30rpx 0 20rpx 0;
     padding: 0 0 20rpx 0;
     border-bottom: 1px solid #eee;
-
 }
 
 .recommend_warp .recom_list .list_left {
@@ -251,7 +265,6 @@
     line-height: 34rpx;
     color: #595959;
     display: block;
-
 }
 
 .recommend_warp .recom_list .list_center .center_standard {
@@ -275,7 +288,6 @@
 }
 
 .recommend_warp .recom_list .list_center .center_price .sm_price {
-
     display: inline-block;
     margin: 0 0 0 14rpx;
 
@@ -293,5 +305,4 @@
     margin: 80rpx 0 0 0;
     width: 46rpx;
     height: 46rpx;
-
 }

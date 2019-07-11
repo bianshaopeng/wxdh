@@ -11,7 +11,15 @@
                 <image src="../../images/serch.png" mode="aspectFill" />
                 <input placeholder="请输入商品名称" focus="" confirm-type="search" />
 
+
             </view>
+        </view>
+        <!-- 搜索显示区域 -->
+        <view class="serch_show">
+            <!-- 显示每一条 -->
+            <view class="serch_item" hover-class="serch_active">零食</view>
+            <view class="serch_item" hover-class="serch_active">零食</view>
+            <view class="serch_item" hover-class="serch_active">零食</view>
         </view>
     </view>
     <!-- 搜索一下全部滚动 -->
@@ -54,11 +62,11 @@
         </view>
         <!-- 10个分类 -->
         <view class="ten_top">
-            <image src="../../images/dsj.png" mode="aspectFill" />
+            <image bindtap='click' src="../../images/dsj.png" mode="aspectFill" />
 
 
         </view>
-        <view class="ten_warp">
+        <view class="ten_warp" hidden="{{hiddenName}} ">
             <block wx:for-items="{{classify}}">
                 <view class="ten_item">
                     <image src="{{item.image}}" mode="aspectFill" />

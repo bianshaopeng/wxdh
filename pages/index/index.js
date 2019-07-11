@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        hiddenName: false,
         swipers: [{
                 image: '../../images/banner1.png'
             },
@@ -139,6 +140,12 @@ Page({
     onLoad: function (options) {
 
     },
+    // click: function (e) {
+    //     this.setData({
+
+    //         hiddenName: !this.data.hiddenName
+    //     })
+    // },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
