@@ -9,7 +9,8 @@
     "pages/me/recharge/recharge",
     "pages/me/cusservice/cusservice",
     "pages/me/payment/payment",
-    "pages/me/adress/adress"
+    "pages/me/adress/adress",
+   "pages/me/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -46,8 +46,8 @@
           <image src='../../images/info.png'></image>
         </view>
         <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
-        <view class='view-bottom-two-item'>
-          <view class='view-bottom-two-item-text'>我的优惠券</view>
+        <view class='view-bottom-two-item' bindtap='couponClick'>
+          <view class='view-bottom-two-item-text' >我的优惠券</view>
           <image src='../../images/info.png'></image>
         </view>
       </view>
@@ -68,8 +68,9 @@
       <view class='view-bottom-two-item-text'>收货地址</view>
     </view>
     <view style='width:100%;  height:5rpx;  background-color:#eeeeee'></view>
-    <view class='view-bottom-two-item'>
+    <view class='view-bottom-two-item-kefu'>
       <view class='view-bottom-two-item-text' bindtap='costomerClick'>客服</view>
+      <image src='../../images/kefu.png'></image>
     </view>
     <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
     <view class='view-bottom-two-item'>
