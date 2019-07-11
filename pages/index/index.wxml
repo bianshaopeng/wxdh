@@ -9,8 +9,8 @@
         <view class="serch">
             <view class="section">
                 <image src="../../images/serch.png" mode="aspectFill" />
-                <input placeholder="请输入商品名称" focus="" confirm-type="search" />
-                <text class="close">×</text>
+                <input bindinput='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search" bindfocus="bindfocuClick"  bindconfirm="bindconfirmClick" value='{{inputValue}}'/>
+                <text class="close" bindtap='closeClick'>×</text>
 
 
             </view>
@@ -24,7 +24,7 @@
         </view>
     </view>
     <!-- 搜索一下全部滚动 -->
-    <scroll-view class='content-scroll' scroll-y="true">
+    <view class='content-scroll'  hidden='{{showAll}}'>
         <!-- 轮播图 -->
         <view class='indicator-wrap'>
             <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}"
@@ -42,22 +42,22 @@
         <!-- 掌柜推荐按钮  -->
         <view class="btn_view">
             <view class="four_btn">
-                <view class="btn_item">
+                <view class="btn_item" bindtap='barClick1'>
                     <image src="../../images/four_btn1.png" mode="aspectFill" />
                     <text>掌柜推荐</text>
                 </view>
-                <view class="btn_item">
+                <view class="btn_item"  bindtap='barClick2'>
                     <image src="../../images/four_btn2.png" mode="aspectFill" />
-                    <text>掌柜推荐</text>
+                    <text>新人特惠</text>
 
                 </view>
-                <view class="btn_item">
+                <view class="btn_item"  bindtap='barClick3'>
                     <image src="../../images/four_btn3.png" mode="aspectFill" />
-                    <text>掌柜推荐</text>
+                    <text>显示抢购</text>
                 </view>
-                <view class="btn_item">
+                <view class="btn_item"  bindtap='barClick4'>
                     <image src="../../images/four_btn4.png" mode="aspectFill" />
-                    <text>掌柜推荐</text>
+                    <text>新品首发</text>
                 </view>
             </view>
         </view>
@@ -67,7 +67,7 @@
 
 
         </view>
-        <view class="ten_warp" hidden="{{hiddenName}} ">
+        <view class="ten_warp" hidden='{{hiddenName}}'>
             <block wx:for-items="{{classify}}">
                 <view class="ten_item">
                     <image src="{{item.image}}" mode="aspectFill" />
@@ -76,21 +76,19 @@
             </block>
         </view>
         <!-- 推荐 -->
-        <view>
+        <scroll-view style='height:650rpx' scroll-y="true"   scroll-into-view="{{scorllId}}"> 
+        
             <!-- 每个推荐 -->
             <block wx:for="{{recommend}}">
                 <view class="recommend_warp">
                     <view class="title_box">
-                        <text class="h2_title">{{item.title}}</text>
+                        <text class="h2_title" id="{{item.id}}">{{item.title}}</text>
                     </view>
                     <block wx:for="{{item.list}}" wx:for-item="list">
                         <view class="recom_list">
                             <!-- 左边图片 -->
                             <view class="list_left">
-                                <image class="" src="{{list.image}}" mode="aspectFill">
-
-                                </image>
-
+                                <image class="" src="{{list.image}}" mode="aspectFill"></image>
                             </view>
                             <!-- 中间 -->
                             <view class="list_center">
@@ -113,7 +111,7 @@
 
 
 
-        </view>
+      </scroll-view>
 
 
 
@@ -121,5 +119,6 @@
 
 
 
-    </scroll-view>
+    </view>
+    <view class='view-search'></view>
 </view>
