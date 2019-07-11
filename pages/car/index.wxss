@@ -1,1 +1,77 @@
 /* pages/car/index.wxss */
+.cart {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #eee;
+}
+
+.show_car {
+    margin: 10rpx 0 0 0;
+    background: #fff;
+    padding: 0 0 0 15rpx;
+
+}
+
+.show_car .com_list {
+    display: flex;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #eee;
+    height: 130rpx;
+}
+
+.show_car .com_list .left_item {
+    width: 60rpx;
+    background: #ccc;
+    line-height: 130rpx;
+    text-align: center;
+}
+
+.show_car .com_list .left_item .icon {
+    width: 24rpx;
+    height: 24rpx;
+    margin: 0 auto;
+}
+
+.center_item {
+    display: flex;
+}
+
+.center_item image {
+    width: 130rpx;
+    height: 130rpx;
+    border: 1rpx solid #eee;
+    display: block;
+}
+
+.center_item .text_box {
+    display: block;
+    margin: 0 0 0 22rpx;
+}
+
+.center_item .text_box .title {
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #595959;
+}
+
+.center_item .text_box .shop {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 64rpx;
+    letter-spacing: 0px;
+    color: #989898
+}
+
+.center_item .text_box .price {
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #f95959;
+}

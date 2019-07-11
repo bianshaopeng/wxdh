@@ -5,6 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    unselect: "../../images/unselected.png",
+    select: "../../images/selected.png",
+    goods: [{
+      unselect: "../../images/unselected.png",
+      select: "../../images/selected.png",
+      image: "../../images/list1.jpg",
+      title: "新疆薄皮核桃",
+      standard: "500g",
+      shop: "来自XXXX店铺",
+      price: "￥34",
+      price_smail: "￥00",
+      numbes: "1"
+    }]
 
   },
 
