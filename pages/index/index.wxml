@@ -63,11 +63,9 @@
         </view>
         <!-- 10个分类 -->
         <view class="ten_top">
-            <image bindtap='click' src="../../images/dsj.png" mode="aspectFill" />
-
-
+            <image src="../../images/dsj.png" mode="aspectFill" />
         </view>
-        <view class="ten_warp" hidden="{{hiddenName}} ">
+        <view class="ten_warp">
             <block wx:for-items="{{classify}}">
                 <view class="ten_item">
                     <image src="{{item.image}}" mode="aspectFill" />
@@ -100,7 +98,6 @@
                                     </text>
                                 </text>
                             </view>
-
                             <!-- car -->
                             <view class="list_right">
                                 <image class="" src="../../images/car.png" mode="aspectFill"></image>
@@ -114,12 +111,5 @@
 
 
         </view>
-
-
-
-
-
-
-
     </scroll-view>
 </view>
