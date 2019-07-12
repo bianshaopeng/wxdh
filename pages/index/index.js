@@ -205,7 +205,20 @@ Page({
       scorllId: "d"
     })
   },
-
+  typeClick: function(res){
+    console.log(res.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../indextype/indextype?type=' + JSON.stringify(res.currentTarget.dataset.id),
+    })
+  },
+  imgClick:function(res){
+    console.log(res.currentTarget.dataset)
+    wx.showToast({
+      title:'添加购物车成功',
+      icon: 'success',
+      duration: 2000
+    })
+  },
   closeClick: function() {
     this.setData({
       showAll: false,

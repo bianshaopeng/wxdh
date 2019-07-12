@@ -65,7 +65,7 @@
     </view>
     <view class="ten_warp" hidden='{{hiddenName}}'>
       <block wx:for-items="{{informations.data.middle}}">
-        <view class="ten_item">
+        <view class="ten_item" bindtap='typeClick' data-id='{{item}}'>
           <image src="{{item.image}}" mode="aspectFill" />
           <text>{{item.text}}</text>
         </view>
@@ -84,8 +84,8 @@
           <block wx:for="{{item.list}}" wx:for-item="list">
             <view class="recom_list">
               <!-- 左边图片 -->
-              <view class="list_left">
-                <image class="" src="{{list.image}}" mode="aspectFill"></image>
+              <view class="list_left" >
+                <image class=""  src="{{list.image}}" mode="aspectFill"></image>
               </view>
               <!-- 中间 -->
               <view class="list_center">
@@ -98,7 +98,7 @@
 
               <!-- car -->
               <view class="list_right">
-                <image class="" src="../../images/car.png" mode="aspectFill"></image>
+                <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
               </view>
             </view>
           </block>
