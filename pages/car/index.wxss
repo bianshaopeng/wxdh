@@ -290,7 +290,6 @@
     font-stretch: normal;
     line-height: 54rpx;
     color: #fff;
-
     align-self: center;
 
 }

@@ -1,0 +1,106 @@
+<!-- 确认订单页面 -->
+<view class="sure">
+    <!-- 顶部有地址 -->
+    <view class="address">
+        <image class="" src="{{address.image}}" mode="aspectFill"> </image>
+        <view class="address_title">
+            <text class="title-user">{{address.user}}{{address.phone}}</text>
+            <text class="title-desc">{{address.desc}}</text>
+        </view>
+        <view class="arrow"></view>
+    </view>
+    <!-- 支付方式 -->
+    <viee class="pay_box">
+
+        <view class="pay_h2">支付方式</view>
+        <block wx:for="{{pay}}">
+            <view class="pay_lsit">
+                <image class="left_image" src="{{item.image}}" mode="aspectFill"> </image>
+                <view class="pay_desc">{{item.title}}<text class="samil_desc"
+                        wx:if="{{item.desc.length>0 }}">({{item.desc}})</text>
+                </view>
+                <view class="right">
+                    <image class='icon' src='{{select}}'></image>
+                </view>
+            </view>
+        </block>
+
+
+    </viee>
+    <!-- 优惠券模块 -->
+    <view class="coupons">
+        <view class="title">优惠券</view>
+        <view class="arrow"></view>
+    </view>
+    <!-- 结算订单信息展示模块 -->
+    <view class="msg_box">
+        <view class="msg_h2">订单信息</view>
+        <!-- 商品信息 -->
+        <view class="com_list">
+            <view class="center_item">
+                <image class="icon" src="{{goods.image}}"></image>
+                <view class="text_box">
+                    <view class="title">{{goods.title}}</view>
+                    <view class="shop">{{goods.standard}}</view>
+                    <view class="price">{{goods.price}}</view>
+                </view>
+            </view>
+            <view class="msg_item">
+                <view class="left_title">商品单价</view>
+                <view class="right_number">{{information.price}}</view>
+            </view>
+            <view class="msg_item">
+                <view class="left_title">商品数量</view>
+                <view class="right_number">{{information.number}}</view>
+            </view>
+            <view class="msg_item">
+                <view class="left_title">订单总价</view>
+                <view class="right_number">{{information.sum}}</view>
+            </view>
+            <view class="msg_item">
+                <view class="left_title">使用优惠券一张</view>
+                <view class="right_number">省{{information.preferential}}</view>
+            </view>
+            <view class="msg_item msg_bottom">
+                <view class="title">实付款</view>
+                <view class="right_sum">￥36.87</view>
+            </view>
+        </view>
+
+        <!-- 底部固定结算 -->
+        <view class="footer">
+            <view class="close_order">
+                取消订单
+            </view>
+            <view class="pay_order">
+                取消订单
+            </view>
+        </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
