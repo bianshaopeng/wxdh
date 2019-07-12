@@ -1,0 +1,20 @@
+<!-- 支付成功页面  -->
+<view class="success">
+    <view class="succ_box">
+        <image class="" src="{{success_msg.image}}"></image>
+        <view class="right">
+            <view class="title">{{success_msg.title}}</view>
+            <view class="number">订单号: <text>{{success_msg.number}}</text></view>
+            <view class="sum">已付款： <text>￥{{success_msg.sum}}</text></view>
+
+        </view>
+
+    </view>
+    <!-- 确定按钮 -->
+    <view class="sure">
+        确定
+    </view>
+
+
+
+</view>

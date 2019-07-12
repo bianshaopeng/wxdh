@@ -4,15 +4,15 @@
     "pages/category/index",
     "pages/member/index",
     "pages/car/index",
+    "pages/settle/index",
+    "pages/success/index",
     "pages/logs/logs",
     "pages/me/me",
     "pages/me/recharge/recharge",
     "pages/me/cusservice/cusservice",
     "pages/me/payment/payment",
     "pages/me/adress/adress",
-    "pages/me/coupon/coupon",
-    "pages/indextype/indextype"
-    
+    "pages/me/coupon/coupon"
   ],
   "permission": {
     "scope.userLocation": {
