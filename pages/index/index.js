@@ -162,7 +162,38 @@ Page({
       }
 
     },
-   
+    informations1: {
+      code: 200,
+      msg: "成功",
+      adress: "门店地址",
+      data: [{
+        id: "xxxxxxx",
+        image: "../../images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥00",
+      },
+      {
+        id: "xxxxxxx",
+        image: "../../images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥00",
+      },
+      {
+        id: "xxxxxxx",
+        image: "../../images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥00",
+      }
+      ]
+    },
+
+  
     indicatorDots: false,
     vertical: false,
     autoplay: true,

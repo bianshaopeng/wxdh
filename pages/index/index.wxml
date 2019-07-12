@@ -109,6 +109,27 @@
     </scroll-view>
     </view>
   </view>
-  <scroll-view class='view-search'></scroll-view>>
->>>>>>> Stashed changes
+  <scroll-view class='view-search'>
+  <block wx:for="{{informations1.data}}" wx:for-item="list" wx:key=''>
+            <view class="recom_list">
+              <!-- 左边图片 -->
+              <view class="list_left" >
+                <image class=""  src="{{list.image}}" mode="aspectFill"></image>
+              </view>
+              <!-- 中间 -->
+              <view class="list_center">
+                <text class="center_title">{{list.title}}</text>
+                <text class="center_standard">{{list.standard}}</text>
+                <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
+                </text>
+                </text>
+              </view>
+
+              <!-- car -->
+              <view class="list_right">
+                <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
+              </view>
+            </view>
+          </block>
+  </scroll-view>
 </view>

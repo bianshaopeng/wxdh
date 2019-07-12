@@ -231,12 +231,11 @@ page{
     background: #fff;
     padding: 0 0 0 12rpx;
 }
-
-.recommend_warp .title_box {
+ .title_box {
     padding: 24rpx 0 34rpx 0rpx;
 }
 
-.recommend_warp .h2_title {
+.h2_title {
     padding: 0 0 0 10rpx;
 
     font-size: 26rpx;
@@ -249,33 +248,33 @@ page{
 }
 
 /* list */
-.recommend_warp .recom_list {
+.recom_list {
     display: flex;
     margin: 30rpx 0 20rpx 0;
     padding: 0 0 20rpx 0;
     border-bottom: 1px solid #eee;
 }
 
-.recommend_warp .recom_list .list_left {
+.recom_list .list_left {
     width: 130rpx;
     height: 130rpx;
     background-color: #eeeeee;
     border: solid 1rpx #eeeeee;
 }
 
-.recommend_warp .recom_list .list_left image {
+.recom_list .list_left image {
     width: 100%;
     height: 100%;
 }
 
 /* center */
-.recommend_warp .recom_list .list_center {
+.recom_list .list_center {
     margin: 0 0 0 20rpx;
     width: 510rpx;
     align-self: flex-start;
 }
 
-.recommend_warp .recom_list .list_center .center_title {
+.recom_list .list_center .center_title {
     margin: 0 0 0 0;
     font-family: PingFang-SC-Bold;
     font-size: 34rpx;
@@ -286,7 +285,7 @@ page{
     display: block;
 }
 
-.recommend_warp .recom_list .list_center .center_standard {
+.recom_list .list_center .center_standard {
     display: block;
 
     font-size: 24rpx;
@@ -296,7 +295,7 @@ page{
     color: #989898;
 }
 
-.recommend_warp .recom_list .list_center .center_price {
+.recom_list .list_center .center_price {
     display: block;
     font-family: PingFang-SC-Bold;
     font-size: 34rpx;
@@ -306,7 +305,7 @@ page{
     color: #f95959;
 }
 
-.recommend_warp .recom_list .list_center .center_price .sm_price {
+.recom_list .list_center .center_price .sm_price {
     display: inline-block;
     margin: 0 0 0 14rpx;
 
@@ -320,7 +319,7 @@ page{
 }
 
 /* right */
-.recommend_warp .recom_list .list_right image {
+.recom_list .list_right image {
     margin: 80rpx 0 0 0;
     width: 46rpx;
     height: 46rpx;
@@ -328,4 +327,5 @@ page{
 .view-search{
   width: 100%;
   height: 1000rpx;
+  margin-top: 70rpx;
 }
