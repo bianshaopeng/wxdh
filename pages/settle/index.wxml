@@ -72,8 +72,8 @@
             <view class="close_order">
                 取消订单
             </view>
-            <view class="pay_order">
-                取消订单
+            <view class="pay_order" bindtap="paySure">
+                支付订单
             </view>
         </view>
     </view>
