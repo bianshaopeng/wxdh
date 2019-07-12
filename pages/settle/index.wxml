@@ -7,8 +7,13 @@
             <text class="title-user">{{address.user}}{{address.phone}}</text>
             <text class="title-desc">{{address.desc}}</text>
         </view>
-        <view class="arrow"></view>
+        <view class="arrow" bindtap="adDress"></view>
     </view>
+    <view class="address" wx:if="{{!address.status}}">
+        <view class="empty">新建收货地址，保证商品顺利送达！</view>
+        <view class="arrow" bindtap="adDress"></view>
+    </view>
+
     <!-- 支付方式 -->
     <viee class="pay_box">
 
