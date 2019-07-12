@@ -5,140 +5,164 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inputValue:null,
-    showAll : false,
-    showSearch : true,
+    inputValue: null,
+    showAll: false,
+    showSearch: true,
     hiddenName: true,
     scorllId: "a",
-    recommodBar: [
-      { text: "掌柜推荐", image: "../../images/four_btn1.png" },
-      { text: "新人特惠", image: "../../images/four_btn2.png" },
-      { text: "限时抢购", image: "../../images/four_btn3.png" },
-      { text: "新品首发", image: "../../images/four_btn4.png" }],
-    swipers: [{
-      image: '../../images/banner1.png'
-    },
-    {
-      image: '../../images/banner2.png'
-    },
-    {
-      image: '../../images/banner3.png'
-    },
-    {
-      image: '../../images/banner4.png'
-    }
-    ],
-    classify: [{
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+    informations: {
+      code: 200,
+      msg: "成功",
+      adress: "门店地址",
+      data: {
+        top: [{
+            id: "xxxxxxx",
+            image: '../../images/banner1.png'
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/banner2.png'
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/banner3.png'
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/banner4.png'
+          }
+        ],
+        middle: [{
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    },
-    {
-      image: '../../images/clessfiy1.jpg',
-      text: "水果"
+          },
+          {
+            id: "xxxxxxx",
+            image: '../../images/clessfiy1.jpg',
+            text: "水果"
 
-    }
-    ],
-    recommend: [{
-      id:"a",
-      title: "掌柜推荐",
-      list: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
+          }
+        ],
+        bottom: [{
+            id: "a",
+            title: "掌柜推荐",
+            list: [{
+                id: "xxxxxxx",
+                image: "../../images/list1.jpg",
+                title: "新疆薄皮核桃",
+                standard: "500g",
+                price: "￥34",
+                price_smail: "￥00",
+              },
+              {
+                id: "xxxxxxx",
+                image: "../../images/list1.jpg",
+                title: "新疆薄皮核桃",
+                standard: "500g",
+                price: "￥34",
+                price_smail: "￥00",
+              },
+              {
+                id: "xxxxxxx",
+                image: "../../images/list1.jpg",
+                title: "新疆薄皮核桃",
+                standard: "500g",
+                price: "￥34",
+                price_smail: "￥00",
+              }
+            ]
+          },
+          {
+            id: "b",
+            title: "新人推荐",
+            list: [{
+              id: "xxxxxxx",
+              image: "../../images/list1.jpg",
+              title: "新疆薄皮核桃",
+              standard: "500g",
+              price: "￥34",
+              price_smail: "￥45",
+            }]
+          },
+          {
+            id: "c",
+            title: "新品手法",
+            list: [{
+              id: "xxxxxxx",
+              image: "../../images/list1.jpg",
+              title: "新疆薄皮核桃",
+              standard: "500g",
+              price: "￥34",
+              price_smail: "#45",
+            }]
+          },
+          {
+            id: "d",
+            title: "新人推荐",
+            list: [{
+              id: "xxxxxxx",
+              image: "../../images/list1.jpg",
+              title: "新疆薄皮核桃",
+              standard: "500g",
+              price: "$34",
+              price_smail: "#45",
+            }]
+          }
+
+        ]
       }
-      ]
-    },
-    {
-      id: "b",
-      title: "新人推荐",
-      list: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥45",
-      }]
-    },
-    {
-      id: "c",
-      title: "新品手法",
-      list: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "#45",
-      }]
-    },
-    {
-      id:"d",
-      title: "新人推荐",
-      list: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "$34",
-        price_smail: "#45",
-      }]
-    }
 
-    ],
+    },
+   
     indicatorDots: false,
     vertical: false,
     autoplay: true,
@@ -147,54 +171,54 @@ Page({
 
   },
 
-  bindfocuClick: function(){
-  
+  bindfocuClick: function() {
+
     this.setData({
-      showAll:true,
-      showSearch:false
+      showAll: true,
+      showSearch: false
     })
-   
+
   },
-  bindconfirmClick(){
-     console.log('点击了搜索');
+  bindconfirmClick() {
+    console.log('点击了搜索');
   },
-  barClick1: function(){
+  barClick1: function() {
     this.setData({
-      scorllId:"a"
+      scorllId: "a"
     })
-   
+
   },
-  barClick2: function () {
+  barClick2: function() {
     this.setData({
       scorllId: "b"
     })
 
   },
-  barClick3: function () {
+  barClick3: function() {
     this.setData({
       scorllId: "c"
     })
 
   },
-  barClick4: function () {
+  barClick4: function() {
     this.setData({
       scorllId: "d"
     })
   },
-  
-  closeClick:function(){
+
+  closeClick: function() {
     this.setData({
       showAll: false,
       showSearch: true,
-      inputValue:''
+      inputValue: ''
     })
   },
-  bindinput: function(e){
+  bindinput: function(e) {
     var value = e.detail.value;
     console.log(value)
-    if(value!=null){
+    if (value != null) {
       console.log('1')
-    }else{
+    } else {
       console.log('2')
     }
   },
@@ -202,70 +226,70 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.getLocation({
-      success: function (res) {
+      success: function(res) {
         console.log(res)
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res)
       },
 
     })
   },
-  click: function (e) {
-      this.setData({
+  click: function(e) {
+    this.setData({
 
-          hiddenName: !this.data.hiddenName
-      })
+      hiddenName: !this.data.hiddenName
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
