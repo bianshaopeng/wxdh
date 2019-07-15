@@ -293,7 +293,6 @@ page{
 .recom_list .list_center .center_price .sm_price {
     display: inline-block;
     margin: 0 0 0 14rpx;
-
     font-size: 24rpx;
     font-weight: normal;
     font-stretch: normal;
@@ -313,4 +312,73 @@ page{
   width: 100%;
   height: 1000rpx;
   margin-top: 70rpx;
+}
+/*  底部全选框部分*/
+.fixBar {
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+    left: 0;
+    right: 0;
+    bottom: 5rpx;
+    width: 100%;
+    padding: 0 20rpx;
+    height: 100rpx;
+    background-color: #ffffff;
+    box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.24);
+    box-sizing: border-box;
+}
+
+.select_all {
+    width: 200rpx;
+    box-sizing: border-box;
+    margin-right: auto;
+}
+
+.select_all image {
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align: center;
+}
+
+.select_all text {
+    display: inline-block;
+    margin: 0 0 0 10rpx;
+    line-height: 100rpx;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #595959;
+}
+
+.total {
+    margin-left: auto;
+}
+
+.total text {
+    line-height: 100rpx;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #f95959;
+}
+
+.total .money {
+    margin: 0 25rpx;
+}
+
+.btn_amount {
+    width: 132rpx;
+    height: 54rpx;
+    background-color: #f95959;
+    border-radius: 27rpx;
+    text-align: center;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 54rpx;
+    color: #fff;
+    align-self: center;
+
 }
