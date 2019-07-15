@@ -1,4 +1,4 @@
-// pages/car/index.js
+// pages/me/payment /payment.js
 Page({
 
   /**
@@ -20,31 +20,7 @@ Page({
     }],
     car: {
       status: false,
-    },
-    guess_like: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥35",
-        price_smail: "￥00",
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥300",
-        price_smail: "￥00",
-      }
-    ]
-
-
+    }
   },
 
   /**
@@ -54,10 +30,24 @@ Page({
 
   },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
   account(e) {
     //let txt = e.currentTarget.dataset.txt
     wx.navigateTo({
       url: "/pages/settle/index"
+    })
+  },
+
+  pay_desc(e) {
+    //let txt = e.currentTarget.dataset.txt
+    wx.navigateTo({
+      url: "/pages/pay_desc/index"
     })
   }
 })

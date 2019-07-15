@@ -10,9 +10,13 @@
     "pages/me/me",
     "pages/me/recharge/recharge",
     "pages/me/cusservice/cusservice",
-    "pages/me/payment/payment",
+    "pages/payment/payment",
     "pages/me/adress/adress",
-    "pages/me/coupon/coupon"
+    "pages/me/coupon/coupon",
+    "pages/received/index",
+    "pages/pay_desc/index",
+    "pages/me/refund/index",
+    "pages/me/refundesc/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -28,8 +32,7 @@
   "tabBar": {
     "selectedColor": "#F95959",
     "color": "#838282",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/2.png",

@@ -1,0 +1,41 @@
+<!-- 退货/退款 -->
+<!-- 已收货页面 -->
+<view class="warp_box">
+    <!-- 空页面提示 -->
+    <view class="empty_wrap" wx:if="{{car.empty}}">
+        <image class="empyt_icon" src="../../images/empty_car.png"></image>
+        <text class="empyt_txt">您还没有相关的订单</text>
+
+    </view>
+    <!-- 订单列表 -->
+    <!-- 商品 -->
+    <block wx:for="{{goodsMsg}}">
+        <view class="link_box">
+            <view class="order_number">
+                订单编号: 4165151564165105
+            </view>
+            <view class="com_list">
+                <view class="center_item">
+                    <image class="icon" src="{{item.image}}"></image>
+                    <view class="text_box">
+                        <view class="title">{{item.title}}</view>
+                        <view class="shop">{{item.standard}}</view>
+                        <view class="price">{{item.price}}</view>
+                    </view>
+                    <view class="add_btn">
+                        ×{{item.number}}
+                    </view>
+                </view>
+            </view>
+            <view class="sm_desc">
+                退款类型：全额退款 退款结束
+            </view>
+            <view class="sure_btn">
+                <view class="btn_des" hover-class="active" bindtap="pay_desc">
+                    查看详情
+                </view>
+            </view>
+        </view>
+    </block>
+
+</view>

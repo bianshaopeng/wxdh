@@ -207,7 +207,7 @@
 
 }
 
-.add_btn .add_pay {
+.add_pay {
     vertical-align: middle;
     display: inline-block;
     margin: 0 0 0 10rpx;

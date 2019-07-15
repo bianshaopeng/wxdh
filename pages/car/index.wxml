@@ -67,6 +67,6 @@
             <text>合计:</text>
             <text class="money">¥78元</text>
         </view>
-        <view class="btn_amount" bindtap="showListView">结算</view>
+        <view class="btn_amount" bindtap="account">结算</view>
     </view>
 </view>

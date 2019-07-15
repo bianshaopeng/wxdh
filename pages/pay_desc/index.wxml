@@ -1,0 +1,50 @@
+<!-- 待付款详情页面  -->
+<view class="warp_box">
+    <!-- 顶部有地址 -->
+    <view class="address">
+        <image class="" src="{{address.image}}" mode="aspectFill"> </image>
+        <view class="address_title">
+            <text class="title-user">{{address.user}}{{address.phone}}</text>
+            <text class="title-desc">{{address.desc}}</text>
+        </view>
+    </view>
+    <!-- 商品 -->
+    <view class="link_box">
+        <block wx:for="{{guess_like}}">
+            <view class="com_list">
+                <view class="center_item">
+                    <image class="icon" src="{{item.image}}"></image>
+                    <view class="text_box">
+                        <view class="title">{{item.title}}</view>
+                        <view class="shop">{{item.standard}}</view>
+                        <view class="price">{{item.price}}</view>
+                    </view>
+                    <view class="add_btn">
+                        ×{{item.number}}
+                    </view>
+
+                </view>
+            </view>
+
+
+        </block>
+
+
+    </view>
+    <!-- 订单信息 -->
+    <view class="order_box">
+        <view class="order_h2">
+            订单信息
+        </view>
+        <view class="order_item">
+            订单编号：2689787455555555
+        </view>
+        <view class="order_item">
+            创建时间：2019-19-19
+        </view>
+
+    </view>
+
+
+
+</view>

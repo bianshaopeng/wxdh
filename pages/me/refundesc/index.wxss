@@ -1,0 +1,158 @@
+page {
+    height: 100%;
+
+}
+
+.warp_box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #eee;
+}
+
+/* 顶部提示 */
+.too_tips {
+    margin: 10rpx 0 0 0;
+    font-size: 26rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 120rpx;
+    letter-spacing: 0rpx;
+    color: #ffffff;
+    text-align: center;
+    background-color: #f95959;
+}
+
+/* 结算订单信息展示模块 */
+.msg_box {
+    margin: 0 0 30rpx 0;
+    padding: 0 20rpx 0;
+    background: #ffff;
+}
+
+.msg_box .msg_h2 {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 64rpx;
+    letter-spacing: 0.2rpx;
+    color: #989898;
+}
+
+
+
+
+.com_list {
+    background: #fff;
+    margin: 0 0 20rpx 0;
+}
+
+.center_item {
+    display: flex;
+    flex: 1;
+}
+
+.center_item image {
+    width: 130rpx;
+    height: 130rpx;
+    border: 1rpx solid #eee;
+    display: block;
+}
+
+.center_item .text_box {
+    display: block;
+    margin: 0 0 0 22rpx;
+}
+
+.center_item .text_box .title {
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #595959;
+}
+
+.center_item .text_box .shop {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 64rpx;
+    letter-spacing: 0px;
+    color: #989898
+}
+
+.center_item .text_box .price {
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #f95959;
+}
+
+.msg_item {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.msg_item .left_title {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 40px;
+    letter-spacing: 0.2rpx;
+    color: #989898;
+}
+
+.right_text {
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50rpx;
+    letter-spacing: 0.2rpx;
+    color: #989898;
+}
+
+.right_text .omit {}
+
+.refu_btn {
+    margin: 30rpx auto 0;
+    width: 507rpx;
+    height: 77rpx;
+    border-radius: 37.7rpx;
+    text-align: center;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 77rpx;
+
+}
+
+.close {
+    border-image-source: linear-gradient(0deg,
+            #f95959 0%,
+            #ff7d7d 100%);
+    border-image-slice: 1;
+    border: 1px solid #f95959;
+    color: #f95959;
+
+}
+
+.chenge {
+    background-image: linear-gradient(-90deg,
+            #ff7d7d 0%,
+            #f95959 100%),
+        linear-gradient(#b0b0b0,
+            #b0b0b0);
+    background-blend-mode: normal,
+        normal;
+    box-shadow: 0px 16px 64.4px 5.6px rgba(2, 85, 196, 0.3);
+    border-radius: 37.7px;
+    color: #fff;
+
+}

@@ -5,29 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
-    viewBoneItem: [{ image: "../../images/shouhou4.png", text: "待付款" }, { image: "../../images/shouhou3.png", text: "待收货" }, { image: "../../images/shouhou2.png", text: "已收货" }, { image: "../../images/shouhou1.png", text: "退款/售后" }]
+
+    viewBoneItem: [{
+      image: "../../images/shouhou4.png",
+      text: "待付款"
+    }, {
+      image: "../../images/shouhou3.png",
+      text: "待收货"
+    }, {
+      image: "../../images/shouhou2.png",
+      text: "已收货"
+    }, {
+      image: "../../images/shouhou1.png",
+      text: "退款/售后"
+    }]
 
   },
-  couponClick: function(){
+  couponClick: function () {
     wx.navigateTo({
       url: 'coupon/coupon',
     })
   },
-  costomerClick: function(){
+  costomerClick: function () {
     wx.navigateTo({
       url: 'cusservice/cusservice',
     })
   },
-  itemClick: function(e){
-    console.log(e.currentTarget.dataset)
-    if (e.currentTarget.dataset.index==0){
+  itemClick: function (e) {
+    let txt = e.currentTarget.dataset.txt
+
+    if (e.currentTarget.dataset.index == 0) {
       wx.navigateTo({
-        url: 'payment/payment',
+        url: '../../pages/payment/payment?title=' + txt,
+      })
+    }
+    if (e.currentTarget.dataset.index == 1) {
+      wx.navigateTo({
+        url: '../../pages/received/index?title=' + txt,
+      })
+    }
+    if (e.currentTarget.dataset.index == 2) {
+      wx.navigateTo({
+        url: '../../pages/received/index?title=' + txt,
+      })
+    }
+    if (e.currentTarget.dataset.index == 3) {
+      wx.navigateTo({
+        url: '../../pages/me/refund/index?title=' + txt,
       })
     }
   },
-  calLogin: function(){
+  calLogin: function () {
     wx.showModal({
       title: '提示',
       content: '是否注销登录',
@@ -41,15 +69,15 @@ Page({
     })
 
   },
-  adressClick: function(){
+  adressClick: function () {
     wx.navigateTo({
       url: "adress/adress",
       events: {
         aishang: function (data) {
           console.log('aishang', data);
-          if(data===true){
+          if (data === true) {
             console.log('aishang111');
-          }else{
+          } else {
             console.log('aishang222');
           }
         }
@@ -61,13 +89,13 @@ Page({
         })
       }
     })
-  
+
 
   },
-  rechargeClick:function(){
-     wx.navigateTo({
-       url: 'recharge/recharge?type=1',
-     })
+  rechargeClick: function () {
+    wx.navigateTo({
+      url: 'recharge/recharge?type=1',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

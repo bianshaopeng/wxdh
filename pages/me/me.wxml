@@ -8,7 +8,7 @@
 
           <image src="../../images/anthor.png" mode='scaleToFill'></image>
         </view>
-        <view class="view-name" >18884488888</view>
+        <view class="view-name">18884488888</view>
       </view>
       <view class="view-zdress" bindtap='adressClick'>修改收货信息</view>
 
@@ -17,7 +17,8 @@
 
       <view class='view-second-one'>
         <view style='margin-left:60rpx; margin-top:30rpx; padding-right:40rpx; color:#595959'>钱包</view>
-        <view bindtap='rechargeClick' style='margin-right:60rpx;margin-top:30rpx;padding-left:40rpx; color:#595959'>充值</view>
+        <view bindtap='rechargeClick' style='margin-right:60rpx;margin-top:30rpx;padding-left:40rpx; color:#595959'>充值
+        </view>
       </view>
       <view style='width:90%; margin-left:40rpx; margin-right:32rpx; height:2rpx;  background-color:#FF7F8B'></view>
       <view class='view-second-two'>
@@ -35,8 +36,10 @@
 
     <view class='view-bottom'>
       <view class='view-bottom-one'>
-        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' bindtap='itemClick'>
-          <image src="{{item.image}}" mode='aspectFit'></image>
+        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' data-txt="{{item.text}} "
+          bindtap='itemClick'>
+          <image src=" {{item.image}}" mode='aspectFit'>
+          </image>
           <view style='font-size:10pt;color:#595959'>{{item.text}}</view>
         </view>
       </view>
@@ -47,7 +50,7 @@
         </view>
         <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
         <view class='view-bottom-two-item' bindtap='couponClick'>
-          <view class='view-bottom-two-item-text' >我的优惠券</view>
+          <view class='view-bottom-two-item-text'>我的优惠券</view>
           <image src='../../images/info.png'></image>
         </view>
       </view>

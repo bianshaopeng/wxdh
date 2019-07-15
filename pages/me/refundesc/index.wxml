@@ -1,0 +1,56 @@
+<!-- 退款详情 -->
+<view class="warp_box">
+    <view class="too_tips">
+        您已经成功发起退款申请，请耐心等待商家处理。
+    </view>
+    <!-- 结算订单信息展示模块 -->
+    <view class="msg_box">
+        <view class="msg_h2">订单信息</view>
+        <!-- 商品信息 -->
+        <view class="com_list">
+            <view class="center_item">
+                <image class="icon" src="{{refundesc.goods.image}}"></image>
+                <view class="text_box">
+                    <view class="title">{{refundesc.goods.title}}</view>
+                    <view class="shop">{{refundesc.goods.standard}}</view>
+                    <view class="price">{{refundesc.goods.price}}</view>
+                </view>
+                <view class="right_text">
+                    <view>省{{refundesc.omit}}</view>
+                    <view>×{{refundesc.number}}</view>
+
+                </view>
+            </view>
+            <view class="msg_item">
+                <view class="left_title">退款原因：{{refundesc.reason}}</view>
+
+            </view>
+            <view class="msg_item">
+                <view class="left_title">退款金额：{{refundesc.price}}</view>
+
+            </view>
+            <view class="msg_item">
+                <view class="left_title">退款数量：{{refundesc.number}}</view>
+
+            </view>
+            <view class="msg_item">
+                <view class="left_title">申请时间：{{refundesc.refundTime}}</view>
+
+            </view>
+            <view class="msg_item">
+                <view class="left_title">退款编号：{{refundesc.refundNumber}}</view>
+
+            </view>
+
+        </view>
+
+    </view>
+    <!-- 按钮 -->
+    <view class="refu_btn close">
+        撤 销
+    </view>
+    <view class="refu_btn chenge">
+        修 改
+    </view>
+
+</view>

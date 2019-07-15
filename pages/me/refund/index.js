@@ -1,18 +1,45 @@
-// pages/me/payment /payment.js
+// pages/me/refund/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    items: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' },
+    goodsMsg: [{
+        ordernumber: 46515189456185,
+        image: "/images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥00",
+        number: "2"
+      },
+      {
+        ordernumber: 46515189456185,
+        image: "/images/list1.jpg",
+        title: "新疆薄皮核桃",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥00",
+        number: "2"
+      },
+      {
+        ordernumber: 46515189456185,
+        image: "/images/list1.jpg",
+        title: "大枣",
+        standard: "500g",
+        price: "￥34",
+        price_smail: "￥110",
+        number: "1"
+      }
     ]
+
+  },
+  pay_desc(e) {
+    wx.navigateTo({
+      url: "/pages/me/refundesc/index"
+    })
+
   },
 
   /**

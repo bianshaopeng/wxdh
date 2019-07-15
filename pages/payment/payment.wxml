@@ -1,0 +1,48 @@
+<view class="warp_box">
+  <!-- 空页面提示 -->
+  <view class="empty_wrap" wx:if="{{car.empty}}">
+    <image class="empyt_icon" src="../../images/empty_car.png"></image>
+    <text class="empyt_txt">您还没有相关的订单</text>
+
+  </view>
+  <!-- 代付款列表 -->
+  <view class="show_car" wx:else>
+    <view class="com_list" bindtap="pay_desc">
+      <!-- left -->
+      <view class="left_item">
+        <!-- <image wx:if='{{item.select}}' src='/image/selected.png'></image> -->
+        <image class='icon' src='{{unselect}}'></image>
+      </view>
+      <view class="center_item">
+        <image class='icon' src='{{goods[0].image}}'></image>
+        <view class="text_box">
+          <view class="title">{{goods[0].title}}</view>
+          <view class="shop">{{goods[0].shop}}</view>
+          <view class="price">{{goods[0].price}}</view>
+        </view>
+        <view class="btns">
+          <view class="add_car" bindtap="account">立即购买</view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- 底部全选框部分 -->
+    <view class="fixBar">
+      <view class='select_all'>
+        <image class='icon' src='{{select}}'></image>
+        <text>全选</text>
+      </view>
+      <view class="total">
+        <text>合计:</text>
+        <text class="money">¥78元</text>
+      </view>
+      <view class="btn_amount" bindtap="account">结算</view>
+    </view>
+
+
+  </view>
+
+
+</view>

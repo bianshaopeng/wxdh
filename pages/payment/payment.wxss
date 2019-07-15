@@ -1,0 +1,223 @@
+.warp_box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #eee;
+}
+
+/* 空购物车 */
+
+.empty_wrap {
+  background: #eee;
+  height: 348rpx;
+
+}
+
+.empty_wrap image {
+  display: block;
+  width: 104rpx;
+  height: 94rpx;
+  margin: 94rpx auto 0;
+
+
+}
+
+.empty_wrap .empyt_txt {
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 82rpx;
+  color: #989898;
+  text-align: center;
+}
+
+.empty_wrap .empty_btn {
+  margin: 0 auto;
+  width: 254rpx;
+  height: 44rpx;
+  background-color: #efdfdf;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 44rpx;
+  letter-spacing: 0px;
+  color: #f95959;
+}
+
+
+/* 购物车显示 */
+
+.show_car {
+  margin: 10rpx 0 0 0;
+  background: #fff;
+  padding: 0 15rpx 0 0;
+}
+
+.com_list {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+  height: 130rpx;
+}
+
+.com_list .left_item {
+  width: 60rpx;
+  line-height: 130rpx;
+  text-align: center;
+}
+
+.com_list .left_item .icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin: 0 auto;
+}
+
+.center_item {
+  display: flex;
+  flex: 1;
+}
+
+.center_item image {
+  width: 130rpx;
+  height: 130rpx;
+  border: 1rpx solid #eee;
+  display: block;
+}
+
+.center_item .text_box {
+  display: block;
+  margin: 0 0 0 22rpx;
+}
+
+.center_item .text_box .title {
+  font-size: 34rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 34rpx;
+  letter-spacing: 0px;
+  color: #595959;
+}
+
+.center_item .text_box .shop {
+  font-size: 24rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 64rpx;
+  letter-spacing: 0px;
+  color: #989898
+}
+
+.center_item .text_box .price {
+  font-size: 34rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 34rpx;
+  letter-spacing: 0px;
+  color: #f95959;
+}
+
+.btns {
+
+  height: 44rpx;
+  border-radius: 8rpx;
+
+  line-height: 44rpx;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.add_car {
+  display: inline-block;
+  width: 138rpx;
+  height: 50rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  border: solid 1rpx #f95a59;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-stretch: normal;
+
+  letter-spacing: 0rpx;
+  color: #f95a59;
+  line-height: 50rpx;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+
+}
+
+
+
+/*  底部全选框部分*/
+.fixBar {
+  display: flex;
+  position: fixed;
+  justify-content: flex-end;
+  left: 0;
+  right: 0;
+  bottom: 5rpx;
+  width: 100%;
+  padding: 0 20rpx;
+  height: 100rpx;
+  background-color: #ffffff;
+  box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.24);
+  box-sizing: border-box;
+}
+
+.select_all {
+  width: 200rpx;
+  box-sizing: border-box;
+  margin-right: auto;
+}
+
+.select_all image {
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: center;
+}
+
+.select_all text {
+  display: inline-block;
+  margin: 0 0 0 10rpx;
+  line-height: 100rpx;
+  font-size: 34rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #595959;
+}
+
+.total {
+  margin-left: auto;
+}
+
+.total text {
+  line-height: 100rpx;
+  font-size: 34rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #f95959;
+}
+
+.total .money {
+  margin: 0 25rpx;
+}
+
+.btn_amount {
+  width: 132rpx;
+  height: 54rpx;
+  background-color: #f95959;
+  border-radius: 27rpx;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 54rpx;
+  color: #fff;
+  align-self: center;
+
+}

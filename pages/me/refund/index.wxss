@@ -1,0 +1,152 @@
+/* pages/me/refund/index.wxss */
+page {
+    height: 100%;
+    width: 100%;
+}
+
+.warp_box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #eee;
+}
+
+/* 列表 */
+.link_box {
+    margin: 10rpx 0 0 0;
+    padding: 0 20rpx;
+    background: #fff;
+}
+
+.link_box .link_h2 {
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 88rpx;
+
+    color: #595959;
+}
+
+.add_btn {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.com_list {
+    display: flex;
+    padding: 20rpx 0 0;
+
+    height: 130rpx;
+}
+
+.com_list .left_item {
+    width: 60rpx;
+    line-height: 130rpx;
+    text-align: center;
+}
+
+.com_list .left_item .icon {
+    width: 24rpx;
+    height: 24rpx;
+    margin: 0 auto;
+}
+
+.center_item {
+    display: flex;
+    flex: 1;
+}
+
+.center_item image {
+    width: 130rpx;
+    height: 130rpx;
+    border: 1rpx solid #eee;
+    display: block;
+}
+
+.center_item .text_box {
+    display: block;
+    margin: 0 0 0 22rpx;
+}
+
+.center_item .text_box .title {
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #595959;
+}
+
+.center_item .text_box .shop {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 64rpx;
+    letter-spacing: 0px;
+    color: #989898
+}
+
+.center_item .text_box .price {
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #f95959;
+}
+
+.center_item .btns {
+
+    height: 44rpx;
+    border-radius: 8rpx;
+    border: solid 1rpx #989898;
+    line-height: 44rpx;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.sure_btn {
+    text-align: right;
+    padding: 10rpx 0;
+}
+
+.order_number {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 46rpx;
+    letter-spacing: 0.2rpx;
+    color: #989898;
+}
+
+.sure_btn .btn_des {
+    display: inline-block;
+    width: 138rpx;
+    height: 46rpx;
+    border-radius: 8rpx;
+    text-align: center;
+    border: solid 1px #f95a59;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 46rpx;
+    letter-spacing: 0.2rpx;
+    color: #f95a59;
+
+}
+
+.sure_btn .active {
+    background: #f95a59;
+    color: #fff;
+}
+
+.sm_desc {
+    margin: 10rpx 0 0 0;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 30rpx;
+    letter-spacing: 0.2rpx;
+    color: #989898;
+}
