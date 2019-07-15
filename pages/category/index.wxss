@@ -14,11 +14,27 @@
     background: #e0e0e0;
     width: 24%;
     height: 100%;
-
+   
 }
 
-.nav_left .nav_box {}
+.nav_left .nav_box {
+    width: 100%;
+     display: flex;
+    flex-direction: column;
 
+}
+.left_item{
+  padding-left: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  background-color: white
+}
+.left_item1{
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  
+}
 /* roight */
 .nav_right {
 

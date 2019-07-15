@@ -5,11 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+   
     informations: {
       code: 200,
       msg: "成功",
       adress: "门店地址",
-        data: [{
+        data: [
+          {
           id: "xxxxxxx",
           image: "../../images/list1.jpg",
           title: "新疆薄皮核桃",
