@@ -76,21 +76,6 @@ page{
     color: #fff;
 }
 
-.serch .section .close {
-    color: #000000;
-    font-size: 50rpx;
-    font-weight: normal;
-    font-stretch: normal;
-    line-height: 50rpx;
-    display: inline-block;
-    padding-left:20rpx;
-    vertical-align: top;
-
-
-
-
-}
-
 .top_serch .serch_show {
     /* 默认隐藏 */
     display: none;

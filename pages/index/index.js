@@ -162,36 +162,7 @@ Page({
       }
 
     },
-    informations1: {
-      code: 200,
-      msg: "成功",
-      adress: "门店地址",
-      data: [{
-        id: "xxxxxxx",
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-      },
-      {
-        id: "xxxxxxx",
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-      },
-      {
-        id: "xxxxxxx",
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-      }
-      ]
-    },
+    
 
   
     indicatorDots: false,
@@ -202,17 +173,7 @@ Page({
 
   },
 
-  bindfocuClick: function() {
-
-    this.setData({
-      showAll: true,
-      showSearch: false
-    })
-
-  },
-  bindconfirmClick() {
-    console.log('点击了搜索');
-  },
+  
   barClick1: function() {
     this.setData({
       scorllId: "a"
@@ -250,21 +211,12 @@ Page({
       duration: 2000
     })
   },
-  closeClick: function() {
-    this.setData({
-      showAll: false,
-      showSearch: true,
-      inputValue: ''
-    })
-  },
+  
   bindinput: function(e) {
-    var value = e.detail.value;
-    console.log(value)
-    if (value != null) {
-      console.log('1')
-    } else {
-      console.log('2')
-    }
+    wx.navigateTo({
+      url: '../search/search',
+     
+    })
   },
 
   /**

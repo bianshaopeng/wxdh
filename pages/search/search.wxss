@@ -1,0 +1,143 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.serch .section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 0 0 60rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    border: solid 1rpx #fff;
+    line-height: 50rpx;
+}
+
+.serch .section image {
+    display: inline-block;
+    width: 31rpx;
+    height: 24rpx;
+    vertical-align: top;
+    margin: 8px 0 0 0;
+}
+
+.serch .section input {
+    display: inline-block;
+    width: 80%;
+    height: 50rpx;
+
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50rpx;
+    letter-spacing: 0px;
+    color: #fff;
+}
+
+.serch .section .close {
+    color: #000000;
+    font-size: 50rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50rpx;
+    display: inline-block;
+    padding-left:20rpx;
+    vertical-align: top;
+
+
+
+
+}
+
+.top_serch .serch_show {
+    /* 默认隐藏 */
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 64rpx;
+    z-index: 999999;
+    width: 100%;
+    height: 300rpx;
+    background: #fff;
+}
+
+.recom_list {
+    display: flex;
+    margin: 30rpx 0 20rpx 0;
+    padding: 0 0 20rpx 0;
+    border-bottom: 1px solid #eee;
+}
+
+.recom_list .list_left {
+    width: 130rpx;
+    height: 130rpx;
+    background-color: #eeeeee;
+    border: solid 1rpx #eeeeee;
+}
+
+.recom_list .list_left image {
+    width: 100%;
+    height: 100%;
+}
+
+/* center */
+.recom_list .list_center {
+    margin: 0 0 0 20rpx;
+    width: 510rpx;
+    align-self: flex-start;
+}
+
+.recom_list .list_center .center_title {
+    margin: 0 0 0 0;
+    font-family: PingFang-SC-Bold;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    color: #595959;
+    display: block;
+}
+
+.recom_list .list_center .center_standard {
+    display: block;
+
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 64rpx;
+    color: #989898;
+}
+
+.recom_list .list_center .center_price {
+    display: block;
+    font-family: PingFang-SC-Bold;
+    font-size: 34rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    color: #f95959;
+}
+
+.recom_list .list_center .center_price .sm_price {
+    display: inline-block;
+    margin: 0 0 0 14rpx;
+
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24rpx;
+    letter-spacing: 0px;
+    color: #989898;
+    text-decoration: line-through;
+}
+
+/* right */
+.recom_list .list_right image {
+    margin: 80rpx 0 0 0;
+    width: 46rpx;
+    height: 46rpx;
+}
+.view-search{
+  width: 100%;
+  height: 1000rpx;
+  margin-top: 70rpx;
+}

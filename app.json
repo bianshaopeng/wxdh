@@ -12,7 +12,8 @@
     "pages/me/cusservice/cusservice",
     "pages/me/payment/payment",
     "pages/me/adress/adress",
-    "pages/me/coupon/coupon"
+    "pages/me/coupon/coupon",
+    "pages/search/search"
   ],
   "permission": {
     "scope.userLocation": {
