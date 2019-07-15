@@ -8,6 +8,7 @@ Page({
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
     address: {
+      status: true,
       image: "../../images/bg_lockion.png",
       user: "里二狗",
       phone: "18965651515",
@@ -67,6 +68,11 @@ Page({
   paySure(e) {
     wx.navigateTo({
       url: '/pages/success/index'
+    })
+  },
+  adDress(e) {
+    wx.navigateTo({
+      url: "/pages/me/adress/adress"
     })
   }
 

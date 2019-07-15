@@ -57,7 +57,7 @@ Page({
   showListView(e) {
     //let txt = e.currentTarget.dataset.txt
     wx.navigateTo({
-      url: '/pages/settle/index'
+      url: "/pages/settle/index"
     })
   }
 })

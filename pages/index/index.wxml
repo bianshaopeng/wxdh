@@ -8,7 +8,8 @@
     <view class="serch">
       <view class="section">
         <image src="../../images/serch.png" mode="aspectFill" />
-        <input bindinput='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search" bindfocus="bindfocuClick" bindconfirm="bindconfirmClick" value='{{inputValue}}' />
+        <input bindinput='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search"
+          bindfocus="bindfocuClick" bindconfirm="bindconfirmClick" value='{{inputValue}}' />
         <text class="close" bindtap='closeClick'>×</text>
 
 
@@ -26,7 +27,9 @@
   <view id="view" class='content-scroll' hidden='{{showAll}}'>
     <!-- 轮播图 -->
     <view class='indicator-wrap'>
-      <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff" style="width:100%;height:368rpx;">
+      <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}"
+        duration="{{duration}}" circular="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff"
+        style="width:100%;height:368rpx;">
         <block wx:for-items="{{informations.data.top}}">
           <swiper-item>
             <image class="swiper-item" src="{{item.image}}" mode="aspectFill" />
@@ -73,63 +76,65 @@
     </view>
     <!-- 推荐 -->
     <view id='view' style='width:100%;height:100%'>
-    <scroll-view style='height:650rpx' scroll-y="true" scroll-into-view="{{scorllId}}">
+      <scroll-view style='height:650rpx' scroll-y="true" scroll-into-view="{{scorllId}}">
 
-      <!-- 每个推荐 -->
-      <block wx:for="{{informations.data.bottom}}">
-        <view class="recommend_warp">
-          <view class="title_box" id="{{item.id}}">
-            <text class="h2_title" >{{item.title}}</text>
-          </view>
-          <block wx:for="{{item.list}}" wx:for-item="list">
-            <view class="recom_list">
-              <!-- 左边图片 -->
-              <view class="list_left" >
-                <image class=""  src="{{list.image}}" mode="aspectFill"></image>
-              </view>
-              <!-- 中间 -->
-              <view class="list_center">
-                <text class="center_title">{{list.title}}</text>
-                <text class="center_standard">{{list.standard}}</text>
-                <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
-                </text>
-                </text>
-              </view>
-
-              <!-- car -->
-              <view class="list_right">
-                <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
-              </view>
+        <!-- 每个推荐 -->
+        <block wx:for="{{informations.data.bottom}}">
+          <view class="recommend_warp">
+            <view class="title_box" id="{{item.id}}">
+              <text class="h2_title">{{item.title}}</text>
             </view>
-          </block>
-        </view>
+            <block wx:for="{{item.list}}" wx:for-item="list">
+              <view class="recom_list">
+                <!-- 左边图片 -->
+                <view class="list_left">
+                  <image class="" src="{{list.image}}" mode="aspectFill"></image>
+                </view>
+                <!-- 中间 -->
+                <view class="list_center">
+                  <text class="center_title">{{list.title}}</text>
+                  <text class="center_standard">{{list.standard}}</text>
+                  <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
+                    </text>
+                  </text>
+                </view>
 
-      </block>
+                <!-- car -->
+                <view class="list_right">
+                  <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill">
+                  </image>
+                </view>
+              </view>
+            </block>
+          </view>
 
-    </scroll-view>
+        </block>
+
+      </scroll-view>
     </view>
   </view>
   <scroll-view class='view-search'>
-  <block wx:for="{{informations1.data}}" wx:for-item="list" wx:key=''>
-            <view class="recom_list">
-              <!-- 左边图片 -->
-              <view class="list_left" >
-                <image class=""  src="{{list.image}}" mode="aspectFill"></image>
-              </view>
-              <!-- 中间 -->
-              <view class="list_center">
-                <text class="center_title">{{list.title}}</text>
-                <text class="center_standard">{{list.standard}}</text>
-                <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
-                </text>
-                </text>
-              </view>
+    <block wx:for="{{informations1.data}}" wx:for-item="list" wx:key=''>
+      <view class="recom_list">
+        <!-- 左边图片 -->
+        <view class="list_left">
+          <image class="" src="{{list.image}}" mode="aspectFill"></image>
+        </view>
+        <!-- 中间 -->
+        <view class="list_center">
+          <text class="center_title">{{list.title}}</text>
+          <text class="center_standard">{{list.standard}}</text>
+          <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
+            </text>
+          </text>
+        </view>
 
-              <!-- car -->
-              <view class="list_right">
-                <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
-              </view>
-            </view>
-          </block>
+        <!-- car -->
+        <view class="list_right">
+          <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
+        </view>
+      </view>
+    </block>
+
   </scroll-view>
 </view>
