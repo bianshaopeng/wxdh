@@ -26,9 +26,13 @@
                     </view>
                 </view>
             </view>
+            <!-- 只有退货退款页面显示 -->
+            <view class="sm_desc" wx:if="{{sm_desc}}">
+                退款类型：全额退款 退款结束
+            </view>
             <view class="sure_btn">
-                <view class="btn_des" hover-class="active" bindtap="Todesc">
-                    {{btn_des}}
+                <view class="btn_des" hover-class="active" bindtap="Todesc" data-txt="{{btnDesc}}">
+                    {{btnDesc}}
                 </view>
 
             </view>

@@ -33,7 +33,10 @@ Page({
         number: "1"
       }
     ],
-    btnDesc: ""
+    btnDesc: "",
+    sm_desc: false,
+
+
 
 
   },
@@ -43,22 +46,25 @@ Page({
    */
   onLoad: function (options) {
     const self = this;
-    console.log(this)
     wx.setNavigationBarTitle({
       title: options.title
     });
+
     //  根据标题改变按钮
     if (options.title == "已收货") {
       self.setData({
-        btnDesc: "申请售后"
+        btnDesc: "申请售后",
+
       })
     } else if (options.title == "待收货") {
       self.setData({
-        btnDesc: "待收货"
+        btnDesc: "确认收货"
+
       })
     } else if (options.title == "退款/售后") {
       self.setData({
-        btnDesc: "查看详情"
+        btnDesc: "查看详情",
+        sm_desc: true
       })
     }
 
@@ -87,10 +93,28 @@ Page({
   },
   Todesc(e) {
     // 根据类型不同跳转页面
-    let txt = e.currentTarget.dataset.txt
-    if (txt == "已收货") {
-      url: "/pages/pay_desc/index"
+
+    let txt = e.currentTarget.dataset.txt;
+    if (txt == "查看详情") {
+      wx.navigateTo({
+        url: "/pages/me/refundesc/index"
+      })
     }
+    if (txt == "申请售后") {
+      wx.navigateTo({
+        url: "/pages/me/aftersale/index"
+      })
+    }
+    if (txt == "确认收货") {
+
+      wx.showToast({
+        title: '确认收货',
+        icon: 'success',
+        duration: 2000
+      })
+
+    }
+
 
   }
 })

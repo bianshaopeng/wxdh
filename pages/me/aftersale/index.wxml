@@ -1,0 +1,24 @@
+<!-- 这里是申请售后 -->
+<view class="warp_box">
+
+
+    <view class="item_box">
+        <view class="section">
+            <view class="section__title">请选择退款类型择器</view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <text class="picker">
+                    当前选择：{{array[index]}}
+                </text>
+            </picker>
+        </view>
+    </view>
+    <view class="item_box">
+        <text class="title">退款金额</text>
+        <text class="money">{{money}}sssss</text>
+
+    </view>
+    <view class="item_box">
+        <textarea name="" placeholder="请填写退货原因"></textarea>
+    </view>
+
+</view>

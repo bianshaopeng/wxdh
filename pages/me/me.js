@@ -32,28 +32,34 @@ Page({
     })
   },
   itemClick: function (e) {
+    console.log(e.currentTarget.dataset.index)
     let txt = e.currentTarget.dataset.txt
+
 
     if (e.currentTarget.dataset.index == 0) {
       wx.navigateTo({
-        url: '../../pages/payment/payment?title=' + txt,
+        url: '/pages/payment/payment?title=' + txt,
       })
-    }
-    if (e.currentTarget.dataset.index == 1) {
+    } else {
       wx.navigateTo({
-        url: '../../pages/received/index?title=' + txt,
+        url: '/pages/received/index?title=' + txt,
       })
     }
-    if (e.currentTarget.dataset.index == 2) {
-      wx.navigateTo({
-        url: '../../pages/received/index?title=' + txt,
-      })
-    }
-    if (e.currentTarget.dataset.index == 3) {
-      wx.navigateTo({
-        url: '../../pages/me/refund/index?title=' + txt,
-      })
-    }
+    // if (e.currentTarget.dataset.index == 1) {
+    //   wx.navigateTo({
+    //     url: '/pages/received/index?title=' + txt,
+    //   })
+    // }
+    // if (e.currentTarget.dataset.index == 2) {
+    //   wx.navigateTo({
+    //     url: '/pages/received/index?title=' + txt,
+    //   })
+    // }
+    // if (e.currentTarget.dataset.index == 3) {
+    //   wx.navigateTo({
+    //     url: '/pages/received/index?title=' + txt,
+    //   })
+    // }
   },
   calLogin: function () {
     wx.showModal({

@@ -139,3 +139,13 @@ page {
     background: #f95a59;
     color: #fff;
 }
+
+.sm_desc {
+    margin: 10rpx 0 0 0;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 30rpx;
+    letter-spacing: 0.2rpx;
+    color: #989898;
+}

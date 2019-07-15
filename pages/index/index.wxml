@@ -8,20 +8,12 @@
     <view class="serch">
       <view class="section">
         <image src="../../images/serch.png" mode="aspectFill" />
-        <input bindinput='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search"
+        <input bindtap='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search"
           bindfocus="bindfocuClick" bindconfirm="bindconfirmClick" value='{{inputValue}}' />
-        <text class="close" bindtap='closeClick'>×</text>
-
-
+        
       </view>
     </view>
-    <!-- 搜索显示区域 -->
-    <view class="serch_show">
-      <!-- 显示每一条 -->
-      <view class="serch_item" hover-class="serch_active">零食</view>
-      <view class="serch_item" hover-class="serch_active">零食</view>
-      <view class="serch_item" hover-class="serch_active">零食</view>
-    </view>
+  
   </view>
   <!-- 搜索一下全部滚动 -->
   <view id="view" class='content-scroll' hidden='{{showAll}}'>
@@ -113,28 +105,4 @@
       </scroll-view>
     </view>
   </view>
-  <scroll-view class='view-search'>
-    <block wx:for="{{informations1.data}}" wx:for-item="list" wx:key=''>
-      <view class="recom_list">
-        <!-- 左边图片 -->
-        <view class="list_left">
-          <image class="" src="{{list.image}}" mode="aspectFill"></image>
-        </view>
-        <!-- 中间 -->
-        <view class="list_center">
-          <text class="center_title">{{list.title}}</text>
-          <text class="center_standard">{{list.standard}}</text>
-          <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
-            </text>
-          </text>
-        </view>
-
-        <!-- car -->
-        <view class="list_right">
-          <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
-        </view>
-      </view>
-    </block>
-
-  </scroll-view>
 </view>

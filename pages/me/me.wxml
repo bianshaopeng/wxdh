@@ -36,7 +36,7 @@
 
     <view class='view-bottom'>
       <view class='view-bottom-one'>
-        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' data-txt="{{item.text}} "
+        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' data-txt="{{item.text}}"
           bindtap='itemClick'>
           <image src=" {{item.image}}" mode='aspectFit'>
           </image>

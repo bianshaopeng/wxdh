@@ -16,7 +16,9 @@
     "pages/received/index",
     "pages/pay_desc/index",
     "pages/me/refund/index",
-    "pages/me/refundesc/index"
+    "pages/me/refundesc/index",
+    "pages/search/search"
+
   ],
   "permission": {
     "scope.userLocation": {
