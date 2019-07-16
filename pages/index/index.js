@@ -8,8 +8,8 @@ Page({
     inputValue: null,
     showAll: false,
     showSearch: true,
-    hiddenName: true,
-    scorllId: "a",
+    hiddenName: false,
+    scorllId: "",
     informations: {
       code: 200,
       msg: "成功",
