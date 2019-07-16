@@ -10,6 +10,39 @@ page {
     background: #eee;
 }
 
+/* select */
+.section {
+    width: 100%;
+    height: 120rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section picker {
+    width: 300rpx;
+    text-align: right;
+}
+
+.section picker .picker {
+    display: inline-block;
+    width: 100%;
+    height: 120rpx;
+}
+
+.arrow {
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #595959;
+    border-right: 2px solid #595959;
+    transform: rotate(45deg);
+}
+
+.active .arrow {
+    transform: rotate(90deg);
+}
+
 .item_box {
     margin: 10rpx 0 0 0;
     padding: 0 20rpx;
@@ -21,7 +54,6 @@ page {
     line-height: 120rpx;
     letter-spacing: 0px;
     background: #fff;
-
 }
 
 .item_box .title {

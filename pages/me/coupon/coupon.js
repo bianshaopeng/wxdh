@@ -5,6 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
+    coupon: [{
+        bg: "/images/usable.png",
+        title: "新人推荐",
+        number: "30",
+        rule: "无门槛使用",
+        way: "优惠抵扣",
+        time: "0月0日-0月0日",
+      },
+      {
+        bg: "/images/usableno.png",
+        title: "新人推荐",
+        number: "30",
+        rule: "无门槛使用",
+        way: "优惠抵扣",
+        time: "0月0日-0月0日",
+      }
+    ]
 
   },
 
