@@ -1,10 +1,13 @@
-page{
-  width: 100%;
-  height: 100%;
+page {
+    width: 100%;
+    height: 100%;
 }
+
+
+
 .top_serch {
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 9999;
@@ -115,8 +118,10 @@ page{
 
 /* 轮播图 */
 .indicator-wrap {
+    position: relative;
     width: 100%;
     height: auto;
+
 }
 
 .swiper-item {
@@ -216,7 +221,8 @@ page{
     background: #fff;
     padding: 0 0 0 12rpx;
 }
- .title_box {
+
+.title_box {
     padding: 24rpx 0 34rpx 0rpx;
 }
 
@@ -308,11 +314,13 @@ page{
     width: 46rpx;
     height: 46rpx;
 }
-.view-search{
-  width: 100%;
-  height: 1000rpx;
-  margin-top: 70rpx;
+
+.view-search {
+    width: 100%;
+    height: 1000rpx;
+    margin-top: 70rpx;
 }
+
 /*  底部全选框部分*/
 .fixBar {
     display: flex;

@@ -1,13 +1,13 @@
 <view class="serch">
-      <view class="section">
-        <image src="../../images/serch.png" mode="aspectFill" />
-        <input bindinput='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search"
-          bindfocus="bindfocuClick" bindconfirm="bindconfirmClick" value='{{inputValue}}' />
-        <text class="close" bindtap='closeClick'>×</text>
+  <view class="section">
+    <image src="../../images/serch-red.png" mode="aspectFill" />
+    <input bindinput='bindinput' style='color:#000000' placeholder="请输入商品名称" focus="" confirm-type="search"
+      bindfocus="bindfocuClick" bindconfirm="bindconfirmClick" value='{{inputValue}}' />
+    <text class="close" bindtap='closeClick'>×</text>
 
 
-      </view>
-    </view>
+  </view>
+</view>
 <scroll-view style=' position: absolute height:100%; scroll-y="true"'>
   <block wx:for="{{informations1.data}}" wx:for-item="list" wx:key=''>
     <view class="recom_list">
@@ -20,7 +20,7 @@
         <text class="center_title">{{list.title}}</text>
         <text class="center_standard">{{list.standard}}</text>
         <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
-            </text>
+          </text>
         </text>
       </view>
 
