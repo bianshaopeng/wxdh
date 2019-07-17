@@ -1,4 +1,29 @@
-<view class="view-contair">
+<!-- 优惠全展示信息 -->
+<!-- 已收货页面 -->
+<view class="warp_box">
+    <!-- 空页面提示 -->
+    <view class="empty_wrap" wx:if="{{car.empty}}">
+        <image class="empyt_icon" src="../../images/empty_car.png"></image>
+        <text class="empyt_txt">您还没有相关优惠券</text>
+    </view>
+    <!-- style="background-image: url('{{item.bg}}')" -->
+    <!--  优惠券展示 可用 -->
+    <block wx:for="{{coupon}}">
+        <view class="coupon" style="background-image: url('{{item.bg}}')">
+            <view class="coupon_left">
+                <text class="title">{{item.title}}¥{{item.number}}</text>
+                <text class="rule">{{item.rule}}</text>
+            </view>
+            <view class="coupon_right">
+                <text class="way">{{item.way}}</text>
+                <text class="time">{{item.time}}</text>
+            </view>
+
+        </view>
+    </block>
+
+
+
 
 
 </view>
