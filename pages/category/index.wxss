@@ -1,4 +1,8 @@
 /* pages/category/index.wxss */
+page {
+    height: 100%;
+}
+
 .caregory {
     display: flex;
     flex-direction: row;
@@ -14,27 +18,54 @@
     background: #e0e0e0;
     width: 24%;
     height: 100%;
-   
+
 }
 
 .nav_left .nav_box {
     width: 100%;
-     display: flex;
+    display: flex;
     flex-direction: column;
 
 }
-.left_item{
-  padding-left: 10rpx;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  background-color: white
+
+.items_warp {
+    border-radius: 10rpx;
+    background: #fff;
+    overflow: hidden;
 }
-.left_item1{
-  padding-left: 30rpx;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  
+
+.left_item {
+    padding-left: 10rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 100rpx;
+    color: #595959;
+
 }
+
+.left_item1 {
+    text-indent: 20rpx;
+    padding-bottom: 10rpx;
+    background: #fff;
+
+
+}
+
+.left_item1 view {
+    font-size: 28rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 80rpx;
+}
+
+.active_item1 view {
+    color: #fff;
+    background: #f95959;
+}
+
 /* roight */
 .nav_right {
 

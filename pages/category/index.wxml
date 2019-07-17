@@ -3,14 +3,24 @@
   <scroll-view class="nav_left" scroll-y>
 
     <!-- current   bind index 事件当中获取  下标相等的时候-->
-    <view class="nav_box" wx:for="{{listTitle}}" wx:key="" >
-      <view class="left_item"   wx:for-index="index" style='{{key==index?"color:red;":""}}' bindtap='oneList' data-index='{{index}}'  >{{item.onelist}}</view>
-      <view class='left_item1' wx:for="{{item.twolist}}"  wx:for-item="list" bindtap='twoList'  hidden='{{item.isShow}}'>
-        <view>{{list.name}}</view>
+    <view class="nav_box" wx:for="{{listTitle}}" wx:key="">
+      <view class="left_item" wx:for-index="index" style='{{key==index?"color:red;":""}}' bindtap='oneList'
+        data-index='{{index}}'>{{item.onelist}}</view>
+
+      <view class="items_warp">
+        <view class='left_item1' hover-class="active_item1" wx:for="{{item.twolist}}" wx:for-item="list"
+          bindtap='twoList' hidden='{{item.isShow}}'>
+          <view>{{list.name}}</view>
+        </view>
+
       </view>
 
+
     </view>
-    
+
+
+
+
 
   </scroll-view>
   <!-- right -->

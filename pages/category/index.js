@@ -10,13 +10,15 @@ Page({
     fontColor: 'red',
     showtwo:true,
     listTitle: [
-      { onelist: "水果" ,isOk:true, isShow:true, twolist: [{ name: "苹果" }, { name: "苹果" }] },
+      { onelist: "食品" ,isOk:true, isShow:true, twolist: [{ name: "苹果" }, { name: "苹果" }] },
       { onelist: "蔬菜", isOk: false, isShow: true, twolist: [] },
       { onelist: "水果", isOk: true, isShow: true, twolist: [{ name: "苹果" }, { name: "苹果" }] },
     ],
     navRightItems: [{
+      id: "xxx",
       title: '食品',
       desc: [{
+        id: "xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
           standard: "500g",
@@ -24,6 +26,7 @@ Page({
           status: true
         },
         {
+          id: "xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
           standard: "500g",
@@ -31,6 +34,7 @@ Page({
           status: false
         },
         {
+          id: "xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
           standard: "500g",
@@ -38,6 +42,7 @@ Page({
           status: false
         },
         {
+          id: "xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
           standard: "500g",
@@ -45,6 +50,7 @@ Page({
           status: false
         },
         {
+          id:"xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
           standard: "500g",
