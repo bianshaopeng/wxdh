@@ -4,7 +4,7 @@
   <view class="top_serch">
     <view class="location">
       <image src="../../images/localion.png" alt="" mode="aspectFill" />
-      <text class="local-title">兰州高新区开发区 </text>
+      <text class="local-title">{{informations.address}} </text>
     </view>
     <view class="serch">
       <view class="section">
@@ -74,7 +74,7 @@
         <!-- 每个推荐 -->
         <block wx:for="{{informations.data.bottom}}">
           <view class="recommend_warp">
-            <view class="title_box" id="{{item.id}}">
+            <view class="title_box" id="{{ids[index]}}">
               <text class="h2_title">{{item.title}}</text>
             </view>
             <block wx:for="{{item.list}}" wx:for-item="list">

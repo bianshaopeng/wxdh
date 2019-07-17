@@ -1,4 +1,5 @@
 // pages/index/index.js
+var netUtil = require("../../utils/netUtils.js"); 
 Page({
 
   /**
@@ -9,6 +10,7 @@ Page({
     showAll: false,
     showSearch: true,
     hiddenName: false,
+    ids:["a","b","c","d"],
     scorllId: "",
     informations: {
       code: 200,
@@ -234,6 +236,37 @@ Page({
       },
 
     })
+
+    var url = "http://192.168.31.14:8080/f/index/home";
+    var params = {
+      Lan: "",
+      Lon: 1,
+      
+    }
+
+    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); //调用get方法情就是户数
+    
+  },
+  onStart: function () { //onStart回调
+    wx.showLoading({
+      title: '正在加载',
+    })
+  },
+  onSuccess: function (res) { //onSuccess回调
+  console.log(res)
+    wx.hideLoading();
+    this.setData({
+      informations:res
+      // jokeList: res.result.data //请求结果数据
+    })
+  },
+  onFailed: function (msg) { //onFailed回调
+    wx.hideLoading();
+    if (msg) {
+      wx.showToast({
+        title: msg,
+      })
+    }
   },
   click: function(e) {
     this.setData({
