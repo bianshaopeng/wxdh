@@ -490,3 +490,11 @@ page {
     display: inline-block;
     margin-right: 20rpx;
 }
+.view-toast{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  z-index: 10000;
+
+}

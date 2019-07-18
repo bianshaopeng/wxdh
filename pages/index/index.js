@@ -238,9 +238,9 @@ Page({
   detailsClick: function () {
 
   },
-  click: function (e) {
+  showClick: function () {
     console.log('xxx')
-    console.log(e.currentTarget.dataset)
+  
     wx.getUserInfo({
       success: function (res) {
         var userInfo = res.userInfo

@@ -143,32 +143,18 @@ Page({
       var itemprice = this.data.goods[i].price
       var itemnumber = this.data.goods[i].number
       this.data.counts += itemprice * itemnumber
-      
-
     }
-    console.log(this.data.counts)
     that.setData({
       counts: this.data.counts
     })
     var url = app.globalData.urlIp+"goodsInfo";
     var params = {
-      id: this.data.typeId,
+      userId: '4',
     }
 
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var url = "http://192.168.31.20:8080/f/goods/shoppingCart";
-    var params = {
-       userId:'4'
-    }
-
-    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
-
-  },
+  
   onStart: function () { //onStart回调
     wx.showLoading({
       title: '正在加载',
