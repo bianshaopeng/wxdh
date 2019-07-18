@@ -6,10 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    carselect:true,
     inputValue: null,
     showAll: false,
     showSearch: true,
     hiddenName: false,
+    selectgoogs:[],
     ids: ["a", "b", "c", "d"],
     scorllId: "",
     informations: {
@@ -98,65 +100,71 @@ Page({
             id: "a",
             title: "掌柜推荐",
             list: [{
-                id: "xxxxxxx",
+                id: "a",
                 image: "../../images/list1.jpg",
                 title: "新疆薄皮核桃",
                 standard: "500g",
                 price: "￥34",
                 price_smail: "￥00",
+                number:0,
               },
               {
-                id: "xxxxxxx",
+                id: "b",
                 image: "../../images/list1.jpg",
                 title: "新疆薄皮核桃",
                 standard: "500g",
                 price: "￥34",
                 price_smail: "￥00",
+                number: 0,
               },
               {
-                id: "xxxxxxx",
+                id: "c",
                 image: "../../images/list1.jpg",
                 title: "新疆薄皮核桃",
                 standard: "500g",
                 price: "￥34",
                 price_smail: "￥00",
+                number: 0,
               }
             ]
           },
           {
             id: "b",
-            title: "新人推荐",
+            title: "新人特惠",
             list: [{
-              id: "xxxxxxx",
+              id: "d",
               image: "../../images/list1.jpg",
               title: "新疆薄皮核桃",
               standard: "500g",
               price: "￥34",
               price_smail: "￥45",
+              number: 0,
             }]
           },
           {
             id: "c",
-            title: "新品手法",
+            title: "限时抢购",
             list: [{
-              id: "xxxxxxx",
+              id: "e",
               image: "../../images/list1.jpg",
               title: "新疆薄皮核桃",
               standard: "500g",
               price: "￥34",
               price_smail: "#45",
+              number: 0,
             }]
           },
           {
             id: "d",
-            title: "新人推荐",
+            title: "新品首发",
             list: [{
-              id: "xxxxxxx",
+              id: "f",
               image: "../../images/list1.jpg",
-              title: "新疆薄皮核桃",
+              title: "新疆薄皮核桃111",
               standard: "500g",
               price: "$34",
               price_smail: "#45",
+              number: 0,
             }]
           }
 
@@ -177,11 +185,19 @@ Page({
     chooseSize: false,
     animationData: {},
     cardesc: [{
+        id:"ssss",
         title: "北京方便面",
         money: "12",
         number: "2"
       },
       {
+        id:"sss",
+        title: "北京方便面",
+        money: "12",
+        number: "2"
+      },
+       {
+        id: "sss",
         title: "北京方便面",
         money: "12",
         number: "2"
@@ -307,10 +323,61 @@ Page({
   },
 
 
+//加数量
+  addClick:function(res){
+    var that = this
+    if(this.data.carselect==true){
+      that.setData({
+        carselect:false
+      })
+    }
+
+    //外层index
+    var index = res.currentTarget.dataset.index
+   
+    //内层index
+    var index1 = res.currentTarget.dataset.item
+    // var id = this.data.informations.data.bottom[index].list[index1].number
+    // console.log(id)
+    var item = { id: this.data.informations.data.bottom[index].list[index1].id, title:   this.data.informations.data.bottom[index].list[index1].title, money: this.data.informations.data.bottom[index].list[index1].price, number: this.data.informations.data.bottom[index].list[index1].number}
+    var sItem = "informations.data.bottom[" + index + "].list["+index1+"].number";
+   
+    for (var i in this.data.cardesc){
+      var sItem1 = "cardesc[" + i + "].id";
+      if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id){
+          that.setData({
+            [sItem1]:this.data.cardesc[i].id+1
+          })
+      }else{
+        that.setData({
+          cardesc: this.data.cardesc.concat(item)
+        })
+      }
+    }
+    that.setData({
+      [sItem]: this.data.informations.data.bottom[index].list[index1].number+1,
+       
 
 
+      
+    })
+  },
 
-
+//减数量
+  reduceClick: function (res) {
+    var that = this
+    //外层index
+    var index = res.currentTarget.dataset.index
+    console.log(index)
+    //内层index
+    var index1 = res.currentTarget.dataset.item
+    console.log(index1)
+    var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
+    that.setData({
+      [sItem]: this.data.informations.data.bottom[index].list[index1].number - 1.
+     
+    })
+  },
 
 
 
@@ -318,6 +385,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    
+
+
     wx.getLocation({
       success: function (res) {
         console.log(res)
