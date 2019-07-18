@@ -62,10 +62,11 @@ page {
     background: #fff;
 }
 
+
 .recom_list {
     display: flex;
     margin: 30rpx 0 20rpx 0;
-    padding: 0 0 20rpx 0;
+    padding: 0 20rpx 20rpx;
     border-bottom: 1px solid #eee;
 }
 
@@ -84,7 +85,7 @@ page {
 /* center */
 .recom_list .list_center {
     margin: 0 0 0 20rpx;
-    width: 510rpx;
+    flex: 1;
     align-self: flex-start;
 }
 
@@ -133,11 +134,37 @@ page {
 }
 
 /* right */
-.recom_list .list_right image {
-    margin: 80rpx 0 0 0;
+/* right */
+.list_right {
+    width: 176rpx;
+    height: 60rpx;
+    align-self: flex-end;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* 购物车加减号 */
+
+.list_right .car_icon {
     width: 46rpx;
     height: 46rpx;
 }
+
+.list_right text {
+    display: block;
+    flex: 1;
+    text-align: center;
+    line-height: 46rpx;
+    font-size: 30rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.3rpx;
+    color: #595959;
+    vertical-align: bottom;
+}
+
 
 .view-search {
     width: 100%;

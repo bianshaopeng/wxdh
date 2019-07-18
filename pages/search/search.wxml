@@ -26,7 +26,9 @@
 
       <!-- car -->
       <view class="list_right">
-        <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick' mode="aspectFill"></image>
+        <image class="car_icon" src="/images/carjian.png"></image>
+        <text class=""> 2</text>
+        <image class="car_icon" src="/images/carjia.png"></image>
       </view>
     </view>
   </block>

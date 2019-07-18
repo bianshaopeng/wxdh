@@ -71,7 +71,7 @@
       </view>
       <!-- 推荐 -->
       <view id='view' style='width:100%;height:100%'>
-        <view style='height:100%;position:absolute' scroll-y="true" scroll-into-view="{{scorllId}}">
+        <view style='height:100%;width:100%;position:absolute' scroll-y="true" scroll-into-view="{{scorllId}}">
 
           <!-- 每个推荐 -->
           <block wx:for="{{informations.data.bottom}}">
@@ -97,10 +97,12 @@
 
                   <!-- car -->
                   <view class="list_right">
-                    <image class="" src="../../images/car.png" data-id='{{list.id}}' bindtap='imgClick'
-                      mode="aspectFill">
-                    </image>
+                    <image class="car_icon" src="/images/carjian.png"></image>
+                    <text class=""> 1</text>
+                    <image class="car_icon" src="/images/carjia.png"></image>
                   </view>
+
+
                 </view>
               </block>
             </view>
@@ -110,26 +112,48 @@
         </view>
       </view>
     </view>
-    <!-- 底部详情-->
-    <view class='view- details'>
-      <text>ssss</text>
-      <text>ssss</text>
-    </view>
-    <!-- 底部全选框部分 -->
-    <view class="fixBar">
-      <view class='select_all' bindtap='detailsClick'>
-        <image class='icon' src='{{select}}'></image>
-        <text>详情</text>
-      </view>
-      <view class="total">
-        <text>合计:</text>
-        <text class="money">¥78元</text>
-      </view>
-      <view class="btn_amount" bindtap="showListView">结算</view>
-    </view>
+
   </view>
 </scroll-view>
+
+
+<!-- 购物车导航 -->
+<view class="car_nav">
+  <image class="bg_car" src="/images/bgcar.png" bindtap="chooseSezi">
+  </image>
+  <view class="sum">
+    ￥45.21
+  </view>
+  <view class="cardesc_right">
+    结算
+  </view>
+</view>
+
+<view class="maskLayer" wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+<view class="choose" wx:if="{{chooseSize}}" animation='{{animationData}}'>
+  <view class="choose_h2">
+    商品详情
+  </view>
+  <!-- 循环 -->
+  <block wx:for="{{cardesc}}">
+    <view class="choose_item">
+      <view class="item_left">
+        <text class=""> {{item.title}}</text>
+        <text class=""> ￥{{item.money}}</text>
+      </view>
+      <view class="list_right">
+        <image class="car_icon" src="/images/carjian.png"></image>
+        <text class=""> {{item.number}}</text>
+        <image class="car_icon" src="/images/carjia.png"></image>
+      </view>
+    </view>
+  </block>
+
+
+</view>
+
+
 <view class='view-toast'>
-<view style='width:100%;height:80%'></view>
-<button bindtap='click'>我知道le</button>
+  <view style='width:100%;height:80%'></view>
+  <button bindtap='click'>我知道le</button>
 </view>

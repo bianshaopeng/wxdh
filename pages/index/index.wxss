@@ -234,15 +234,15 @@ page {
     font-stretch: normal;
     line-height: 26rpx;
     color: #f95959;
-
     border-left: 2px solid #f95959;
 }
 
 /* list */
 .recom_list {
     display: flex;
+    -webkit-flex-direction: row;
     margin: 30rpx 0 20rpx 0;
-    padding: 0 0 20rpx 0;
+    padding: 0 20rpx 20rpx;
     border-bottom: 1px solid #eee;
 }
 
@@ -261,8 +261,7 @@ page {
 /* center */
 .recom_list .list_center {
     margin: 0 0 0 20rpx;
-    width: 510rpx;
-    align-self: flex-start;
+    flex: 1;
 }
 
 .recom_list .list_center .center_title {
@@ -309,10 +308,34 @@ page {
 }
 
 /* right */
-.recom_list .list_right image {
-    margin: 80rpx 0 0 0;
+.list_right {
+    width: 176rpx;
+    height: 60rpx;
+    align-self: flex-end;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* 购物车加减号 */
+
+.list_right .car_icon {
     width: 46rpx;
     height: 46rpx;
+}
+
+.list_right text {
+    display: block;
+    flex: 1;
+    text-align: center;
+    line-height: 46rpx;
+    font-size: 30rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.3rpx;
+    color: #595959;
+    vertical-align: bottom;
 }
 
 .view-search {
@@ -321,87 +344,149 @@ page {
     margin-top: 70rpx;
 }
 
-/*  底部全选框部分*/
-.fixBar {
-    display: flex;
+
+
+
+.view-toast {
+    /* 暂时注释 */
+    display: none;
+    width: 80%;
+    height: 60%;
     position: fixed;
-    justify-content: flex-end;
-    left: 0;
+    background: red;
+    left: 26rpx;
     right: 0;
-    bottom: 5rpx;
+    padding-left: 50rpx;
+    padding-right: 50rpx;
+    top: 200rpx;
+    bottom: 0;
+    z-index: 10;
+    border-radius: 90;
+
+
+}
+
+/*  底部购物车*/
+
+.flex_car {
+    position: relative;
+    height: 100%;
     width: 100%;
-    padding: 0 20rpx;
-    height: 100rpx;
-    background-color: #ffffff;
-    box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.24);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.car_nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -315rpx;
+    padding: 12rpx 12rpx 12rpx 40rpx;
+    display: flex;
+    justify-content: space-between;
+    width: 630rpx;
+    height: 84rpx;
     box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px 0px rgba(249, 89, 89, 0.18);
+    border-radius: 42rpx;
+    z-index: 10001;
+
+
 }
 
-.select_all {
-    width: 200rpx;
-    box-sizing: border-box;
-    margin-right: auto;
+.car_nav .bg_car {
+    width: 58rpx;
+    height: 58rpx;
+    line-height: 84rpx;
+    margin-right: 30rpx;
 }
 
-.select_all image {
-    width: 24rpx;
-    height: 24rpx;
-    vertical-align: center;
-}
-
-.select_all text {
-    display: inline-block;
-    margin: 0 0 0 10rpx;
-    line-height: 100rpx;
-    font-size: 34rpx;
+.car_nav .sum {
+    flex: 1;
+    font-size: 30rpx;
     font-weight: normal;
     font-stretch: normal;
-    color: #595959;
-}
-
-.total {
-    margin-left: auto;
-}
-
-.total text {
-    line-height: 100rpx;
-    font-size: 34rpx;
-    font-weight: normal;
-    font-stretch: normal;
-    letter-spacing: 0px;
+    line-height: 64rpx;
+    letter-spacing: 0.3rpx;
     color: #f95959;
 }
 
-.total .money {
-    margin: 0 25rpx;
+.car_nav .cardesc_right {
+    width: 159rpx;
+    height: 64rpx;
+    background-color: #f95959;
+    box-shadow: 0px 0px 20px 0px rgba(249, 89, 89, 0.18);
+    border-radius: 31.3rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 66rpx;
+    letter-spacing: 0.3rpx;
+    color: #ffffff;
+    text-align: center;
 }
 
-.btn_amount {
-    width: 132rpx;
-    height: 54rpx;
-    background-color: #f95959;
-    border-radius: 27rpx;
-    text-align: center;
-    font-size: 34rpx;
+/* 底部购物车展开  */
+.car_desc {
+    position: absolute;
+
+
+    width: 100%;
+    padding: 0 20%;
+    max-height: 419rpx;
+    background-color: #fff;
+    border-radius: 20rpx 20rpx 0 0;
+}
+
+.maskLayer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.choose {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-height: 600rpx;
+    padding: 0 0 100rpx 0;
+    background: #fff;
+    z-index: 10000;
+    border-radius: 20rpx 20rpx 0 0;
+
+}
+
+.choose_h2 {
+    font-size: 30rpx;
     font-weight: normal;
     font-stretch: normal;
-    line-height: 54rpx;
-    color: #fff;
-    align-self: center;
+    line-height: 74rpx;
+    letter-spacing: 0.3rpx;
+    color: #595959;
+    text-align: center;
+}
+
+.choose_item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20rpx;
 
 }
-.view-toast{
-  width: 80%;
-  height: 60%;
-  position: fixed;
-  background: red;
-  left: 26rpx;
-  right: 0;
-  padding-left: 50rpx;
-  padding-right: 50rpx;
-  top: 200rpx;
-  bottom: 0;
-  z-index: 10;
-  border-radius: 90;
 
+.item_left {
+    flex: 1;
+    font-size: 26rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 74rpx;
+    letter-spacing: 0.3rpx;
+    color: #595959;
+}
+
+.item_left .title {
+    display: inline-block;
+    margin-right: 20rpx;
 }

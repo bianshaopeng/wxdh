@@ -9,8 +9,8 @@
 
       <view class="items_warp">
         <view class='left_item1' hover-class="active_item1" wx:for="{{item.twolist}}" wx:for-item="list"
-            hidden='{{item.isShow}}'>
-          <view  bindtap='twoList' data-data='{{list}}'>{{list.name}}</view>
+          hidden='{{item.isShow}}'>
+          <view bindtap='twoList' data-data='{{list}}'>{{list.name}}</view>
         </view>
 
       </view>
@@ -39,7 +39,7 @@
             </view>
             <view class="price">{{list.price}}</view>
             <view class="car">
-              <image src="../../images/car.png" mode="aspectFill">
+              <image src="../../images/carjia.png" mode="aspectFill">
               </image>
             </view>
           </view>
