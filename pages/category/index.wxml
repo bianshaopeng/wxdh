@@ -9,8 +9,8 @@
 
       <view class="items_warp">
         <view class='left_item1' hover-class="active_item1" wx:for="{{item.twolist}}" wx:for-item="list"
-          bindtap='twoList' hidden='{{item.isShow}}'>
-          <view>{{list.name}}</view>
+            hidden='{{item.isShow}}'>
+          <view  bindtap='twoList' data-data='{{list}}'>{{list.name}}</view>
         </view>
 
       </view>
@@ -28,7 +28,7 @@
 
     <view class="right_box">
       <block wx:for="{{navRightItems}}">
-        <block wx:for="{{item.desc}}" wx:for-item="list">
+        <block wx:for="{{item.list}}" wx:for-item="list">
           <view class="right_list">
             <view class="img_box">
               <image class="" src="{{list.image}}" mode="aspectFill"></image>

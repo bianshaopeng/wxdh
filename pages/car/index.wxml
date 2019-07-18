@@ -7,23 +7,23 @@
     </view>
 
     <view class="show_car">
-        <view class="com_list">
+        <view class="com_list" wx:for="{{goods}}">
             <!-- left -->
-            <view class="left_item">
-                <!-- <image wx:if='{{item.select}}' src='/image/selected.png'></image> -->
-                <image class='icon' src='{{unselect}}'></image>
+            <view class="left_item" bindtap='selectClick' data-index='{{index}}'>
+                <image class='icon' wx:if='{{item.ischecked}}' src='{{select}}'></image>
+                <image wx:else class='icon' src='{{unselect}}'></image>
             </view>
             <view class="center_item">
-                <image class='icon' src='{{goods[0].image}}'></image>
+                <image class='icon' src='{{item.image}}'></image>
                 <view class="text_box">
-                    <view class="title">{{goods[0].title}}</view>
-                    <view class="shop">{{goods[0].shop}}</view>
-                    <view class="price">{{goods[0].price}}</view>
+                    <view class="title">{{item.title}}</view>
+                    <view class="shop">{{item.shop}}</view>
+                    <view class="price">￥{{item.price}}</view>
                 </view>
                 <view class="btns">
-                    <view class="jian">-</view>
-                    <view class="number">{{goods[0].number}}</view>
-                    <view class="jia">+</view>
+                    <view class="jian" data-index='{{index}}' bindtap='reduceClick'>-</view>
+                    <view class="number">{{item.number}}</view>
+                    <view class="jia" data-index='{{index}}' bindtap='addClick'>+</view>
                 </view>
             </view>
         </view>
@@ -59,13 +59,14 @@
 
     <!-- 底部全选框部分 -->
     <view class="fixBar">
-        <view class='select_all'>
-            <image class='icon' src='{{select}}'></image>
+        <view class='select_all' bindtap='allClick'>
+            <image wx:if="{{selectAll}}"class='icon' src='{{select}}'></image>
+             <image wx:else class='icon' src='{{unselect}}'></image>
             <text>全选</text>
         </view>
         <view class="total">
             <text>合计:</text>
-            <text class="money">¥78元</text>
+            <text class="money">¥{{counts}}元</text>
         </view>
         <view class="btn_amount" bindtap="account">结算</view>
     </view>

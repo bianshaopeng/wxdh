@@ -223,6 +223,23 @@ Page({
   detailsClick: function(){
     
   },
+  click: function (e) {
+    console.log('xxx')
+    console.log(e.currentTarget.dataset)
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+        var gender = userInfo.gender //性别 0：未知、1：男、2：女
+        var province = userInfo.province
+        var city = userInfo.city
+        var country = userInfo.country
+        console.log(userInfo)
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,23 +1,25 @@
 // pages/category/index.js
+var netUtil = require("../../utils/netUtils.js"); 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    typeId:"",
     key:0,
     colors:[],
     fontColor: 'red',
     showtwo:true,
     listTitle: [
-      { onelist: "食品" ,isOk:true, isShow:true, twolist: [{ name: "苹果" }, { name: "苹果" }] },
-      { onelist: "蔬菜", isOk: false, isShow: true, twolist: [] },
-      { onelist: "水果", isOk: true, isShow: true, twolist: [{ name: "苹果" }, { name: "苹果" }] },
+      { id: "x", onelist: "食品", isOk: true, isShow: true, twolist: [{ id: "x", name: "苹果" }, { id: "x", name: "苹果" }] },
+      { id: "x",onelist: "蔬菜", isOk: false, isShow: true, twolist: [] },
+      { id: "x",onelist: "水果", isOk: true, isShow: true, twolist: [{ id: "a", name: "苹果" }, { id: "x", name: "苹果" }] },
     ],
     navRightItems: [{
       id: "xxx",
       title: '食品',
-      desc: [{
+      list: [{
         id: "xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
@@ -78,24 +80,73 @@ Page({
            [sItem]: !this.data.listTitle[index].isShow,
            key:index
          })
-  
-    console.log(this.data.listTitle[index].isShow)
+    if (this.data.listTitle[index].isOk==true){
+      console.log('dddddd', this.data.listTitle[index].id)
+      that.setData({
+        typeId: this.data.listTitle[index].id
+      })
+    
+      console.log('id不为空', this.data.typeId)
+    }else{
+      console.log('cccccc')
+    }
+    if (this.data.typeId!=null){
+     console.log('id不为空')
+   }
+    
   },
   twoList: function (res) {
     var that = this
     console.log(res.currentTarget.dataset)
-    var index1 = res.currentTarget.dataset.index1
+    var index1 = res.currentTarget.dataset
 
     that.setData({
-      key1: index1
+      typeId: res.currentTarget.dataset.data.id
     })
+    console.log("typeId", this.data.typeId)
+    var url = "http://192.168.31.154:8080/f/goods/goodsInfo";
+    var params = {
+      id: this.data.typeId,
+    }
+
+    netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed); 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var url = "http://192.168.31.154:8080/f/goods/goodsType";
+    var params = {
+    
+    }
 
+    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); 
+
+  },
+  onStart: function () { //onStart回调
+    wx.showLoading({
+      title: '正在加载',
+    })
+  },
+  onSuccess: function (res) { //onSuccess回调
+    console.log(res.data.listTitle)
+    wx.hideLoading();
+    if (res.data.listTitle=="undefined"){
+      console.log("sssssss")
+    }
+    this.setData({
+      listTitle: res.data.listTitle,
+      navRightItems: res.data.navRightItems
+      
+    })
+  },
+  onFailed: function (msg) { //onFailed回调
+    wx.hideLoading();
+    if (msg) {
+      wx.showToast({
+        title: msg,
+      })
+    }
   },
 
   /**

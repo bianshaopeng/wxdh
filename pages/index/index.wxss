@@ -390,3 +390,18 @@ page {
     align-self: center;
 
 }
+.view-toast{
+  width: 80%;
+  height: 60%;
+  position: fixed;
+  background: red;
+  left: 26rpx;
+  right: 0;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  top: 200rpx;
+  bottom: 0;
+  z-index: 10;
+  border-radius: 90;
+
+}
