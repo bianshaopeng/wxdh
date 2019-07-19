@@ -9,6 +9,8 @@ Page({
   data: {
     selectAll:true,
     counts:0,
+    shopId:'',
+    status: false,
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
     goods: [{
@@ -31,9 +33,9 @@ Page({
         number: 2
       }
     ],
-    car: {
-      status: false,
-    },
+ 
+     
+   
     guess_like: [{
         image: "../../images/list1.jpg",
         title: "新疆薄皮核桃",
@@ -139,6 +141,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    wx.getStorage({
+      key: 'shopId',
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          shopId:res.data
+        })
+      },
+    })
     for(var i in this.data.goods){
       var itemprice = this.data.goods[i].price
       var itemnumber = this.data.goods[i].number
@@ -147,12 +158,13 @@ Page({
     that.setData({
       counts: this.data.counts
     })
-    var url = app.globalData.urlIp+"goodsInfo";
+    var url = app.globalData.urlIp +"goods/shoppingCart";
     var params = {
       userId: '4',
+      shopId: this.data.shopId,
     }
 
-    netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
   
   onStart: function () { //onStart回调
@@ -163,11 +175,20 @@ Page({
   onSuccess: function (res) { //onSuccess回调
     console.log(res.data)
     wx.hideLoading();
+    if (res.msg == "获取购物车信息成功"){
     this.setData({
       goods: res.data.goods,
       guess_like: res.data.guess_like
 
     })
+    } else if (res.msg == "购物车是空的"){
+      this.setData({
+        goods: [],
+        guess_like: res.data.guess_like,
+        status:true
+
+      })
+    }
   },
   onFailed: function (msg) { //onFailed回调
     wx.hideLoading();

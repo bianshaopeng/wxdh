@@ -126,7 +126,7 @@
   <view class="sum">
     ￥{{moneys}}
   </view>
-  <view class="cardesc_right">
+  <view class="cardesc_right" bindtap='settle'>
     结算
   </view>
 </view>

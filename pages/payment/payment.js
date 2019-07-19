@@ -16,7 +16,7 @@ Page({
       shop: "来自XXXX店铺",
       price: "￥34",
       price_smail: "￥00",
-      number: "1"
+      number: 1
     }],
     car: {
       status: false,

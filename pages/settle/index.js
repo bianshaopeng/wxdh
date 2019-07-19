@@ -18,24 +18,11 @@ Page({
     pay: [{
         image: "../../images/pay_wx.png",
         title: "微信",
-        desc: "推荐已在微信中绑定银行卡的用户使用",
-      },
-      {
-        image: "../../images/pay_zhi.png",
-        title: "微信",
-        desc: "安全快捷，可支持银行卡支付",
-      },
-      {
-        image: "../../images/pay_yue.png",
-        title: "余额",
         desc: "",
-      }, {
+      },
+      {
         image: "../../images/pay_bao.png",
         title: "钱包",
-        desc: "",
-      }, {
-        image: "../../images/pay_yi.png",
-        title: "翼支付",
         desc: "",
       }
 
@@ -63,6 +50,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var orderId = options.orderId
+    console.log(orderId)
 
   },
   paySure(e) {

@@ -31,7 +31,7 @@ function request(url, params, method, onStart, onSuccess, onFailed) {
     success: function (res) {
       if (res.data) {
         /** start 根据需求 接口的返回状态码进行处理 */
-        if (res.data.code == 200) {
+        if (res.data.code == 200 || res.data.code == 201) {
           onSuccess(res.data); //request success
         } else {
           onFailed(res.data.msg); //request failed

@@ -1,4 +1,5 @@
 // pages/category/index.js
+var app = getApp();
 var netUtil = require("../../utils/netUtils.js"); 
 Page({
 
@@ -16,15 +17,14 @@ Page({
       { id: "x",onelist: "蔬菜", isOk: false, isShow: true, twolist: [] },
       { id: "x",onelist: "水果", isOk: true, isShow: true, twolist: [{ id: "a", name: "苹果" }, { id: "x", name: "苹果" }] },
     ],
-    navRightItems: [{
-      id: "xxx",
-      title: '食品',
-      list: [{
+    navRightItems: [
+      {
+      
         id: "xxx",
           image: "../../images/cargoty.jpg",
           title: "新疆薄皮核桃",
           standard: "500g",
-          price: "￥34",
+          price: "34",
           status: true
         },
         {
@@ -59,9 +59,9 @@ Page({
           price: "￥34",
           status: false
         }
-      ]
+      
 
-    }],
+    ],
     curIndex: 0,
 
 
@@ -104,9 +104,9 @@ Page({
       typeId: res.currentTarget.dataset.data.id
     })
     console.log("typeId", this.data.typeId)
-    var url = "http://192.168.31.154:8080/f/goods/goodsInfo";
+    var url = app.globalData.urlIp+"goods/goodsInfo";
     var params = {
-      id: this.data.typeId,
+      typeId: this.data.typeId,
     }
 
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed); 
@@ -115,7 +115,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var url = "http://192.168.31.154:8080/f/goods/goodsType";
+    var url = app.globalData.urlIp +"goods/goodsType";
     var params = {
     
     }
@@ -129,16 +129,32 @@ Page({
     })
   },
   onSuccess: function (res) { //onSuccess回调
-    console.log(res.data.listTitle)
+    console.log(res)
     wx.hideLoading();
-    if (res.data.listTitle=="undefined"){
-      console.log("sssssss")
-    }
+    if (res.msg=="获取商品分类成功"){
     this.setData({
       listTitle: res.data.listTitle,
       navRightItems: res.data.navRightItems
       
     })
+    } else if (res.msg == "获取商品信息成功"){
+      console.log(res.data.navRightItems)
+      this.setData({
+        navRightItems: res.data.navRightItems
+
+      })
+    } else if (res.msg == "暂无商品信息"){
+      this.setData({
+        navRightItems: []
+      })
+     
+      wx.showToast({
+        title: '暂无改商品',
+        icon: 'success',
+        duration: 2000
+      })
+    }
+
   },
   onFailed: function (msg) { //onFailed回调
     wx.hideLoading();

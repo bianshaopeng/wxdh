@@ -1,6 +1,6 @@
 <view class='cart'>
 
-    <view class="empty_wrap" wx:if="{{car.empty}}">
+    <view class="empty_wrap" wx:if="{{status}}">
         <image class="empyt_icon" src="../../images/empty_car.png"></image>
         <text class="empyt_txt">购物车空空如也，快去挑好货呗~</text>
         <!-- <view class="empty_btn"> 逛逛新品首发</view> -->
