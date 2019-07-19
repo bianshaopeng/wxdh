@@ -6,12 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    carselect:true,
+    moneys:0,
+    carselect: true,
     inputValue: null,
     showAll: false,
     showSearch: true,
     hiddenName: false,
-    selectgoogs:[],
+    selectgoogs: [],
     ids: ["a", "b", "c", "d"],
     scorllId: "",
     informations: {
@@ -102,27 +103,27 @@ Page({
             list: [{
                 id: "a",
                 image: "../../images/list1.jpg",
-                title: "新疆薄皮核桃",
+                title: "新疆薄皮核桃1",
                 standard: "500g",
-                price: "￥34",
+                price: 34,
                 price_smail: "￥00",
-                number:0,
+                number: 0,
               },
               {
                 id: "b",
                 image: "../../images/list1.jpg",
-                title: "新疆薄皮核桃",
+                title: "新疆薄皮核桃2",
                 standard: "500g",
-                price: "￥34",
+                price: 34,
                 price_smail: "￥00",
                 number: 0,
               },
               {
                 id: "c",
                 image: "../../images/list1.jpg",
-                title: "新疆薄皮核桃",
+                title: "新疆薄皮核桃3",
                 standard: "500g",
-                price: "￥34",
+                price: 34,
                 price_smail: "￥00",
                 number: 0,
               }
@@ -136,7 +137,7 @@ Page({
               image: "../../images/list1.jpg",
               title: "新疆薄皮核桃",
               standard: "500g",
-              price: "￥34",
+              price: 34,
               price_smail: "￥45",
               number: 0,
             }]
@@ -149,7 +150,7 @@ Page({
               image: "../../images/list1.jpg",
               title: "新疆薄皮核桃",
               standard: "500g",
-              price: "￥34",
+              price: 34,
               price_smail: "#45",
               number: 0,
             }]
@@ -162,7 +163,7 @@ Page({
               image: "../../images/list1.jpg",
               title: "新疆薄皮核桃111",
               standard: "500g",
-              price: "$34",
+              price: 34,
               price_smail: "#45",
               number: 0,
             }]
@@ -185,58 +186,45 @@ Page({
     chooseSize: false,
     animationData: {},
     cardesc: [{
-        id:"ssss",
-        title: "北京方便面",
-        money: "12",
-        number: "2"
-      },
-      {
-        id:"sss",
-        title: "北京方便面",
-        money: "12",
-        number: "2"
-      },
-       {
-        id: "sss",
-        title: "北京方便面",
-        money: "12",
-        number: "2"
-      }
-    ]
+      id: "ssss",
+      title: "北京方便面",
+      money: 12,
+      number: 2
+    }, ]
 
   },
 
 
-  barClick1: function () {
+  barClick1: function() {
     this.setData({
       scorllId: "a"
     })
 
   },
-  barClick2: function () {
+  barClick2: function() {
     this.setData({
       scorllId: "b"
     })
 
   },
-  barClick3: function () {
+  barClick3: function() {
     this.setData({
       scorllId: "c"
     })
 
   },
-  barClick4: function () {
+  barClick4: function() {
     this.setData({
       scorllId: "d"
     })
   },
-  typeClick: function (res) {
+  typeClick: function(res) {
     console.log(res.currentTarget.dataset.id)
     wx.navigateTo({
       url: '../indextype/indextype?type=' + JSON.stringify(res.currentTarget.dataset.id),
     })
   },
-  imgClick: function (res) {
+  imgClick: function(res) {
     console.log(res.currentTarget.dataset)
     wx.showToast({
       title: '添加购物车成功',
@@ -245,20 +233,20 @@ Page({
     })
   },
 
-  bindinput: function (e) {
+  bindinput: function(e) {
     wx.navigateTo({
       url: '../search/search',
 
     })
   },
-  detailsClick: function () {
+  detailsClick: function() {
 
   },
-  showClick: function () {
+  showClick: function() {
     console.log('xxx')
-  
+
     wx.getUserInfo({
-      success: function (res) {
+      success: function(res) {
         var userInfo = res.userInfo
         var nickName = userInfo.nickName
         var avatarUrl = userInfo.avatarUrl
@@ -272,7 +260,7 @@ Page({
 
   },
   // 底部动画
-  chooseSezi: function (e) {
+  chooseSezi: function(e) {
     // 用that取代this，防止不必要的情况发生
     var that = this;
     // 创建一个动画实例
@@ -294,14 +282,14 @@ Page({
       chooseSize: true
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
-    setTimeout(function () {
+    setTimeout(function() {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export()
       })
     }, 200)
   },
-  hideModal: function (e) {
+  hideModal: function(e) {
     var that = this;
     var animation = wx.createAnimation({
       duration: 1000,
@@ -313,7 +301,7 @@ Page({
       animationData: animation.export()
 
     })
-    setTimeout(function () {
+    setTimeout(function() {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export(),
@@ -323,77 +311,142 @@ Page({
   },
 
 
-//加数量
-  addClick:function(res){
+  //加数量
+  addClick: function(res) {
     var that = this
-    if(this.data.carselect==true){
+    if (this.data.carselect == true) {
       that.setData({
-        carselect:false
+        carselect: false,
       })
+      for (var i in this.data.cardesc) {
+        that.setData({
+          moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+        })
+      }
     }
 
     //外层index
     var index = res.currentTarget.dataset.index
-   
+
     //内层index
     var index1 = res.currentTarget.dataset.item
-    // var id = this.data.informations.data.bottom[index].list[index1].number
-    // console.log(id)
-    var item = { id: this.data.informations.data.bottom[index].list[index1].id, title:   this.data.informations.data.bottom[index].list[index1].title, money: this.data.informations.data.bottom[index].list[index1].price, number: this.data.informations.data.bottom[index].list[index1].number}
-    var sItem = "informations.data.bottom[" + index + "].list["+index1+"].number";
-   
-    for (var i in this.data.cardesc){
-      var sItem1 = "cardesc[" + i + "].id";
-      if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id){
-          that.setData({
-            [sItem1]:this.data.cardesc[i].id+1
-          })
-      }else{
+    var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
+    that.setData({
+      [sItem]: this.data.informations.data.bottom[index].list[index1].number + 1,
+    })
+    var iscun = false;
+    var item = {
+      id: this.data.informations.data.bottom[index].list[index1].id,
+      title: this.data.informations.data.bottom[index].list[index1].title,
+      money: this.data.informations.data.bottom[index].list[index1].price,
+      number: this.data.informations.data.bottom[index].list[index1].number
+    }
+
+    for (var i in this.data.cardesc) {
+      if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
+        iscun = true;
+        var sItem1 = "cardesc[" + i + "].number";
         that.setData({
-          cardesc: this.data.cardesc.concat(item)
+          [sItem1]: this.data.cardesc[i].number + 1,
+          moneys: this.data.moneys + this.data.cardesc[i].money 
         })
+
       }
     }
-    that.setData({
-      [sItem]: this.data.informations.data.bottom[index].list[index1].number+1,
-       
 
+    console.log(iscun)
+    if (iscun == false) {
+      that.setData({
+        cardesc: this.data.cardesc.concat(item),
+        moneys: this.data.moneys + this.data.informations.data.bottom[index].list[index1].price * this.data.informations.data.bottom[index].list[index1].number
+      })
+    }
 
-      
-    })
   },
 
-//减数量
-  reduceClick: function (res) {
+  //减数量
+  reduceClick: function(res) {
     var that = this
     //外层index
     var index = res.currentTarget.dataset.index
     console.log(index)
-    //内层index
+    //内层index1
     var index1 = res.currentTarget.dataset.item
     console.log(index1)
     var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
     that.setData({
       [sItem]: this.data.informations.data.bottom[index].list[index1].number - 1.
-     
+
+    })
+    for (var i in this.data.cardesc) {
+      if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
+        if (this.data.informations.data.bottom[index].list[index1].number == 0) {
+          console.log("等于0:"+i)
+          that.setData({
+            moneys: this.data.moneys - this.data.cardesc[i].money,
+          })
+          this.data.cardesc.splice(i, 1)
+          that.setData({          
+            cardesc: this.data.cardesc,   
+          })
+          
+        } else {
+          console.log(this.data.cardesc[i].number)
+          console.log("不等于0")
+          var sItem2 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem2]: this.data.cardesc[i].number - 1,
+             moneys: this.data.moneys - this.data.cardesc[i].money 
+          })
+        }
+
+      }
+    }
+  },
+  addToast:function(res){
+    var that = this
+    var index = res.currentTarget.dataset.index
+    var sItem2 = "cardesc[" + index + "].number";
+    that.setData({
+      [sItem2]: this.data.cardesc[index].number + 1,
+      moneys: this.data.moneys + this.data.cardesc[index].money 
     })
   },
-
-
+  reduceToast:function(res){
+    var that = this
+    var index = res.currentTarget.dataset.index
+    var sItem2 = "cardesc[" + index + "].number";
+    if(this.data.cardesc[index].number>1){
+      that.setData({
+        [sItem2]: this.data.cardesc[index].number - 1,
+        moneys: this.data.moneys - this.data.cardesc[index].money
+      })
+    }else{
+      that.setData({
+        moneys: this.data.moneys - this.data.cardesc[index].money
+      })
+      this.data.cardesc.splice(index, 1)
+      that.setData({
+        cardesc: this.data.cardesc,
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
-    
+   
+   
+
 
 
     wx.getLocation({
-      success: function (res) {
+      success: function(res) {
         console.log(res)
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res)
       },
 
@@ -406,15 +459,15 @@ Page({
 
     }
 
-    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); //调用get方法情就是户数
+    // netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); //调用get方法情就是户数
 
   },
-  onStart: function () { //onStart回调
+  onStart: function() { //onStart回调
     wx.showLoading({
       title: '正在加载',
     })
   },
-  onSuccess: function (res) { //onSuccess回调
+  onSuccess: function(res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
     this.setData({
@@ -422,7 +475,7 @@ Page({
       // jokeList: res.result.data //请求结果数据
     })
   },
-  onFailed: function (msg) { //onFailed回调
+  onFailed: function(msg) { //onFailed回调
     wx.hideLoading();
     if (msg) {
       wx.showToast({
@@ -430,7 +483,7 @@ Page({
       })
     }
   },
-  click: function (e) {
+  click: function(e) {
     this.setData({
 
       hiddenName: !this.data.hiddenName
@@ -440,49 +493,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

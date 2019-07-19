@@ -89,7 +89,7 @@
                   <view class="list_center">
                     <text class="center_title">{{list.title}}</text>
                     <text class="center_standard">{{list.standard}}</text>
-                    <text class="center_price">{{list.price}}<text class="sm_price">{{list.price_smail}}
+                    <text class="center_price">￥{{list.price}}<text class="sm_price">{{list.price_smail}}
                       </text>
 
                     </text>
@@ -124,7 +124,7 @@
   <image class="bg_car" src="/images/bgcar.png" bindtap="chooseSezi">
   </image>
   <view class="sum">
-    ￥45.21
+    ￥{{moneys}}
   </view>
   <view class="cardesc_right">
     结算
@@ -143,9 +143,9 @@
         <text class=""> ￥{{item.money}}</text>
       </view>
       <view class="list_right">
-        <image class="car_icon" src="/images/carjian.png"></image>
+        <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceToast'></image>
         <text class=""> {{item.number}}</text>
-        <image class="car_icon" src="/images/carjia.png"></image>
+        <image class="car_icon" src="/images/carjia.png" data-index='{{index}}' bindtap='addToast'></image>
       </view>
     </view>
   </block>
