@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="contair">
+<view class='view-ka'>
+  <input class='view-input' placeholder="请输入电话号码"  bindinput='getPhoneValue' placeholder-style="font-size:10pt; color: #989898;" value='{{phone}}'></input>
+  </view>
+  <view class='view-ka'>
+  <input class='yzm' style='margin-top:1rpx'  placeholder='请输入验证码' placeholder-style="font-size:10pt; color: #989898;"></input>
+  <button style='width:40%' bindtap='getVerification' disabled='{{disabled}}'>{{timer}}</button>
+  
+  </view>
+  <button class='view-btn'>绑 定</button>
+  
+</view>
