@@ -1,4 +1,4 @@
-<view class='caregory'>
+<view class='caregory' style="position: relative">
   <!-- left -->
   <scroll-view class="nav_left" scroll-y>
 
@@ -27,28 +27,64 @@
   <scroll-view class='nav_right' scroll-y>
 
     <view class="right_box">
-     
-        <block wx:for="{{navRightItems}}" wx:for-item="list">
-          <view class="right_list">
-            <view class="img_box">
-              <image class="" src="{{list.image}}" mode="aspectFill"></image>
-              <view class="status" wx:if='{{list.status}}'>已售磬</view>
-            </view>
-            <view class="right_title">{{list.title}}
-              <view class="title_standard">{{list.standard}}</view>
-            </view>
-            <view class="price">{{list.price}}</view>
-            <view class="car">
-              <image src="../../images/carjia.png" mode="aspectFill">
-              </image>
-            </view>
+
+      <block wx:for="{{navRightItems}}" wx:for-item="list">
+        <view class="right_list">
+          <view class="img_box">
+            <image class="" src="{{list.image}}" mode="aspectFill"></image>
+            <view class="status" wx:if='{{list.status}}'>已售磬</view>
           </view>
-        </block>
+          <view class="right_title">{{list.title}}
+            <view class="title_standard">{{list.standard}}</view>
+          </view>
+          <view class="price">{{list.price}}</view>
+          <view class="list_right" wx:if='{{!list.status}}'>
+            <black>
+              <image class="car_icon" src="/images/carjian.png"></image>
+              <text class="">11</text>
+            </black>
+            <image class="car_icon" src="/images/carjia.png"></image>
+          </view>
+        </view>
+      </block>
 
     </view>
-
-
-
   </scroll-view>
+
+  <!-- 底部购物车显示 -->
+  <view class="car_nav" hidden='{{carselect}}'>
+    <image class="bg_car" src="/images/bgcar.png" bindtap="chooseSezi">
+    </image>
+    <view class="sum">
+      ￥{{moneys}}
+    </view>
+    <view class="cardesc_right" bindtap='settle'>
+      结算
+    </view>
+  </view>
+  <view class="maskLayer" wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+  <view class="choose" wx:if="{{chooseSize}}" animation='{{animationData}}'>
+    <view class="choose_h2">
+      商品详情
+    </view>
+    <!-- 循环 -->
+    <scroll-view scroll-y="true" style="max-height: 460rpx">
+      <block wx:for="{{cardesc}}">
+        <view class="choose_item">
+          <view class="item_left">
+            <text class=""> {{item.title}}</text>
+            <text class=""> ￥{{item.money}}</text>
+          </view>
+          <view class="list_right">
+            <image class="car_icon" src="/images/carjian.png"></image>
+            <text class=""> {{item.number}}</text>
+            <image class="car_icon" src="/images/carjia.png"></image>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+
 
 </view>

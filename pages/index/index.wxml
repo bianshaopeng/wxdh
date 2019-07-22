@@ -43,16 +43,16 @@
             <text>{{informations.data.bottom[0].title}}</text>
           </view>
           <view class="btn_item" bindtap='barClick2'>
-           <image src="{{informations.data.bottom[1].image}}" />
+            <image src="{{informations.data.bottom[1].image}}" />
             <text>{{informations.data.bottom[1].title}}</text>
 
           </view>
           <view class="btn_item" bindtap='barClick3'>
-             <image src="{{informations.data.bottom[2].image}}" />
+            <image src="{{informations.data.bottom[2].image}}" />
             <text>{{informations.data.bottom[2].title}}</text>
           </view>
           <view class="btn_item" bindtap='barClick4'>
-              <image src="{{informations.data.bottom[3].image}}" />
+            <image src="{{informations.data.bottom[3].image}}" />
             <text>{{informations.data.bottom[3].title}}</text>
           </view>
         </view>
@@ -76,7 +76,7 @@
           <!-- 每个推荐 -->
           <block wx:for="{{informations.data.bottom}}" wx:for-item="item">
             <view class="recommend_warp">
-              <view class="title_box" id="{{item.id}}" >
+              <view class="title_box" id="{{item.id}}">
                 <text class="h2_title">{{item.title}}</text>
               </view>
               <block wx:for="{{item.list}}" wx:for-item="list" wx:for-index="index1">
@@ -97,11 +97,13 @@
 
                   <!-- car -->
                   <view class="list_right">
-                   <black  wx:if="{{list.number>0}}" >
-                    <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceClick'  data-item='{{index1}}'></image>
-                    <text class=""  > {{list.number}}</text>
+                    <black wx:if="{{list.number>0}}">
+                      <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceClick'
+                        data-item='{{index1}}'></image>
+                      <text class=""> {{list.number}}</text>
                     </black>
-                    <image class="car_icon" src="/images/carjia.png" data-index='{{index}}'      bindtap='addClick'  data-index='{{index}}' data-item='{{index1}}'></image>
+                    <image class="car_icon" src="/images/carjia.png" data-index='{{index}}' bindtap='addClick'
+                      data-index='{{index}}' data-item='{{index1}}'></image>
                   </view>
 
 
@@ -136,22 +138,22 @@
     商品详情
   </view>
   <!-- 循环 -->
-  <block wx:for="{{cardesc}}">
-    <view class="choose_item">
-      <view class="item_left">
-        <text class=""> {{item.title}}</text>
-        <text class=""> ￥{{item.money}}</text>
+  <scroll-view scroll-y="true" style="max-height: 460rpx">
+    <block wx:for="{{cardesc}}">
+      <view class="choose_item">
+        <view class="item_left">
+          <text class=""> {{item.title}}</text>
+          <text class=""> ￥{{item.money}}</text>
+        </view>
+        <view class="list_right">
+          <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceToast'></image>
+          <text class=""> {{item.number}}</text>
+          <image class="car_icon" src="/images/carjia.png" data-index='{{index}}' bindtap='addToast'></image>
+        </view>
       </view>
-      <view class="list_right">
-        <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceToast'></image>
-        <text class=""> {{item.number}}</text>
-        <image class="car_icon" src="/images/carjia.png" data-index='{{index}}' bindtap='addToast'></image>
-      </view>
-    </view>
-  </block>
+    </block>
+  </scroll-view>
+
 
 
 </view>
-
-
-
