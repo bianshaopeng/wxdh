@@ -21,7 +21,7 @@
         <view class="top_serch">
           <view class="location">
             <image src="../../images/localion.png" alt="" mode="aspectFill" />
-            <text class="local-title">兰州高新区开发区 </text>
+            <text class="local-title">{{informations.address}} </text>
           </view>
           <view class="serch">
             <view class="section">
@@ -39,21 +39,21 @@
       <view class="btn_view">
         <view class="four_btn">
           <view class="btn_item" bindtap='barClick1'>
-            <image src="../../images/four_btn1.png" mode="aspectFill" />
-            <text>掌柜推荐</text>
+            <image src="{{informations.data.bottom[0].image}}" />
+            <text>{{informations.data.bottom[0].title}}</text>
           </view>
           <view class="btn_item" bindtap='barClick2'>
-            <image src="../../images/four_btn2.png" mode="aspectFill" />
-            <text>新人特惠</text>
+           <image src="{{informations.data.bottom[1].image}}" />
+            <text>{{informations.data.bottom[1].title}}</text>
 
           </view>
           <view class="btn_item" bindtap='barClick3'>
-            <image src="../../images/four_btn3.png" mode="aspectFill" />
-            <text>限时抢购</text>
+             <image src="{{informations.data.bottom[2].image}}" />
+            <text>{{informations.data.bottom[2].title}}</text>
           </view>
           <view class="btn_item" bindtap='barClick4'>
-            <image src="../../images/four_btn4.png" mode="aspectFill" />
-            <text>新品首发</text>
+              <image src="{{informations.data.bottom[3].image}}" />
+            <text>{{informations.data.bottom[3].title}}</text>
           </view>
         </view>
       </view>

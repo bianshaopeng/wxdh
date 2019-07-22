@@ -17,8 +17,8 @@
     "pages/pay_desc/index",
     "pages/me/refund/index",
     "pages/me/refundesc/index",
-    "pages/search/search"
-
+    "pages/search/search",
+    "pages/hispayment/hispayment"
   ],
   "permission": {
     "scope.userLocation": {
@@ -34,7 +34,8 @@
   "tabBar": {
     "selectedColor": "#F95959",
     "color": "#838282",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/2.png",

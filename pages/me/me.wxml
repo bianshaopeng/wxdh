@@ -44,7 +44,7 @@
         </view>
       </view>
       <view class='view-bottom-two'>
-        <view class='view-bottom-two-item'>
+        <view class='view-bottom-two-item' bindtap='historyClick'>
           <view class='view-bottom-two-item-text'>历史订单</view>
           <image src='../../images/info.png'></image>
         </view>

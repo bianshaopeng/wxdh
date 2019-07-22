@@ -1,19 +1,19 @@
-<!-- 已收货页面 -->
+<!-- 历史订单页面 -->
 <view class="warp_box">
     <!-- 空页面提示 -->
-    <view class="empty_wrap" wx:if="{{car.empty}}">
+    <view class="empty_wrap" wx:if="{{empty}}">
         <image class="empyt_icon" src="../../images/empty_car.png"></image>
         <text class="empyt_txt">您还没有相关的订单</text>
 
     </view>
     <!-- 订单列表 -->
     <!-- 商品 -->
-    <block wx:for="{{goodsMsg}}">
+    <block wx:for="{{goodsMsg}}" wx:if="{{!empty}}">
         <view class="link_box">
             <view class="order_number">
                 订单编号: {{item.orderid}}
             </view>
-            <view class="com_list" bindtap="pay_desc">
+            <view class="com_list" data-orderid='{{item.orderid}}' bindtap="pay_desc">
                 <view class="center_item">
                     <image class="icon" src="{{item.image}}"></image>
                     <view class="text_box">
@@ -26,8 +26,8 @@
             </view>
        
             <view class="sure_btn">
-                <view class="btn_des" hover-class="active" bindtap="Todesc" data-txt="{{btnDesc}}">
-                    立即支付
+                <view class="btn_des" hover-class="active">
+                    {{item.status}}
                 </view>
 
             </view>

@@ -2,7 +2,7 @@
 <view class="warp_box">
     <!-- 顶部有地址 -->
     <view class="address">
-        <image class="" src="{{address.image}}" mode="aspectFill"> </image>
+        <image class="" src="{{adressimage}}" mode="aspectFill"></image>
         <view class="address_title">
             <text class="title-user">{{address.user}}{{address.phone}}</text>
             <text class="title-desc">{{address.desc}}</text>

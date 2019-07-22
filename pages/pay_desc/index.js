@@ -7,14 +7,16 @@ Page({
   data: {
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
-    address: {
-      status: true,
-      image: "../../images/bg_lockion.png",
+    adressimage: "../../images/bg_lockion.png",
+    orderid:'2222222222',
+    ordertime:'2019-07-20',
+    address: {   
       user: "里二狗",
       phone: "18965651515",
       desc: "甘肃省兰州市城关区名城广场3号楼3287"
 
     },
+   
     guess_like: [{
         image: "../../images/list1.jpg",
         title: "新疆薄皮核桃",
@@ -47,7 +49,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var orderid = options.options
+    var url = app.globalData.urlIp + "goods/payment";
+    var params = {
+      order: orderid,
+      type: '0',
 
+    }
+
+    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
 
   /**
@@ -55,6 +65,30 @@ Page({
    */
   onReady: function () {
 
+  },
+  onSuccess: function (res) { //onSuccess回调
+    console.log(res)
+    wx.hideLoading();
+    if (res.msg == "成功") {
+      self.setData({
+        empty: false,
+        goodsMsg: res.goodsMsg,
+      })
+    } else if (res.msg == "暂无数据") {
+      self.setData({
+        empty: true,
+        goodsMsg: [],
+      })
+    }
+
+  },
+  onFailed: function (msg) { //onFailed回调
+    wx.hideLoading();
+    if (msg) {
+      wx.showToast({
+        title: msg,
+      })
+    }
   },
 
   /**
