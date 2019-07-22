@@ -1,11 +1,14 @@
 // pages/me/me.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isLogin:true,
+    userId:'',
+    avatarUrl:'../../images/anthor.png',
     viewBoneItem: [{
       image: "../../images/shouhou4.png",
       text: "待付款"
@@ -20,6 +23,66 @@ Page({
       text: "退款/售后"
     }]
 
+  },
+  //登录
+  loginClick:function(){
+    var that = this
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+
+            success: res => {
+              console.log('res.userInfo')
+              // 可以将 res 发送给后台解码出 unionId
+              app.globalData.userInfo = res.userInfo
+              console.log(res.userInfo)
+
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }
+      }
+    })
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log(res)
+
+          //发起网络请求
+          // wx.request({
+          //   url: 'https://test.com/onLogin',
+          //   data: {
+          //     code: res.code
+          //   }
+          // })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+    // 
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res)
+        console.log(res.userInfo.avatarUrl)
+        that.setData({
+          avatarUrl: res.userInfo.avatarUrl
+        })
+        wx.setStorage({
+          key: 'avatarUrl',
+          data: 'res.userInfo.avatarUrl',
+        })
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }
+    })
   },
   couponClick: function () {
     wx.navigateTo({
@@ -112,18 +175,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
     wx.setStorage({
       key: 'userId',
       data: '4',
     })
-
+        
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        that.setData({
+          userId:res.data
+        })
+      },
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    if (this.data.userId != null || this.data.userId != ''){
+      this.setData({
+        // isLogin:false
+      })
+    }
 
   },
 

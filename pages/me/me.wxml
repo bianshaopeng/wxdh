@@ -6,9 +6,9 @@
       <view class="view-login">
         <view class="view-anthor">
 
-          <image src="../../images/anthor.png" mode='scaleToFill'></image>
+          <image src="{{avatarUrl}}" mode='scaleToFill'></image>
         </view>
-        <view class="view-name">18884488888</view>
+        <view class="view-name" >18884488888</view>
       </view>
       <view class="view-zdress" bindtap='adressClick'>修改收货信息</view>
 
@@ -36,8 +36,7 @@
 
     <view class='view-bottom'>
       <view class='view-bottom-one'>
-        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' data-txt="{{item.text}}"
-          bindtap='itemClick'>
+        <view class='view-bottom-one-item' wx:for="{{viewBoneItem}}" data-index='{{index}}' data-txt="{{item.text}}" bindtap='itemClick'>
           <image src=" {{item.image}}" mode='aspectFit'>
           </image>
           <view style='font-size:10pt;color:#595959'>{{item.text}}</view>
@@ -81,5 +80,12 @@
     </view>
     <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
   </view>
+
+</view>
+<view class='view-rz' wx:if='{{isLogin}}'>
+<view style='width:80%;height:60%;background-color:white; flex-direction: column' >
+<image ></image>
+<button open-type="getUserInfo" bindtap='loginClick'>授权登录</button>
+</view>
 
 </view>
