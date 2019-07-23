@@ -58,6 +58,8 @@ getphone(){
       duration: 1000
     })
     return false
+  }else{
+    return true
   }
 },
   /**

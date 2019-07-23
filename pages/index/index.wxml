@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
-<scroll-view style='height:100%;position:absolute' scroll-y="true" scroll-into-view="{{scorllId}}">
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
+<scroll-view style='height:{{height1}}%;position:absolute' scroll-y="true" scroll-into-view="{{scorllId}}">
 
   <view>
 
@@ -89,7 +90,7 @@
                   <view class="list_center">
                     <text class="center_title">{{list.title}}</text>
                     <text class="center_standard">{{list.standard}}</text>
-                    <text class="center_price">￥{{list.price}}<text class="sm_price">{{list.price_smail}}
+                    <text class="center_price">￥{{list.price}}<text class="sm_price">￥{{list.price_smail}}
                       </text>
 
                     </text>
@@ -126,7 +127,7 @@
   <image class="bg_car" src="/images/bgcar.png" bindtap="chooseSezi">
   </image>
   <view class="sum">
-    ￥{{moneys}}
+    ￥{{filters.toFix(moneys)}}
   </view>
   <view class="cardesc_right" bindtap='settle'>
     结算
@@ -153,7 +154,4 @@
       </view>
     </block>
   </scroll-view>
-
-
-
 </view>

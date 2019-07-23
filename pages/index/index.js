@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    height1:100,
     moneys: 0,
     carselect: true,
     inputValue: null,
@@ -510,23 +511,7 @@ Page({
   detailsClick: function() {
 
   },
-  showClick: function() {
-    console.log('xxx')
-
-    wx.getUserInfo({
-      success: function(res) {
-        var userInfo = res.userInfo
-        var nickName = userInfo.nickName
-        var avatarUrl = userInfo.avatarUrl
-        var gender = userInfo.gender //性别 0：未知、1：男、2：女
-        var province = userInfo.province
-        var city = userInfo.city
-        var country = userInfo.country
-        console.log(userInfo)
-      }
-    })
-
-  },
+  
   // 底部动画
   chooseSezi: function(e) {
     // 用that取代this，防止不必要的情况发生
@@ -585,6 +570,7 @@ Page({
     if (this.data.carselect == true) {
       that.setData({
         carselect: false,
+        height1:90,
       })
       for (var i in this.data.cardesc) {
         that.setData({
@@ -649,7 +635,6 @@ Page({
     for (var i in this.data.cardesc) {
       if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
         if (this.data.informations.data.bottom[index].list[index1].number == 0) {
-          console.log("等于0:" + i)
           that.setData({
             moneys: this.data.moneys - this.data.cardesc[i].money,
           })
@@ -660,7 +645,6 @@ Page({
 
         } else {
           console.log(this.data.cardesc[i].number)
-          console.log("不等于0")
           var sItem2 = "cardesc[" + i + "].number";
           that.setData({
             [sItem2]: this.data.cardesc[i].number - 1,
@@ -740,30 +724,27 @@ Page({
    */
   onLoad: function(options) {
 
-
-
-
+  var that = this
 
 
     wx.getLocation({
       success: function(res) {
         console.log(res)
+        var url = app.globalData.urlIp + "/index/homepage";
+        var params = {
+          lat: res.latitude,
+          lon: res.longitude,
+
+        }
+
+        netUtil.getRequest(url, params, that.onStart, that.onSuccess, that.onFailed);
       },
       fail: function(res) {
         console.log(res)
       },
 
     })
-
-    var url = app.globalData.urlIp + "/index/homepage";
-    var params = {
-      lan: "36.05709",
-      lon: "103.82538",
-
-    }
-
-    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); //调用get方法情就是户数
-
+   
   },
   onStart: function() { //onStart回调
     wx.showLoading({
