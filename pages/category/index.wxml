@@ -1,4 +1,5 @@
-<view class='caregory' style="position: relative">
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
+<view class='caregory' style="position: relative;height:{{height1}}%">
   <!-- left -->
   <scroll-view class="nav_left" scroll-y>
 
@@ -39,11 +40,11 @@
           </view>
           <view class="price">{{list.price}}</view>
           <view class="list_right" wx:if='{{!list.status}}'>
-            <black>
-              <image class="car_icon" src="/images/carjian.png"></image>
-              <text class="">11</text>
+            <black wx:if="{{list.number>0}}">
+              <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceClick'></image>
+              <text class="">{{list.number}}</text>
             </black>
-            <image class="car_icon" src="/images/carjia.png"></image>
+            <image class="car_icon" src="/images/carjia.png" data-index='{{index}}' bindtap='addClick'></image>
           </view>
         </view>
       </block>
@@ -56,7 +57,7 @@
     <image class="bg_car" src="/images/bgcar.png" bindtap="chooseSezi">
     </image>
     <view class="sum">
-      ￥{{moneys}}
+      ￥{{filters.toFix(moneys)}}
     </view>
     <view class="cardesc_right" bindtap='settle'>
       结算
@@ -76,9 +77,9 @@
             <text class=""> ￥{{item.money}}</text>
           </view>
           <view class="list_right">
-            <image class="car_icon" src="/images/carjian.png"></image>
+            <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceToast'></image>
             <text class=""> {{item.number}}</text>
-            <image class="car_icon" src="/images/carjia.png"></image>
+            <image class="car_icon" src="/images/carjia.png" data-index='{{index}}' bindtap='addToast'></image>
           </view>
         </view>
       </block>

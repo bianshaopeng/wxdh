@@ -7,6 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    height1:100,
+    moneys:0,
+    carselect: true,
     typeId: "",
     key: 0,
     colors: [],
@@ -48,63 +51,72 @@ Page({
     ],
     navRightItems: [{
 
-        id: "xxx",
+        id: "a",
         image: "../../images/cargoty.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "34",
+        price: 34.00,
+        number:0,
         status: true
       },
       {
-        id: "xxx",
+        id: "b",
         image: "../../images/cargoty.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥34",
+        price: 34.00,
+        number: 0,
         status: false
       },
       {
-        id: "xxx",
+        id: "c",
         image: "../../images/cargoty.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥34",
+        price: 34.00,
+        number: 0,
         status: false
       },
       {
-        id: "xxx",
+        id: "d",
         image: "../../images/cargoty.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥34",
+        price: 34.00,
+        number: 0,
         status: false
       },
       {
-        id: "xxx",
+        id: "e",
         image: "../../images/cargoty.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥34",
+        price: 34.00,
+        number: 0,
         status: false
       }
 
 
     ],
-    curIndex: 0,
-    // 底部动画 
-    chooseSize: false,
-    animationData: {},
-
     cardesc: [{
       id: "ssss",
       title: "北京方便面",
       money: 12,
       number: 2
-    }, ]
+    },],
+    curIndex: 0,
+    // 底部动画 
+    chooseSize: false,
+    animationData: {},
 
-
-
-
+    cardesc: [
+    //   {
+    //   id: "ssss",
+    //   title: "北京方便面",
+    //   money: 12,
+    //   number: 2
+    // }, 
+    ]
   },
   oneList: function (res) {
     var that = this
@@ -147,20 +159,155 @@ Page({
     var url = app.globalData.urlIp + "goods/goodsInfo";
     var params = {
       typeId: this.data.typeId,
+      userId:'1',
+      shopId:'13',
     }
 
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
+
+//商品加
+  addClick:function(res){
+    var that = this
+    if (this.data.carselect == true) {
+      that.setData({
+        carselect: false,
+        height1:90,
+      })
+      for (var i in this.data.cardesc) {
+        that.setData({
+          moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+        })
+      }
+    }
+    var index = res.currentTarget.dataset.index
+    var sItem = "navRightItems.[" + index + "].number";
+    that.setData({
+      [sItem]: this.data.navRightItems[index].number + 1,
+    })
+    var iscun = false;
+    var item = {
+      id: this.data.navRightItems[index].id,
+      title: this.data.navRightItems[index].title,
+      money: this.data.navRightItems[index].price,
+      number: this.data.navRightItems[index].number
+    }
+    for (var i in this.data.cardesc) {
+      if (this.data.cardesc[i].id === this.data.navRightItems[index].id) {
+        iscun = true;
+        var sItem1 = "cardesc[" + i + "].number";
+        that.setData({
+          [sItem1]: this.data.cardesc[i].number + 1,
+          moneys: parseFloat(this.data.moneys + this.data.cardesc[i].money)
+          
+        })
+       
+      }
+     
+    }
+    if (iscun == false) {
+      that.setData({
+        cardesc: this.data.cardesc.concat(item),
+        moneys: this.data.moneys + parseFloat(this.data.navRightItems[index].price * this.data.navRightItems[index].number)
+      })
+    }
+   
+  },
+  //商品减
+  reduceClick: function (res) {
+    var that = this
+    var index = res.currentTarget.dataset.index
+    var sItem = "navRightItems.[" + index + "].number";
+    that.setData({
+      [sItem]: this.data.navRightItems[index].number - 1,
+    })
+    for (var i in this.data.cardesc) {
+      if (this.data.cardesc[i].id === this.data.navRightItems[index].id) {
+        if (this.data.navRightItems[index].number == 0) {
+          console.log("等于0:" + i)
+          that.setData({
+            moneys: this.data.moneys - this.data.cardesc[i].money,
+          })
+          this.data.cardesc.splice(i, 1)
+          that.setData({
+            cardesc: this.data.cardesc,
+          })
+
+        } else {
+          console.log(this.data.cardesc[i].number)
+          console.log("不等于0")
+          var sItem2 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem2]: this.data.cardesc[i].number - 1,
+            moneys: this.data.moneys - this.data.cardesc[i].money
+          })
+        }
+
+      }
+    }
+  },
+  //购物车加
+  addToast: function (res) {
+    var that = this
+    var index = res.currentTarget.dataset.index
+    var sItem2 = "cardesc[" + index + "].number";
+    that.setData({
+      [sItem2]: this.data.cardesc[index].number + 1,
+      moneys: this.data.moneys + this.data.cardesc[index].money
+    })
+    for (var i in this.data.navRightItems) {
+      if (this.data.cardesc[index].id == this.data.navRightItems[i].id) {
+        var sItem3 = "navRightItems[" + i + "].number";
+        that.setData({
+          [sItem3]: this.data.cardesc[index].number
+        })
+      }
+    }
+  },
+  //购物车减
+  reduceToast: function (res) {
+    var that = this
+    var index = res.currentTarget.dataset.index
+    var sItem2 = "cardesc[" + index + "].number";
+    that.setData({
+      [sItem2]: this.data.cardesc[index].number - 1,
+    })
+    for (var i in this.data.navRightItems) {
+      if (this.data.cardesc[index].id == this.data.navRightItems[i].id) {
+        var sItem3 = "navRightItems[" + i + "].number";
+        that.setData({
+          [sItem3]: this.data.cardesc[index].number
+        })
+      }
+    }
+    if (this.data.cardesc[index].number > 0) {
+      that.setData({
+
+        moneys: this.data.moneys - this.data.cardesc[index].money
+      })
+
+    } else {
+      that.setData({
+        moneys: this.data.moneys - this.data.cardesc[index].money
+      })
+      this.data.cardesc.splice(index, 1)
+      that.setData({
+        cardesc: this.data.cardesc,
+      })
+    }
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var url = app.globalData.urlIp + "goods/goodsType";
     var params = {
-
+       userId:'1',
+       shopId:'13'
     }
 
-    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+   netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
 
   },
   onStart: function () { //onStart回调
@@ -174,7 +321,7 @@ Page({
     if (res.msg == "获取商品分类成功") {
       this.setData({
         listTitle: res.data.listTitle,
-        navRightItems: res.data.navRightItems
+         navRightItems: res.data.navRightItems
 
       })
     } else if (res.msg == "获取商品信息成功") {
