@@ -178,7 +178,7 @@ Page({
     var that = this;
     wx.setStorage({
       key: 'userId',
-      data: '4',
+      data: '1',
     })
         
     wx.getStorage({

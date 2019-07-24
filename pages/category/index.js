@@ -7,11 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height1:100,
-    moneys:0,
+    height1: 100,
+    moneys: 0,
     carselect: true,
     typeId: "",
     key: 0,
+    index: 0,
     colors: [],
     fontColor: 'red',
     showtwo: true,
@@ -56,7 +57,7 @@ Page({
         title: "新疆薄皮核桃",
         standard: "500g",
         price: 34.00,
-        number:0,
+        number: 0,
         status: true
       },
       {
@@ -103,22 +104,22 @@ Page({
       title: "北京方便面",
       money: 12,
       number: 2
-    },],
+    }, ],
     curIndex: 0,
     // 底部动画 
     chooseSize: false,
     animationData: {},
 
     cardesc: [
-    //   {
-    //   id: "ssss",
-    //   title: "北京方便面",
-    //   money: 12,
-    //   number: 2
-    // }, 
+      //   {
+      //   id: "ssss",
+      //   title: "北京方便面",
+      //   money: 12,
+      //   number: 2
+      // }, 
     ]
   },
-  oneList: function (res) {
+  oneList: function(res) {
     var that = this
 
     console.log(res.currentTarget.dataset)
@@ -147,7 +148,7 @@ Page({
     }
 
   },
-  twoList: function (res) {
+  twoList: function(res) {
     var that = this
     console.log(res.currentTarget.dataset)
     var index1 = res.currentTarget.dataset
@@ -159,62 +160,81 @@ Page({
     var url = app.globalData.urlIp + "goods/goodsInfo";
     var params = {
       typeId: this.data.typeId,
-      userId:'1',
-      shopId:'13',
+      userId: '1',
+      shopId: '13',
     }
 
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
 
-//商品加
-  addClick:function(res){
+  //商品加
+  addClick: function(res) {
     var that = this
+    this.data.index = res.currentTarget.dataset.index
+    this.data.userId = wx.getStorageSync('userId')
+    if (this.data.userId == "") {
+      wx.showModal({
+        title: '提示',
+        content: '是否去授权登录',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '/pages/me/me'
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      return
+    }
     if (this.data.carselect == true) {
+      var url = app.globalData.urlIp + "cart/balance";
+      var params = {
+        userId: wx.getStorageSync('userId'),
+        shopId: wx.getStorageSync('shopId'),
+      }
+      netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    } else {
+      var index = this.data.index
+      var sItem = "navRightItems.[" + index + "].number";
       that.setData({
-        carselect: false,
-        height1:90,
+        [sItem]: this.data.navRightItems[index].number + 1,
       })
+      var iscun = false;
+      var item = {
+        id: this.data.navRightItems[index].id,
+        title: this.data.navRightItems[index].title,
+        money: this.data.navRightItems[index].price,
+        number: this.data.navRightItems[index].number
+      }
       for (var i in this.data.cardesc) {
+        if (this.data.cardesc[i].id === this.data.navRightItems[index].id) {
+          iscun = true;
+          var sItem1 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem1]: this.data.cardesc[i].number + 1,
+            moneys: parseFloat(this.data.moneys + this.data.cardesc[i].money)
+
+          })
+
+        }
+
+      }
+      if (iscun == false) {
         that.setData({
-          moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+          cardesc: this.data.cardesc.concat(item),
+          moneys: this.data.moneys + parseFloat(this.data.navRightItems[index].price * this.data.navRightItems[index].number)
         })
       }
     }
-    var index = res.currentTarget.dataset.index
-    var sItem = "navRightItems.[" + index + "].number";
-    that.setData({
-      [sItem]: this.data.navRightItems[index].number + 1,
-    })
-    var iscun = false;
-    var item = {
-      id: this.data.navRightItems[index].id,
-      title: this.data.navRightItems[index].title,
-      money: this.data.navRightItems[index].price,
-      number: this.data.navRightItems[index].number
-    }
-    for (var i in this.data.cardesc) {
-      if (this.data.cardesc[i].id === this.data.navRightItems[index].id) {
-        iscun = true;
-        var sItem1 = "cardesc[" + i + "].number";
-        that.setData({
-          [sItem1]: this.data.cardesc[i].number + 1,
-          moneys: parseFloat(this.data.moneys + this.data.cardesc[i].money)
-          
-        })
-       
-      }
-     
-    }
-    if (iscun == false) {
-      that.setData({
-        cardesc: this.data.cardesc.concat(item),
-        moneys: this.data.moneys + parseFloat(this.data.navRightItems[index].price * this.data.navRightItems[index].number)
-      })
-    }
-   
+
+
+
   },
   //商品减
-  reduceClick: function (res) {
+  reduceClick: function(res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem = "navRightItems.[" + index + "].number";
@@ -247,7 +267,7 @@ Page({
     }
   },
   //购物车加
-  addToast: function (res) {
+  addToast: function(res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem2 = "cardesc[" + index + "].number";
@@ -265,7 +285,7 @@ Page({
     }
   },
   //购物车减
-  reduceToast: function (res) {
+  reduceToast: function(res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem2 = "cardesc[" + index + "].number";
@@ -296,32 +316,36 @@ Page({
       })
     }
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var url = app.globalData.urlIp + "goods/goodsType";
     var params = {
-       userId:'1',
-       shopId:'13'
+      userId: wx.getStorageSync('userId'),
+      shopId: wx.getStorageSync('shopId')
     }
 
-   netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
 
   },
-  onStart: function () { //onStart回调
+  onShow: function() {
+
+  },
+
+  onStart: function() { //onStart回调
     wx.showLoading({
       title: '正在加载',
     })
   },
-  onSuccess: function (res) { //onSuccess回调
+  onSuccess: function(res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
     if (res.msg == "获取商品分类成功") {
       this.setData({
         listTitle: res.data.listTitle,
-         navRightItems: res.data.navRightItems
+        navRightItems: res.data.navRightItems
 
       })
     } else if (res.msg == "获取商品信息成功") {
@@ -330,6 +354,7 @@ Page({
         navRightItems: res.data.navRightItems
 
       })
+
     } else if (res.msg == "暂无商品信息") {
       this.setData({
         navRightItems: []
@@ -340,10 +365,107 @@ Page({
         icon: 'success',
         duration: 2000
       })
+    } else if (res.msg == "获取购物车成功") {
+      this.setData({
+        cardesc: res.cardesc
+      })
+      var that = this
+      if (this.data.carselect == true) {
+        that.setData({
+          carselect: false,
+          height1: 90,
+        })
+        for (var i in this.data.cardesc) {
+          that.setData({
+            moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+          })
+        }
+      }
+      var that = this;
+
+      var index = this.data.index
+      var sItem = "navRightItems.[" + index + "].number";
+      that.setData({
+        [sItem]: this.data.navRightItems[index].number + 1,
+      })
+      var iscun = false;
+      var item = {
+        id: this.data.navRightItems[index].id,
+        title: this.data.navRightItems[index].title,
+        money: this.data.navRightItems[index].price,
+        number: this.data.navRightItems[index].number
+      }
+      for (var i in this.data.cardesc) {
+        if (this.data.cardesc[i].id === this.data.navRightItems[index].id) {
+          iscun = true;
+          var sItem1 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem1]: this.data.cardesc[i].number + 1,
+            moneys: parseFloat(this.data.moneys + this.data.cardesc[i].money)
+
+          })
+
+        }
+
+      }
+      if (iscun == false) {
+        that.setData({
+          cardesc: this.data.cardesc.concat(item),
+          moneys: this.data.moneys + parseFloat(this.data.navRightItems[index].price * this.data.navRightItems[index].number)
+        })
+      }
+    } else if (res.msg == "购物车暂无数据") {
+      this.setData({
+        cardesc: []
+      })
+      var that = this
+      if (this.data.carselect == true) {
+        that.setData({
+          carselect: false,
+          height1: 90,
+        })
+        for (var i in this.data.cardesc) {
+          that.setData({
+            moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+          })
+        }
+      }
+
+      var index = this.data.index
+      var sItem = "navRightItems.[" + index + "].number";
+      that.setData({
+        [sItem]: this.data.navRightItems[index].number + 1,
+      })
+      var iscun = false;
+      var item = {
+        id: this.data.navRightItems[index].id,
+        title: this.data.navRightItems[index].title,
+        money: this.data.navRightItems[index].price,
+        number: this.data.navRightItems[index].number
+      }
+      for (var i in this.data.cardesc) {
+        if (this.data.cardesc[i].id === this.data.navRightItems[index].id) {
+          iscun = true;
+          var sItem1 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem1]: this.data.cardesc[i].number + 1,
+            moneys: parseFloat(this.data.moneys + this.data.cardesc[i].money)
+
+          })
+
+        }
+
+      }
+      if (iscun == false) {
+        that.setData({
+          cardesc: this.data.cardesc.concat(item),
+          moneys: this.data.moneys + parseFloat(this.data.navRightItems[index].price * this.data.navRightItems[index].number)
+        })
+      }
     }
 
   },
-  onFailed: function (msg) { //onFailed回调
+  onFailed: function(msg) { //onFailed回调
     wx.hideLoading();
     if (msg) {
       wx.showToast({
@@ -352,7 +474,7 @@ Page({
     }
   },
   // 底部动画
-  chooseSezi: function (e) {
+  chooseSezi: function(e) {
     // 用that取代this，防止不必要的情况发生
     var that = this;
     // 创建一个动画实例
@@ -374,14 +496,14 @@ Page({
       chooseSize: true
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
-    setTimeout(function () {
+    setTimeout(function() {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export()
       })
     }, 200)
   },
-  hideModal: function (e) {
+  hideModal: function(e) {
     var that = this;
     var animation = wx.createAnimation({
       duration: 1000,
@@ -393,7 +515,7 @@ Page({
       animationData: animation.export()
 
     })
-    setTimeout(function () {
+    setTimeout(function() {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export(),

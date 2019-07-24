@@ -38,7 +38,7 @@
           <view class="right_title">{{list.title}}
             <view class="title_standard">{{list.standard}}</view>
           </view>
-          <view class="price">{{list.price}}</view>
+          <view class="price">￥{{list.price}}</view>
           <view class="list_right" wx:if='{{!list.status}}'>
             <black wx:if="{{list.number>0}}">
               <image class="car_icon" src="/images/carjian.png" data-index='{{index}}' bindtap='reduceClick'></image>

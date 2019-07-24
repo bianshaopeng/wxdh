@@ -7,8 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    height1:100,
+    userId: '',
+    height1: 100,
     moneys: 0,
+    index: 0,
+    index1: 0,
     carselect: true,
     inputValue: null,
     showAll: false,
@@ -37,8 +40,7 @@ Page({
       "msg": "首页获取成功",
       "address": "甘肃省兰州市安宁区安宁西路88号",
       "data": {
-        "top": [
-          {
+        "top": [{
             "id": 7,
             "image": "http://www.youke001.cn/banner/banner1.png"
           },
@@ -55,13 +57,11 @@ Page({
             "image": "http://www.youke001.cn/banner/banner4.png"
           }
         ],
-        "bottom": [
-          {
+        "bottom": [{
             "id": 1,
             "title": "掌柜推荐",
             "image": "http://www.youke001.cn/market_nav/nav_zgtj@2x.png",
-            "list": [
-              {
+            "list": [{
                 "id": 2,
                 "price_smail": 20,
                 "price": 17,
@@ -103,8 +103,7 @@ Page({
             "id": 2,
             "title": "新人特惠",
             "image": "http://www.youke001.cn/market_nav/nav_xrth@2x.png",
-            "list": [
-              {
+            "list": [{
                 "id": 6,
                 "price_smail": 6,
                 "price": 5.8,
@@ -137,8 +136,7 @@ Page({
             "id": 3,
             "title": "限时抢购",
             "image": "http://www.youke001.cn/market_nav/nav_xsqg@2x.png",
-            "list": [
-              {
+            "list": [{
                 "id": 5,
                 "price_smail": 33,
                 "price": 32.1,
@@ -180,8 +178,7 @@ Page({
             "id": 4,
             "title": "新品首发",
             "image": "http://www.youke001.cn/market_nav/nav_zgtj@2x.png",
-            "list": [
-              {
+            "list": [{
                 "id": 5,
                 "price_smail": 350,
                 "price": 310,
@@ -229,8 +226,7 @@ Page({
             ]
           }
         ],
-        "middle": [
-          {
+        "middle": [{
             "id": 3,
             "text": "方便食品",
             "image": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563446201742&di=58e06bb06b73438774a673303b8dddb1&imgtype=0&src=http%3A%2F%2Fimg006.hc360.cn%2Fg2%2FM05%2FBE%2FA5%2FwKhQuFMLC42EbwCIAAAAACZERCU550.jpg"
@@ -283,164 +279,6 @@ Page({
         ]
       }
     },
-    // informations: {
-    //   code: 200,
-    //   msg: "成功",
-    //   adress: "门店地址",
-    //   data: {
-    //     top: [{
-    //         id: "xxxxxxx",
-    //         image: '../../images/banner1.png'
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/banner2.png'
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/banner3.png'
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/banner4.png'
-    //       }
-    //     ],
-    //     middle: [{
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       },
-    //       {
-    //         id: "xxxxxxx",
-    //         image: '../../images/clessfiy1.jpg',
-    //         text: "水果"
-
-    //       }
-    //     ],
-    //     bottom: [{
-    //         id: "a",
-    //         title: "掌柜推荐",
-    //         list: [{
-    //             id: "a",
-    //             image: "../../images/list1.jpg",
-    //             title: "新疆薄皮核桃1",
-    //             standard: "500g",
-    //             price: 34,
-    //             price_smail: "￥00",
-    //             number: 0,
-    //           },
-    //           {
-    //             id: "b",
-    //             image: "../../images/list1.jpg",
-    //             title: "新疆薄皮核桃2",
-    //             standard: "500g",
-    //             price: 34,
-    //             price_smail: "￥00",
-    //             number: 0,
-    //           },
-    //           {
-    //             id: "c",
-    //             image: "../../images/list1.jpg",
-    //             title: "新疆薄皮核桃3",
-    //             standard: "500g",
-    //             price: 34,
-    //             price_smail: "￥00",
-    //             number: 0,
-    //           }
-    //         ]
-    //       },
-    //       {
-    //         id: "b",
-    //         title: "新人特惠",
-    //         list: [{
-    //           id: "d",
-    //           image: "../../images/list1.jpg",
-    //           title: "新疆薄皮核桃",
-    //           standard: "500g",
-    //           price: 34,
-    //           price_smail: "￥45",
-    //           number: 0,
-    //         }]
-    //       },
-    //       {
-    //         id: "c",
-    //         title: "限时抢购",
-    //         list: [{
-    //           id: "e",
-    //           image: "../../images/list1.jpg",
-    //           title: "新疆薄皮核桃",
-    //           standard: "500g",
-    //           price: 34,
-    //           price_smail: "#45",
-    //           number: 0,
-    //         }]
-    //       },
-    //       {
-    //         id: "d",
-    //         title: "新品首发",
-    //         list: [{
-    //           id: "f",
-    //           image: "../../images/list1.jpg",
-    //           title: "新疆薄皮核桃111",
-    //           standard: "500g",
-    //           price: 34,
-    //           price_smail: "#45",
-    //           number: 0,
-    //         }]
-    //       }
-
-    //     ]
-    //   }
-
-    // },
 
 
 
@@ -454,12 +292,9 @@ Page({
     chooseSize: false,
     animationData: {},
 
-    cardesc: [{
-      id: "ssss",
-      title: "北京方便面",
-      money: 12,
-      number: 2
-    }, ]
+    cardesc: [
+
+    ]
 
   },
 
@@ -511,7 +346,7 @@ Page({
   detailsClick: function() {
 
   },
-  
+
   // 底部动画
   chooseSezi: function(e) {
     // 用that取代this，防止不必要的情况发生
@@ -563,58 +398,74 @@ Page({
     }, 200)
   },
 
-
   //加数量
   addClick: function(res) {
     var that = this
-    if (this.data.carselect == true) {
-      that.setData({
-        carselect: false,
-        height1:90,
-      })
-      for (var i in this.data.cardesc) {
-        that.setData({
-          moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
-        })
-      }
-    }
-
-    //外层index
-    var index = res.currentTarget.dataset.index
-
+    this.data.index = res.currentTarget.dataset.index
     //内层index
-    var index1 = res.currentTarget.dataset.item
-    var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
-    that.setData({
-      [sItem]: this.data.informations.data.bottom[index].list[index1].number + 1,
-    })
-    var iscun = false;
-    var item = {
-      id: this.data.informations.data.bottom[index].list[index1].id,
-      title: this.data.informations.data.bottom[index].list[index1].title,
-      money: this.data.informations.data.bottom[index].list[index1].price,
-      number: this.data.informations.data.bottom[index].list[index1].number
+    this.data.index1 = res.currentTarget.dataset.item
+    this.data.userId = wx.getStorageSync('userId')
+    if (this.data.userId == "") {
+      wx.showModal({
+        title: '提示',
+        content: '是否去授权登录',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.switchTab({
+              url: '/pages/me/me'
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      return
     }
+    if (this.data.carselect == true) {
+      var url = app.globalData.urlIp + "cart/balance";
+      var params = {
+        userId: wx.getStorageSync('userId'),
+        shopId: this.data.shopId,
+      }
 
-    for (var i in this.data.cardesc) {
-      if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
-        iscun = true;
-        var sItem1 = "cardesc[" + i + "].number";
+      netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    } else {
+      var index = this.data.index
+      var index1 = this.data.index1
+      var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
+      that.setData({
+        [sItem]: this.data.informations.data.bottom[index].list[index1].number + 1,
+      })
+      var iscun = false;
+      var item = {
+        id: this.data.informations.data.bottom[index].list[index1].id,
+        image: this.data.informations.data.bottom[index].list[index1].image,
+        title: this.data.informations.data.bottom[index].list[index1].title,
+        money: this.data.informations.data.bottom[index].list[index1].price,
+        number: this.data.informations.data.bottom[index].list[index1].number
+      }
+
+      for (var i in this.data.cardesc) {
+        if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
+          iscun = true;
+          var sItem1 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem1]: this.data.cardesc[i].number + 1,
+            moneys: this.data.moneys + this.data.cardesc[i].money
+          })
+        }
+      }
+
+      console.log(iscun)
+      if (iscun == false) {
         that.setData({
-          [sItem1]: this.data.cardesc[i].number + 1,
-          moneys: this.data.moneys + this.data.cardesc[i].money
+          cardesc: this.data.cardesc.concat(item),
+          moneys: this.data.moneys + this.data.informations.data.bottom[index].list[index1].price * this.data.informations.data.bottom[index].list[index1].number
         })
-
       }
     }
 
-    console.log(iscun)
-    if (iscun == false) {
-      that.setData({
-        cardesc: this.data.cardesc.concat(item),
-        moneys: this.data.moneys + this.data.informations.data.bottom[index].list[index1].price * this.data.informations.data.bottom[index].list[index1].number
-      })
-    }
 
   },
 
@@ -707,6 +558,12 @@ Page({
         cardesc: this.data.cardesc,
       })
     }
+    if (this.data.cardesc.length < 1) {
+      console.log("数组为空")
+      that.setData({
+
+      })
+    }
   },
   //结算
   settle: function() {
@@ -724,9 +581,7 @@ Page({
    */
   onLoad: function(options) {
 
-  var that = this
-
-
+    var that = this
     wx.getLocation({
       success: function(res) {
         console.log(res)
@@ -744,7 +599,7 @@ Page({
       },
 
     })
-   
+
   },
   onStart: function() { //onStart回调
     wx.showLoading({
@@ -755,35 +610,126 @@ Page({
     console.log(res)
     wx.hideLoading();
     if (res.msg == "首页获取成功") {
-      
+      this.data.shopId = res.shopId
       this.setData({
         informations: res,
-        shopId: res.shopId
-        // jokeList: res.result.data //请求结果数据
       })
-      console.log(this.data.informations)
-      console.log(this.data.shopId)
-      var url = app.globalData.urlIp + "goods/balance";
-      var params = {
-        userId: "4",
-        shopId: this.data.shopId,
+      wx.setStorage({
+        key: 'shopId',
+        data: this.data.shopId,
+      })
 
-      }
-      wx.setStorageSync("shopId", this.data.shopId)
-
-      netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); //调用get方法情就是户数
+      //调用get方法情就是户数
     } else if (res.msg == "生成订单成功") {
       wx.navigateTo({
         url: '../settle/index?orderId=' + res.order,
       })
     } else if (res.msg == "获取购物车成功") {
+
+      var that = this
       this.setData({
         cardesc: res.cardesc
       })
+      if (this.data.carselect == true) {
+
+        that.setData({
+          carselect: false,
+          height1: 90,
+        })
+
+        for (var i in this.data.cardesc) {
+          that.setData({
+            moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+          })
+        }
+
+      }
+      var index = this.data.index
+      var index1 = this.data.index1
+      var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
+      that.setData({
+        [sItem]: this.data.informations.data.bottom[index].list[index1].number + 1,
+      })
+      var iscun = false;
+      var item = {
+        id: this.data.informations.data.bottom[index].list[index1].id,
+        image: this.data.informations.data.bottom[index].list[index1].image,
+        title: this.data.informations.data.bottom[index].list[index1].title,
+        money: this.data.informations.data.bottom[index].list[index1].price,
+        number: this.data.informations.data.bottom[index].list[index1].number
+      }
+
+      for (var i in this.data.cardesc) {
+        if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
+          iscun = true;
+          var sItem1 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem1]: this.data.cardesc[i].number + 1,
+            moneys: this.data.moneys + this.data.cardesc[i].money
+          })
+        }
+      }
+
+      console.log(iscun)
+      if (iscun == false) {
+        that.setData({
+          cardesc: this.data.cardesc.concat(item),
+          moneys: this.data.moneys + this.data.informations.data.bottom[index].list[index1].price * this.data.informations.data.bottom[index].list[index1].number
+        })
+      }
+
     } else if (res.msg == "购物车暂无数据") {
+      var that = this
       this.setData({
         cardesc: []
       })
+      if (this.data.carselect == true) {
+
+        that.setData({
+          carselect: false,
+          height1: 90,
+        })
+
+        for (var i in this.data.cardesc) {
+          that.setData({
+            moneys: this.data.moneys + this.data.cardesc[i].money * this.data.cardesc[i].number
+          })
+        }
+
+      }
+      var index = this.data.index
+      var index1 = this.data.index1
+      var sItem = "informations.data.bottom[" + index + "].list[" + index1 + "].number";
+      that.setData({
+        [sItem]: this.data.informations.data.bottom[index].list[index1].number + 1,
+      })
+      var iscun = false;
+      var item = {
+        id: this.data.informations.data.bottom[index].list[index1].id,
+        image: this.data.informations.data.bottom[index].list[index1].image,
+        title: this.data.informations.data.bottom[index].list[index1].title,
+        money: this.data.informations.data.bottom[index].list[index1].price,
+        number: this.data.informations.data.bottom[index].list[index1].number
+      }
+
+      for (var i in this.data.cardesc) {
+        if (this.data.cardesc[i].id === this.data.informations.data.bottom[index].list[index1].id) {
+          iscun = true;
+          var sItem1 = "cardesc[" + i + "].number";
+          that.setData({
+            [sItem1]: this.data.cardesc[i].number + 1,
+            moneys: this.data.moneys + this.data.cardesc[i].money
+          })
+        }
+      }
+
+      console.log(iscun)
+      if (iscun == false) {
+        that.setData({
+          cardesc: this.data.cardesc.concat(item),
+          moneys: this.data.moneys + this.data.informations.data.bottom[index].list[index1].price * this.data.informations.data.bottom[index].list[index1].number
+        })
+      }
     }
   },
   onFailed: function(msg) { //onFailed回调
@@ -819,7 +765,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    // this.setData({
+    //   carselect:true,
+    //   height1:100
+    // })
   },
 
   /**
