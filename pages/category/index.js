@@ -99,24 +99,14 @@ Page({
 
 
     ],
-    cardesc: [{
-      id: "ssss",
-      title: "北京方便面",
-      money: 12,
-      number: 2
-    }, ],
+ 
     curIndex: 0,
     // 底部动画 
     chooseSize: false,
     animationData: {},
 
     cardesc: [
-      //   {
-      //   id: "ssss",
-      //   title: "北京方便面",
-      //   money: 12,
-      //   number: 2
-      // }, 
+   
     ]
   },
   oneList: function(res) {
@@ -315,6 +305,13 @@ Page({
         cardesc: this.data.cardesc,
       })
     }
+    if (this.data.cardesc.length < 1) {
+      that.setData({
+        carselect: true,
+        height1: 100,
+        chooseSize: false
+      })
+    }
   },
 
   /**
@@ -332,6 +329,22 @@ Page({
   },
   onShow: function() {
 
+  },
+  onHide:function(){
+    if (this.data.carselect == false) {
+      this.setData({
+        carselect: true,
+        height1: 100,
+        chooseSize: false
+      })
+      var url = app.globalData.urlIp + "cart/addShoppingCart";
+      var params = {
+        userId: wx.getStorageSync('userId'),
+        shopId: wx.getStorageSync('shopId'),
+        idList: this.data.cardesc,
+      }
+      netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    }
   },
 
   onStart: function() { //onStart回调

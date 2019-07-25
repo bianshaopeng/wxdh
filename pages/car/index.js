@@ -140,30 +140,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    wx.getStorage({
-      key: 'shopId',
-      success: function(res) {
-        console.log(res)
-        that.setData({
-          shopId:res.data
-        })
-      },
-    })
-    for(var i in this.data.goods){
-      var itemprice = this.data.goods[i].price
-      var itemnumber = this.data.goods[i].number
-      this.data.counts += itemprice * itemnumber
-    }
-    that.setData({
-      counts: this.data.counts
-    })
-    var url = app.globalData.urlIp +"goods/shoppingCart";
-    var params = {
-      userId: '4',
-      shopId: this.data.shopId,
-    }
+  
 
+    
+    
+
+  
+  },
+  onShow:function(){
+    var url = app.globalData.urlIp + "cart/shoppingCart";
+    var params = {
+      userId: wx.getStorageSync('userId'),
+      shopId: wx.getStorageSync('shopId'),
+    }
     netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
   
@@ -173,18 +162,28 @@ Page({
     })
   },
   onSuccess: function (res) { //onSuccess回调
-    console.log(res.data)
+    console.log(res)
     wx.hideLoading();
+    var that = this
     if (res.msg == "获取购物车信息成功"){
     this.setData({
+      status: false,
       goods: res.data.goods,
       guess_like: res.data.guess_like
 
     })
+      for (var i in this.data.goods) {
+        var itemprice = this.data.goods[i].price
+        var itemnumber = this.data.goods[i].number
+        this.data.counts += itemprice * itemnumber
+      }
+      that.setData({
+        counts: this.data.counts
+      })
     } else if (res.msg == "购物车是空的"){
       this.setData({
         goods: [],
-        guess_like: res.data.guess_like,
+        // guess_like: res.data.guess_like,
         status:true
 
       })

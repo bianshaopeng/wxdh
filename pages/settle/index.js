@@ -8,7 +8,7 @@ Page({
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
     address: {
-      status: true,
+      status: false,
       image: "../../images/bg_lockion.png",
       user: "里二狗",
       phone: "18965651515",

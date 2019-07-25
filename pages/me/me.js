@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLogin:true,
+    openId:'',
+    isLogin:false,
     userId:'',
     avatarUrl:'../../images/anthor.png',
     viewBoneItem: [{
@@ -49,40 +50,45 @@ Page({
         }
       }
     })
-    wx.login({
-      success(res) {
-        if (res.code) {
-          console.log(res)
-
-          //发起网络请求
-          // wx.request({
-          //   url: 'https://test.com/onLogin',
-          //   data: {
-          //     code: res.code
-          //   }
-          // })
-        } else {
-          console.log('登录失败！' + res.errMsg)
+   
+      wx.login({
+        success(res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: app.globalData.urlIp + "/index/getOpenId",
+              data: {
+                code: res.code
+              },
+              success:function(res){
+                 console.log(res)
+                 that.data.openId = res.data
+                //  that.setData({
+                //    isLogin:true
+                //  })
+                wx.getUserInfo({
+                  
+                  success: function (res) {
+                    console.log(res)
+                    wx.setStorage({
+                      key: 'avatarUrl',
+                      data: res.userInfo.avatarUrl,
+                    })
+                    console.log(that.data.openId)
+                    wx.navigateTo({
+                      url: '/pages/login/login?openId='+that.data.openId,
+                    })
+                  }
+                })
+              }
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
         }
-      }
-    })
+      })
     // 
-    wx.getUserInfo({
-      success: function (res) {
-        console.log(res)
-        console.log(res.userInfo.avatarUrl)
-        that.setData({
-          avatarUrl: res.userInfo.avatarUrl
-        })
-        wx.setStorage({
-          key: 'avatarUrl',
-          data: 'res.userInfo.avatarUrl',
-        })
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-      }
-    })
+   
   },
   couponClick: function () {
     wx.navigateTo({
@@ -108,21 +114,6 @@ Page({
         url: '/pages/received/index?title=' + txt,
       })
     }
-    // if (e.currentTarget.dataset.index == 1) {
-    //   wx.navigateTo({
-    //     url: '/pages/received/index?title=' + txt,
-    //   })
-    // }
-    // if (e.currentTarget.dataset.index == 2) {
-    //   wx.navigateTo({
-    //     url: '/pages/received/index?title=' + txt,
-    //   })
-    // }
-    // if (e.currentTarget.dataset.index == 3) {
-    //   wx.navigateTo({
-    //     url: '/pages/received/index?title=' + txt,
-    //   })
-    // }
   },
   calLogin: function () {
     wx.showModal({
@@ -175,31 +166,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.setStorage({
-      key: 'userId',
-      data: '1',
-    })
         
-    wx.getStorage({
-      key: 'userId',
-      success: function(res) {
-        that.setData({
-          userId:res.data
-        })
-      },
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    if (this.data.userId != null || this.data.userId != ''){
-      this.setData({
-        // isLogin:false
-      })
-    }
+   
 
   },
 
@@ -207,7 +182,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(wx.getStorageSync('userId')!=""){
+      this.setData({
+        isLogin:true
+      })
+    }
+    if (wx.getStorageSync('avatarUrl')!=""){
+      this.setData({
+        avatarUrl: wx.getStorageSync('avatarUrl')
+      })
+    }
   },
 
   /**

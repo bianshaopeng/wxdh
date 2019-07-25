@@ -322,6 +322,7 @@ Page({
       scorllId: "d"
     })
   },
+  //分类
   typeClick: function(res) {
     console.log(res.currentTarget.dataset.id)
     wx.navigateTo({
@@ -559,18 +560,19 @@ Page({
       })
     }
     if (this.data.cardesc.length < 1) {
-      console.log("数组为空")
       that.setData({
-
+        carselect: true,
+        height1: 100,
+        chooseSize: false
       })
     }
   },
   //结算
   settle: function() {
-    var url = app.globalData.urlIp + "goods/listShoppingCart";
+    var url = app.globalData.urlIp + "cart/addOrder";
     var params = {
-      userId: '4',
-      shopId: '1',
+      userId: wx.getStorageSync('userId'),
+      shopId: wx.getStorageSync('shopId'),
       idList: this.data.cardesc,
     }
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
@@ -765,37 +767,49 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-    // this.setData({
-    //   carselect:true,
-    //   height1:100
-    // })
-  },
+    if (this.data.carselect == false) {
+      this.setData({
+        carselect: true,
+        height1: 100,
+        chooseSize: false
+      })
+      var url = app.globalData.urlIp + "cart/addShoppingCart";
+      var params = {
+        userId: wx.getStorageSync('userId'),
+        shopId: wx.getStorageSync('shopId'),
+        idList: this.data.cardesc,
+      }
+      netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    }
+  
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
+},
 
-  },
+/**
+ * 生命周期函数--监听页面卸载
+ */
+onUnload: function() {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
+},
 
-  },
+/**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+onPullDownRefresh: function() {
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
+},
 
-  },
+/**
+ * 页面上拉触底事件的处理函数
+ */
+onReachBottom: function() {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
+},
 
-  }
+/**
+ * 用户点击右上角分享
+ */
+onShareAppMessage: function() {
+
+}
 })

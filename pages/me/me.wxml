@@ -82,7 +82,7 @@
   </view>
 
 </view>
-<view class='view-rz' wx:if='{{isLogin}}'>
+<view class='view-rz' hidden='{{isLogin}}'>
 <view style='width:80%;height:60%;background-color:white; flex-direction: column' >
 <image ></image>
 <button open-type="getUserInfo" bindtap='loginClick'>授权登录</button>

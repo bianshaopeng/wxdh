@@ -1,4 +1,6 @@
 // pages/pay_desc/index.js
+var netUtil = require("../../utils/netUtils.js");
+var app = getApp();
 Page({
 
   /**
