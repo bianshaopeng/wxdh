@@ -1,7 +1,7 @@
 <!-- 确认订单页面 -->
 <view class="sure">
     <!-- 顶部有地址 -->
-    <view class="address" bindtap="adDress">
+    <view class="address" wx:if="{{address.status}}" bindtap="adDress">
         <image class="" src="{{address.image}}" mode="aspectFill"> </image>
         <view class="address_title">
             <text class="title-user">{{address.user}}{{address.phone}}</text>

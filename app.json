@@ -4,6 +4,7 @@
     "pages/category/index",
     "pages/member/index",
     "pages/car/index",
+    "pages/indextype/indextype",
     "pages/settle/index",
     "pages/success/index",
     "pages/logs/logs",

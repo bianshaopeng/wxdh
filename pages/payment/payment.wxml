@@ -1,14 +1,14 @@
 <!-- 已收货页面 -->
 <view class="warp_box">
     <!-- 空页面提示 -->
-    <view class="empty_wrap" wx:if="{{car.empty}}">
+    <view class="empty_wrap" wx:if="{{empty}}">
         <image class="empyt_icon" src="../../images/empty_car.png"></image>
         <text class="empyt_txt">您还没有相关的订单</text>
 
     </view>
     <!-- 订单列表 -->
     <!-- 商品 -->
-    <block wx:for="{{goodsMsg}}">
+    <block wx:for="{{goodsMsg}}" wx:if="{{!empty}}">
         <view class="link_box">
             <view class="order_number">
                 订单编号: {{item.orderid}}

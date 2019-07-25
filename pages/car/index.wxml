@@ -1,3 +1,4 @@
+<wxs module="filters" src="../../utils/filter.wxs"></wxs>
 <view class='cart'>
 
     <view class="empty_wrap" wx:if="{{status}}">
@@ -66,7 +67,7 @@
         </view>
         <view class="total">
             <text>合计:</text>
-            <text class="money">¥{{counts}}元</text>
+            <text class="money">¥{{filters.toFix(counts)}}元</text>
         </view>
         <view class="btn_amount" bindtap="account">结算</view>
     </view>

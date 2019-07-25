@@ -66,7 +66,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
 
+  },
+  onStart: function () { //onStart回调
+    wx.showLoading({
+      title: '正在加载',
+    })
   },
   onSuccess: function (res) { //onSuccess回调
     console.log(res)

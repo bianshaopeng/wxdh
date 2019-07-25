@@ -11,6 +11,7 @@ Page({
     moneys: 0,
     carselect: true,
     typeId: "",
+    issettle:false,
     key: 0,
     index: 0,
     colors: [],
@@ -313,11 +314,32 @@ Page({
       })
     }
   },
+  //结算
+  settle: function () {
+    this.data.issettle = true
+    this.setData({
+      carselect: true,
+      height1: 100,
+      chooseSize: false
+    })
 
+    var url = app.globalData.urlIp + "cart/addOrder";
+    var params = {
+      userId: wx.getStorageSync('userId'),
+      shopId: wx.getStorageSync('shopId'),
+      idList: this.data.cardesc,
+    }
+    netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+   
+
+  },
+  onShow: function() {
+    this.data.issettle = false
     var url = app.globalData.urlIp + "goods/goodsType";
     var params = {
       userId: wx.getStorageSync('userId'),
@@ -325,13 +347,9 @@ Page({
     }
 
     netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
-
-  },
-  onShow: function() {
-
   },
   onHide:function(){
-    if (this.data.carselect == false) {
+    if (this.data.carselect == false && this.data.issettle == false) {
       this.setData({
         carselect: true,
         height1: 100,
@@ -378,7 +396,11 @@ Page({
         icon: 'success',
         duration: 2000
       })
-    } else if (res.msg == "获取购物车成功") {
+    } else if (res.msg == "生成订单成功") {
+      wx.navigateTo({
+        url: '../settle/index?orderId=' + res.order,
+      })
+    }  else if (res.msg == "获取购物车成功") {
       this.setData({
         cardesc: res.cardesc
       })

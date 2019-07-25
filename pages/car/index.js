@@ -9,10 +9,13 @@ Page({
   data: {
     selectAll:true,
     counts:0,
+    carselect:true,
+    issettle:false,
     shopId:'',
     status: false,
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
+    cardesc:[],
     goods: [{
       image: "../../images/list1.jpg",
       title: "新疆薄皮核桃",
@@ -40,21 +43,21 @@ Page({
         image: "../../images/list1.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥34",
+        price: 34,
         price_smail: "￥00",
       },
       {
         image: "../../images/list1.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥35",
+        price: 35,
         price_smail: "￥00",
       },
       {
         image: "../../images/list1.jpg",
         title: "新疆薄皮核桃",
         standard: "500g",
-        price: "￥300",
+        price: 300,
         price_smail: "￥00",
       }
     ]
@@ -81,6 +84,7 @@ Page({
     }
   },
   addClick:function(res){
+    this.data.carselect = false
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem = "goods[" + index + "].number";
@@ -92,6 +96,7 @@ Page({
   }
   },
   reduceClick: function (res) {
+    this.data.carselect = false
     var that = this
     var index = res.currentTarget.dataset.index
     if (this.data.goods[index].ischecked == true){
@@ -148,6 +153,7 @@ Page({
   
   },
   onShow:function(){
+    this.data.issettle = true
     var url = app.globalData.urlIp + "cart/shoppingCart";
     var params = {
       userId: wx.getStorageSync('userId'),
@@ -155,7 +161,18 @@ Page({
     }
     netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
-  
+  onHide:function(){
+    if (this.data.carselect == false && this.data.issettle == false) {
+     
+      var url = app.globalData.urlIp + "cart/addShoppingCart";
+      var params = {
+        userId: wx.getStorageSync('userId'),
+        shopId: wx.getStorageSync('shopId'),
+        idList: this.data.cardesc,
+      }
+      netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+    }
+  },
   onStart: function () { //onStart回调
     wx.showLoading({
       title: '正在加载',
@@ -187,7 +204,11 @@ Page({
         status:true
 
       })
-    }
+    } else if (res.msg == "生成订单成功") {
+      wx.navigateTo({
+        url: '../settle/index?orderId=' + res.order,
+      })
+    } 
   },
   onFailed: function (msg) { //onFailed回调
     wx.hideLoading();
@@ -199,9 +220,33 @@ Page({
   },
 
   account(e) {
+    var that = this
+    
+    for (var index in this.data.goods){
+      if (this.data.goods[index].ischecked == true){
+        var item = {
+          id: this.data.goods[index].id,
+          title: this.data.goods[index].title,
+          money: this.data.goods[index].price,
+          number: this.data.goods[index].number
+        }
+        that.setData({
+          cardesc: this.data.cardesc.concat(item)
+        })
+        
+      }
+    }
+    this.data.issettle = true
+    var url = app.globalData.urlIp + "cart/addShoppingOrder";
+    var params = {
+      userId: wx.getStorageSync('userId'),
+      shopId: wx.getStorageSync('shopId'),
+      idList: this.data.cardesc,
+    }
+    netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+
     //let txt = e.currentTarget.dataset.txt
-    wx.navigateTo({
-      url: "/pages/settle/index"
-    })
+   
   }
+  
 })

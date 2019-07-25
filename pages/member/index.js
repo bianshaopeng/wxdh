@@ -15,7 +15,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.connectSocket({
+      url: 'ws://192.168.31.24:8081/ws',
+      header: {
+        'content-type': 'application/json'
+      },
 
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
+    wx.onSocketOpen(function (res) {
+
+      console.log('WebSocket连接已打开！')
+      wx.sendSocketMessage({ 
+      data: [1],  
+        
+      })
+    });
+    
+    wx.onSocketMessage(function(res){
+      console.log(res)
+    })
   },
 
   /**
@@ -29,7 +53,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

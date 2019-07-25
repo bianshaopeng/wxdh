@@ -50,16 +50,13 @@ Page({
    */
   onLoad: function (options) {
     const self = this;
-    wx.getStorage({
-      key: 'userId',
-      success: function(res) {
-        console.log(res.data)
-        self.setData({
-          empty: false,
-          userId: res.data,
-        })
-      },
-    }) 
+    var url = app.globalData.urlIp + "order/orderInfoList";
+    var params = {
+      userId: wx.getStorageSync('userId'),
+      type: '0',
+    }
+
+    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
    
     
 
@@ -72,18 +69,19 @@ Page({
   onSuccess: function (res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
-    if(res.msg=="成功"){
-      self.setData({
-        empty:false,
+    var that = this
+    if (res.msg == "获取待收货列表成功") {
+      that.setData({
         goodsMsg: res.goodsMsg,
+        empty: false
       })
-    } else if (res.msg == "暂无数据"){
-      self.setData({
-        empty: true,
-        goodsMsg:[],
+    } else if (res.msg == "订单列表暂无数据") {
+      that.setData({
+        goodsMsg: [],
+        empty: true
       })
     }
-   
+
   },
   onFailed: function (msg) { //onFailed回调
     wx.hideLoading();
@@ -97,15 +95,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('onReady',this.data.userId)
-    var url = app.globalData.urlIp + "goods/payment";
-    var params = {
-      userId: this.data.userId,
-      type: '0',
-
-    }
-
-    netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed); //调用get方法情就是户数
+   
   },
 
   /**

@@ -1,13 +1,6 @@
 <!-- 待付款详情页面  -->
 <view class="warp_box">
-    <!-- 顶部有地址 -->
-    <view class="address">
-        <image class="" src="{{adressimage}}" mode="aspectFill"></image>
-        <view class="address_title">
-            <text class="title-user">{{address.user}}{{address.phone}}</text>
-            <text class="title-desc">{{address.desc}}</text>
-        </view>
-    </view>
+  
     <!-- 商品 -->
     <view class="link_box">
         <block wx:for="{{guess_like}}">

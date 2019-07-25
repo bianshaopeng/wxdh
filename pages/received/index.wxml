@@ -1,14 +1,14 @@
 <!-- 已收货页面 -->
 <view class="warp_box">
     <!-- 空页面提示 -->
-    <view class="empty_wrap" wx:if="{{car.empty}}">
+    <view class="empty_wrap" wx:if="{{empty}}">
         <image class="empyt_icon" src="../../images/empty_car.png"></image>
         <text class="empyt_txt">您还没有相关的订单</text>
 
     </view>
     <!-- 订单列表 -->
     <!-- 商品 -->
-    <block wx:for="{{goodsMsg}}">
+    <block wx:for="{{goodsMsg}}" wx:if="{{!empty}}">
         <view class="link_box">
             <view class="order_number">
                 订单编号: 4165151564165105
@@ -18,12 +18,10 @@
                     <image class="icon" src="{{item.image}}"></image>
                     <view class="text_box">
                         <view class="title">{{item.title}}</view>
-                        <view class="shop">{{item.standard}}</view>
-                        <view class="price">{{item.price}}</view>
+                        <view class="shop">订单时间: {{item.ordertime}}</view>
+                        <view class="price">总价: ￥{{item.price}}</view>
                     </view>
-                    <view class="add_btn">
-                        ×{{item.number}}
-                    </view>
+                    
                 </view>
             </view>
             <!-- 只有退货退款页面显示 -->
