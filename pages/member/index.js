@@ -7,7 +7,7 @@ Page({
   data: {
 
     top_bar: "../../images/top_bar.jpg",
-    center_img: "../../images/center_img.jpg"
+    center_img: ''
 
   },
 
@@ -15,8 +15,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var userid = wx.getStorageSync('userId')
+  this.setData({
+    center_img: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+userid
+  })
+   
+   
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     wx.connectSocket({
-      url: 'ws://192.168.31.24:8081/ws',
+      url: 'ws://192.168.31.30:8081/ws',
       header: {
         'content-type': 'application/json'
       },
@@ -31,36 +50,23 @@ Page({
     wx.onSocketOpen(function (res) {
 
       console.log('WebSocket连接已打开！')
-      wx.sendSocketMessage({ 
-      data: [1],  
-        
+      wx.sendSocketMessage({
+        data: [130001],
+
       })
     });
-    
-    wx.onSocketMessage(function(res){
+
+    wx.onSocketMessage(function (res) {
       console.log(res)
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+   
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  wx.closeSocket()
   },
 
   /**

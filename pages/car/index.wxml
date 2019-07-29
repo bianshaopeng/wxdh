@@ -42,7 +42,7 @@
                     <view class="text_box">
                         <view class="title">{{item.title}}</view>
                         <view class="shop">{{item.standard}}</view>
-                        <view class="price">{{item.price}}</view>
+                        <view class="price">￥{{item.price}}</view>
                     </view>
                     <view class="add_btn">
                         <view class="add_car">加入购物车</view>

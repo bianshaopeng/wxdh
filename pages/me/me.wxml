@@ -8,7 +8,7 @@
 
           <image src="{{avatarUrl}}" mode='scaleToFill'></image>
         </view>
-        <view class="view-name" >18884488888</view>
+        <view class="view-name" >{{memberInfoVO.loginPhone}}</view>
       </view>
       <view class="view-zdress" bindtap='adressClick'>修改收货信息</view>
 
@@ -17,18 +17,17 @@
 
       <view class='view-second-one'>
         <view style='margin-left:60rpx; margin-top:30rpx; padding-right:40rpx; color:#595959'>钱包</view>
-        <view bindtap='rechargeClick' style='margin-right:60rpx;margin-top:30rpx;padding-left:40rpx; color:#595959'>充值
-        </view>
+  
       </view>
       <view style='width:90%; margin-left:40rpx; margin-right:32rpx; height:2rpx;  background-color:#FF7F8B'></view>
       <view class='view-second-two'>
         <view class='view-second-two-item'>
-          <text style='color:#F95959; font-weight:bold; '>50</text>
+          <text style='color:#F95959; font-weight:bold; '>{{memberInfoVO.money}}</text>
           <view style='color:#595959;font-size:10pt;margin-top:5rpx'>当前余额</view>
         </view>
         <view style='width:4rpx; height:50rpx; background-color:#FF7F8B;margin-top:60rpx'></view>
         <view class='view-second-two-item'>
-          <view style='color:#F95959; font-weight:bold;'>充值会员</view>
+          <view style='color:#F95959; font-weight:bold;'>{{memberInfoVO.typeName}}</view>
           <view style='color:#595959; font-size:10pt;margin-top:5rpx'>截止日期：2019-07-08</view>
         </view>
       </view>
@@ -49,8 +48,8 @@
         </view>
         <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
         <view class='view-bottom-two-item' bindtap='couponClick'>
-          <view class='view-bottom-two-item-text'>我的优惠券</view>
-          <image src='../../images/info.png'></image>
+          <view class='view-bottom-two-item-text'>姓名</view>
+          <view>{{memberInfoVO.name}}</view>
         </view>
       </view>
     </view>
@@ -64,10 +63,12 @@
     <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
     <view class='view-bottom-two-item'>
       <view class='view-bottom-two-item-text'>电话号码</view>
+      <view>{{memberInfoVO.receivedPhone}}</view>
     </view>
     <view style='width:92%; margin-left:30rpx; margin-right:30rpx; height:2rpx;  background-color:#eeeeee'></view>
     <view class='view-bottom-two-item'>
       <view class='view-bottom-two-item-text'>收货地址</view>
+       <view>{{memberInfoVO.address}}</view>
     </view>
     <view style='width:100%;  height:5rpx;  background-color:#eeeeee'></view>
     <view class='view-bottom-two-item-kefu'>
@@ -83,8 +84,8 @@
 
 </view>
 <view class='view-rz' hidden='{{isLogin}}'>
-<view style='width:80%;height:60%;background-color:white; flex-direction: column' >
-<image ></image>
+<view calss='beijing' style='width:80%;height:60%;background-color:white;  flex-direction: column' >
+<image src='../../images/login.png' ></image>
 <button open-type="getUserInfo" bindtap='loginClick'>授权登录</button>
 </view>
 

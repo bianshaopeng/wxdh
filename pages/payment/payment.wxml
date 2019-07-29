@@ -13,7 +13,7 @@
             <view class="order_number">
                 订单编号: {{item.orderid}}
             </view>
-            <view class="com_list" bindtap="pay_desc">
+            <view class="com_list" bindtap="pay_desc" data-id='{{item.id}}'>
                 <view class="center_item">
                     <image class="icon" src="{{item.image}}"></image>
                     <view class="text_box">
@@ -26,7 +26,7 @@
             </view>
        
             <view class="sure_btn">
-                <view class="btn_des" hover-class="active" bindtap="Todesc" data-txt="{{btnDesc}}">
+                <view class="btn_des" hover-class="active" bindtap="Todesc" data-txt="{{item.orderid}}">
                     立即支付
                 </view>
 

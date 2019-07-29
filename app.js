@@ -1,6 +1,6 @@
 App({
   globalData: {
-    urlIp: "http://192.168.31.63:8081/api/v1.0/"
+    urlIp: "http://192.168.31.40:8081/api/v1.0/"
   },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）

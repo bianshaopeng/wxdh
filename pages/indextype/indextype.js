@@ -271,7 +271,6 @@ Page({
       title: options.text
     }) 
     this.data.issettle == false
-    this.data.issettle = false
     var url = app.globalData.urlIp + "goods/goodsPidInfo";
     var params = {
       userId: wx.getStorageSync('userId'),

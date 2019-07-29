@@ -10,39 +10,12 @@ Page({
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
     adressimage: "../../images/bg_lockion.png",
-    orderid:'2222222222',
-    ordertime:'2019-07-20',
-    address: {   
-      user: "里二狗",
-      phone: "18965651515",
-      desc: "甘肃省兰州市城关区名城广场3号楼3287"
+    orderid:'',
+    ordertime:'',
 
-    },
    
-    guess_like: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-        number: "2"
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥35",
-        price_smail: "￥00",
-        number: "2"
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥300",
-        price_smail: "￥00",
-        number: "2"
-      }
+    orderDetail: [
+        
     ]
 
   },
@@ -51,11 +24,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var orderid = options.options
-    var url = app.globalData.urlIp + "goods/payment";
+    var id = options.id
+    var url = app.globalData.urlIp + "order/orderDetailList";
     var params = {
-      order: orderid,
-      type: '0',
+      id: id,
 
     }
 
@@ -77,15 +49,18 @@ Page({
   onSuccess: function (res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
-    if (res.msg == "成功") {
-      self.setData({
+    if (res.msg == "获取订单信息成功") {
+      this.setData({
         empty: false,
-        goodsMsg: res.goodsMsg,
+        orderDetail: res.orderDetail,
+        ordertime: res.orderTime,
+        orderid:res.orderId
+
       })
     } else if (res.msg == "暂无数据") {
-      self.setData({
+      this.setData({
         empty: true,
-        goodsMsg: [],
+        orderDetail: [],
       })
     }
 

@@ -11,9 +11,9 @@
     <block wx:for="{{goodsMsg}}" wx:if="{{!empty}}">
         <view class="link_box">
             <view class="order_number">
-                订单编号: 4165151564165105
+                订单编号: {{item.orderId}}
             </view>
-            <view class="com_list" bindtap="pay_desc">
+            <view class="com_list" bindtap="pay_desc" data-id='{{item.id}}'>
                 <view class="center_item">
                     <image class="icon" src="{{item.image}}"></image>
                     <view class="text_box">
