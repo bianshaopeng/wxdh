@@ -89,9 +89,14 @@ Page({
     });
 
     wx.onSocketMessage(function (res) {
-
+      console.log(res)
       var strpay = JSON.parse(res.data).payRequestStr
-      if(strpay.code == 200){
+      if (strpay.msg=="钱包支付成功"){
+        wx.redirectTo({
+          url: '/pages/success/index',
+        })
+      }
+      else if (strpay.msg == "操作成功1"){
         wx.requestPayment({
           timeStamp: strpay.data.timeStamp,
           nonceStr: strpay.data.nonceStr,

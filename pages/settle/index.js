@@ -127,6 +127,10 @@ Page({
           console.log(res);
         }
       })
+    } else if (res.msg == "钱包支付成功"){
+      wx.redirectTo({
+        url: '/pages/success/index',
+      })
     }
 
 
@@ -142,21 +146,15 @@ Page({
   paySure(e) {
     console.log(this.data.paytype)
     //微信支付
-    // var url = "http://192.168.31.40:8081/gainPrePay";
-    // var params = {
-    //   amount: '1',
-    //   tradeType:'6'
-
-    // }
-    // netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
-   //钱包支付
-    var url = "http://192.168.31.40:8081/payOrder"
+    var url = "http://192.168.31.40:8081/gainPrePay";
     var params = {
-      money: '100',
+      amount: '1',
+      tradeType: this.data.paytype,
       memberId: wx.getStorageSync('userId')
 
     }
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
+   
 
   },
 
