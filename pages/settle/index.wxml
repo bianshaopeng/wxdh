@@ -1,74 +1,70 @@
 <!-- 确认订单页面 -->
 <view class="sure">
     <!-- 顶部有地址 -->
-    <view class="address" wx:if="{{address.status}}" bindtap="adDress">
-        <image class="" src="{{address.image}}" mode="aspectFill"> </image>
+    <view class="address" wx:if="{{!empty}}" bindtap="adDress">
+    
+        <image class="" src="{{image}}" mode="aspectFill"> </image>
         <view class="address_title">
-            <text class="title-user">{{address.user}}{{address.phone}}</text>
-            <text class="title-desc">{{address.desc}}</text>
+            <text class="title-user">{{address.name}}{{address.phone}}</text>
+            <text class="title-desc">{{address.address}}</text>
         </view>
         <view class="arrow" bindtap="adDress"></view>
     </view>
-    <view class="address" wx:if="{{!address.status}}" bindtap="adDress">
+    <view class="address" wx:if="{{empty}}" bindtap="adDress">
         <view class="empty">新建收货地址，保证商品顺利送达！</view>
         <view class="arrow" bindtap="adDress"></view>
     </view>
 
     <!-- 支付方式 -->
-    <viee class="pay_box">
+    <view class="pay_box">
 
         <view class="pay_h2">支付方式</view>
         <block wx:for="{{pay}}">
-            <view class="pay_lsit">
+            <view class="pay_lsit" bindtap='payType' data-id='{{item.id}}'>
                 <image class="left_image" src="{{item.image}}" mode="aspectFill"> </image>
                 <view class="pay_desc">{{item.title}}<text class="samil_desc"
                         wx:if="{{item.desc.length>0 }}">({{item.desc}})</text>
                 </view>
                 <view class="right">
-                    <image class='icon' src='{{select}}'></image>
+                    <image wx:if="{{item.ischecked}}" class='icon' src='{{select}}'></image>
+                     <image wx:else class='icon' src='{{unselect}}'></image>
                 </view>
             </view>
         </block>
 
 
-    </viee>
-    <!-- 优惠券模块 -->
-    <view class="coupons">
-        <view class="title">优惠券</view>
-        <view class="arrow"></view>
     </view>
+
     <!-- 结算订单信息展示模块 -->
     <view class="msg_box">
         <view class="msg_h2">订单信息</view>
         <!-- 商品信息 -->
         <view class="com_list">
-            <view class="center_item">
-                <image class="icon" src="{{goods.image}}"></image>
+            <view class="center_item"  wx:for="{{goods}}">
+                <image class="icon" src="{{item.image}}"></image>
                 <view class="text_box">
-                    <view class="title">{{goods.title}}</view>
-                    <view class="shop">{{goods.standard}}</view>
-                    <view class="price">{{goods.price}}</view>
+                    <view class="title">{{item.title}}</view>
+                    <view class="shop">{{item.standard}}</view>
+                    <view class="price"> ￥{{item.price}}</view>
+                    <view class="number">x{{item.number}}</view>
                 </view>
             </view>
             <view class="msg_item">
-                <view class="left_title">商品单价</view>
-                <view class="right_number">{{information.price}}</view>
+                <view class="left_title">订单时间</view>
+                <view class="right_number">{{orderInfoVO.createTime}}</view>
             </view>
-            <view class="msg_item">
-                <view class="left_title">商品数量</view>
-                <view class="right_number">{{information.number}}</view>
-            </view>
+          
             <view class="msg_item">
                 <view class="left_title">订单总价</view>
-                <view class="right_number">{{information.sum}}</view>
+                <view class="right_number">{{orderInfoVO.orderTotalMoney}}</view>
             </view>
             <view class="msg_item">
-                <view class="left_title">使用优惠券一张</view>
-                <view class="right_number">省{{information.preferential}}</view>
+                <view class="left_title">优惠价格</view>
+                <view class="right_number">省{{orderInfoVO.discountTotalMoney}}</view>
             </view>
             <view class="msg_item msg_bottom">
                 <view class="title">实付款</view>
-                <view class="right_sum">￥36.87</view>
+                <view class="right_sum">￥{{orderInfoVO.actualMoney}}</view>
             </view>
         </view>
 

@@ -1,14 +1,14 @@
 <view class="contair">
 <view class='view-ka'>
-  <input class='view-input' placeholder="收货人" placeholder-style="font-size:10pt; color: #989898;"></input>
+  <input class='view-input' placeholder="收货人" placeholder-style="font-size:10pt; color: #989898;" bindinput='getName' value='{{receivename}}'></input>
   </view>
   <view class='view-ka'>
-  <input class='view-input' style='margin-top:1rpx' type='number' placeholder='手机号码' placeholder-style="font-size:10pt; color: #989898;"></input>
+  <input class='view-input' style='margin-top:1rpx' type='number' placeholder='手机号码' placeholder-style="font-size:10pt; color: #989898;" bindinput='getPhone' value='{{phone}}'></input>
   </view>
    <view class='view-ka'>
-  <input class='view-input' style='margin-top:1rpx'  placeholder='地址' placeholder-style="font-size:10pt; color: #989898;"></input>
+  <input class='view-input' style='margin-top:1rpx'  placeholder='收货地址' placeholder-style="font-size:10pt; color: #989898;" bindinput='getAdress' value='{{adress}}'></input>
   </view>
   
-  <button class='view-btn'>确 定</button>
+  <button class='view-btn' bindtap='btn' >确 定</button>
   
 </view>

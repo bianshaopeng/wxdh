@@ -1,4 +1,5 @@
 // pages/me/me.js
+var netUtil = require("../../utils/netUtils.js");
 var app = getApp();
 Page({
 
@@ -9,6 +10,7 @@ Page({
     openId:'',
     isLogin:false,
     userId:'',
+    memberInfoVO:{},
     avatarUrl:'../../images/anthor.png',
     viewBoneItem: [{
       image: "../../images/shouhou4.png",
@@ -122,6 +124,8 @@ Page({
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          wx.clearStorage()
+          wx.clearStorageSync()
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -186,6 +190,12 @@ Page({
       this.setData({
         isLogin:true
       })
+      var url = app.globalData.urlIp + "user/selUserInfo";
+      var params = {
+        userId: wx.getStorageSync('userId'),
+      }
+
+      netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
     }
     if (wx.getStorageSync('avatarUrl')!=""){
       this.setData({
@@ -193,7 +203,32 @@ Page({
       })
     }
   },
+  onStart: function () { //onStart回调
+    wx.showLoading({
+      title: '正在加载',
+    })
+  },
+  onSuccess: function (res) { //onSuccess回调
+    console.log(res)
+    wx.hideLoading();
+    var that = this
+    that.setData({
+      memberInfoVO: res.memberInfoVO
 
+
+    })
+    
+
+
+  },
+  onFailed: function (msg) { //onFailed回调
+    wx.hideLoading();
+    if (msg) {
+      wx.showToast({
+        title: msg,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -70,22 +70,21 @@ Page({
   },
 
   pay_desc(e) {
-    let txt = e.currentTarget.dataset.txt
-    if(txt == "立即支付"){
+    let id = e.currentTarget.dataset.id;
+    console.log('id', id)
     wx.navigateTo({
-      // 根剧跳转 id  动态设置 标题
-      url: "/pages/settle/index"
+      url: "/pages/pay_desc/index?id="+id
     })
-    }
   },
   Todesc(e) {
     // 根据类型不同跳转页面
-
-    let txt = e.currentTarget.dataset.txt;
-   
-      wx.navigateTo({
-        url: "/pages/pay_desc/index"
-      })
+    let txt = e.currentTarget.dataset.txt
+  
+    wx.navigateTo({
+      // 根剧跳转 id  动态设置 标题
+      url: "/pages/settle/index?orderId="+txt
+    })
+    
   },
   onStart: function () { //onStart回调
     wx.showLoading({

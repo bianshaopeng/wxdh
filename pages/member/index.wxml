@@ -12,9 +12,9 @@
             </image>
         </view>
         <!-- 跳转微信支付 -->
-        <view class="pay">
+        <view class="pay" bindtap='zhifu'>
             <view class="pay_text">
-                微信支付
+                {{payname}}
                 <view class="arrow"></view>
             </view>
 

@@ -175,8 +175,9 @@
 }
 
 .center_item .text_box {
-    display: block;
-    margin: 0 0 0 22rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center
 }
 
 .center_item .text_box .title {
@@ -186,6 +187,8 @@
     line-height: 34rpx;
     letter-spacing: 0px;
     color: #595959;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
 }
 
 .center_item .text_box .shop {
@@ -194,7 +197,9 @@
     font-stretch: normal;
     line-height: 64rpx;
     letter-spacing: 0px;
-    color: #989898
+    color: #989898;
+     margin-left: 10rpx;
+    margin-right: 10rpx;
 }
 
 .center_item .text_box .price {
@@ -204,6 +209,19 @@
     line-height: 34rpx;
     letter-spacing: 0px;
     color: #f95959;
+     margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+.center_item .text_box .number {
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 34rpx;
+    letter-spacing: 0px;
+    color: #989898;
+     margin-left: 200rpx;
+    margin-right: 10rpx;
+ 
 }
 
 .msg_item {

@@ -65,21 +65,63 @@ page {
 }
 
 
-.recom_list {
+.empty_wrap {
+    background: #eee;
+    height: 100%;
+
+}
+
+.empty_wrap image {
+    display: block;
+    width: 104rpx;
+    height: 94rpx;
+    margin: 94rpx auto 0;
+
+
+}
+
+.empty_wrap .empyt_txt {
+    display: block;
+    width: 100%;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 82rpx;
+    color: #989898;
+    text-align: center;
+}
+
+.title_box {
+    padding: 24rpx 0 34rpx 0rpx;
+}
+
+.h2_title {
+    padding: 0 0 0 10rpx;
+    font-size: 26rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 26rpx;
+    color: #f95959;
+
+    border-left: 2px solid #f95959;
+}
+
+/* list */
+ .recom_list {
     display: flex;
-    margin: 30rpx 0 20rpx 0;
-    padding: 0 20rpx 20rpx;
+    margin: 30rpx 20rpx 20rpx 20rpx;
+    padding: 0 0 20rpx 0;
     border-bottom: 1px solid #eee;
 }
 
-.recom_list .list_left {
+ .recom_list .list_left {
     width: 130rpx;
     height: 130rpx;
     background-color: #eeeeee;
     border: solid 1rpx #eeeeee;
 }
 
-.recom_list .list_left image {
+ .recom_list .list_left image {
     width: 100%;
     height: 100%;
 }
@@ -87,11 +129,11 @@ page {
 /* center */
 .recom_list .list_center {
     margin: 0 0 0 20rpx;
-    flex: 1;
+    width: 510rpx;
     align-self: flex-start;
 }
 
-.recom_list .list_center .center_title {
+ .recom_list .list_center .center_title {
     margin: 0 0 0 0;
     font-family: PingFang-SC-Bold;
     font-size: 34rpx;
@@ -102,7 +144,7 @@ page {
     display: block;
 }
 
-.recom_list .list_center .center_standard {
+ .recom_list .list_center .center_standard {
     display: block;
 
     font-size: 24rpx;
@@ -112,7 +154,7 @@ page {
     color: #989898;
 }
 
-.recom_list .list_center .center_price {
+ .recom_list .list_center .center_price {
     display: block;
     font-family: PingFang-SC-Bold;
     font-size: 34rpx;
@@ -122,7 +164,7 @@ page {
     color: #f95959;
 }
 
-.recom_list .list_center .center_price .sm_price {
+ .recom_list .list_center .center_price .sm_price {
     display: inline-block;
     margin: 0 0 0 14rpx;
 
@@ -136,15 +178,13 @@ page {
 }
 
 /* right */
-/* right */
 .list_right {
-    width: 176rpx;
+    width: 204rpx;
     height: 60rpx;
     align-self: flex-end;
     margin-left: auto;
     display: flex;
-    justify-content: space-between;
-
+    justify-content: flex-end;
 }
 
 /* 购物车加减号 */
@@ -169,17 +209,10 @@ page {
     width: 60rpx;
     margin: -5rpx 0 0 0;
 }
-
-.view-search {
-    width: 100%;
-    height: 1000rpx;
-    margin-top: 70rpx;
-}
-
 /*  底部购物车*/
 
 .flex_car {
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
@@ -247,7 +280,7 @@ page {
 }
 
 .maskLayer {
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.4);

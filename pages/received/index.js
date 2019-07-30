@@ -9,33 +9,7 @@ Page({
   data: {
     empty:true,
     type:0,
-    goodsMsg: [{
-        ordernumber: 46515189456185,
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-        number: "2"
-      },
-      {
-        ordernumber: 46515189456185,
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥00",
-        number: "2"
-      },
-      {
-        ordernumber: 46515189456185,
-        image: "../../images/list1.jpg",
-        title: "大枣",
-        standard: "500g",
-        price: "￥34",
-        price_smail: "￥110",
-        number: "1"
-      }
+    goodsMsg: [
     ],
     btnDesc: "",
     sm_desc: false,
@@ -98,10 +72,10 @@ Page({
   },
 
   pay_desc(e) {
-    //let txt = e.currentTarget.dataset.txt
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
       // 根剧跳转 id  动态设置 标题
-      url: "/pages/pay_desc/index"
+      url: "/pages/pay_desc/index?id="+id
     })
   },
   Todesc(e) {
