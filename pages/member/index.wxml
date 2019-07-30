@@ -1,26 +1,30 @@
 <!--pages/member/index.wxml-->
 <view class="warp_box">
-    <view class="manber_bg" style="background-image: url('../../images/menber_bg.png')">
-        <view class="top_bar">
-            <image class="" src="{{top_bar}}" mode="aspectFill">
-            </image>
-            <text class="top_text">266842368941699/774</text>
-        </view>
-        <view class="center_img">
-            <image class="" src="{{center_img}}" mode="aspectFill">
-
-            </image>
-        </view>
-        <!-- 跳转微信支付 -->
-        <view class="pay" bindtap='zhifu'>
-            <view class="pay_text">
-                {{payname}}
-                <view class="arrow"></view>
+    <view class="manber_bg" style="">
+        <div class="mer_box">
+            <view class="top_bar">
+                <image class="" src="{{top_bar}}" mode="aspectFill">
+                </image>
+                <text class="top_text">266842368941699/774</text>
             </view>
+            <view class="center_img">
+                <image class="" src="{{center_img}}" mode="aspectFill">
+
+                </image>
+            </view>
+            <!-- 跳转微信支付 -->
+            <view class="pay" bindtap='zhifu'>
+                <view class="pay_text">
+                    {{payname}}
+                    <view class="arrow"></view>
+                </view>
+            </view>
+        </div>
 
 
+        <!-- 背景定位图片  -->
+        <view class="meb_bg">
+            <image src="/images/menber_bg.png" mode="aspectFill"></image>
         </view>
-
-
     </view>
 </view>
