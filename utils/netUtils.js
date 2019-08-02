@@ -1,4 +1,9 @@
 /**
+ * 配置网络接口请求 
+ */
+
+
+/**
  * 供外部post请求调用
  */
 function post(url, params, onStart, onSuccess, onFailed) {

@@ -11,7 +11,7 @@ Page({
     moneys: 0,
     carselect: true,
     typeId: "",
-    issettle:false,
+    issettle: false,
     key: 0,
     index: 0,
     colors: [],
@@ -100,17 +100,17 @@ Page({
 
 
     ],
- 
+
     curIndex: 0,
     // 底部动画 
     chooseSize: false,
     animationData: {},
 
     cardesc: [
-   
+
     ]
   },
-  oneList: function(res) {
+  oneList: function (res) {
     var that = this
 
     console.log(res.currentTarget.dataset)
@@ -139,7 +139,7 @@ Page({
     }
 
   },
-  twoList: function(res) {
+  twoList: function (res) {
     var that = this
     console.log(res.currentTarget.dataset)
     var index1 = res.currentTarget.dataset
@@ -159,7 +159,7 @@ Page({
   },
 
   //商品加
-  addClick: function(res) {
+  addClick: function (res) {
     var that = this
     this.data.index = res.currentTarget.dataset.index
     this.data.userId = wx.getStorageSync('userId')
@@ -225,7 +225,7 @@ Page({
 
   },
   //商品减
-  reduceClick: function(res) {
+  reduceClick: function (res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem = "navRightItems.[" + index + "].number";
@@ -258,7 +258,7 @@ Page({
     }
   },
   //购物车加
-  addToast: function(res) {
+  addToast: function (res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem2 = "cardesc[" + index + "].number";
@@ -276,7 +276,7 @@ Page({
     }
   },
   //购物车减
-  reduceToast: function(res) {
+  reduceToast: function (res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem2 = "cardesc[" + index + "].number";
@@ -334,11 +334,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-   
+  onLoad: function (options) {
+
 
   },
-  onShow: function() {
+  onShow: function () {
     this.data.issettle = false
     var url = app.globalData.urlIp + "goods/goodsType";
     var params = {
@@ -348,7 +348,7 @@ Page({
 
     netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
   },
-  onHide:function(){
+  onHide: function () {
     if (this.data.carselect == false && this.data.issettle == false) {
       this.setData({
         carselect: true,
@@ -365,12 +365,12 @@ Page({
     }
   },
 
-  onStart: function() { //onStart回调
+  onStart: function () { //onStart回调
     wx.showLoading({
       title: '正在加载',
     })
   },
-  onSuccess: function(res) { //onSuccess回调
+  onSuccess: function (res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
     if (res.msg == "获取商品分类成功") {
@@ -392,7 +392,7 @@ Page({
       })
 
       wx.showToast({
-        title: '暂无改商品',
+        title: '暂无该商品',
         icon: 'success',
         duration: 2000
       })
@@ -400,7 +400,7 @@ Page({
       wx.navigateTo({
         url: '../settle/index?orderId=' + res.order,
       })
-    }  else if (res.msg == "获取购物车成功") {
+    } else if (res.msg == "获取购物车成功") {
       this.setData({
         cardesc: res.cardesc
       })
@@ -500,7 +500,7 @@ Page({
     }
 
   },
-  onFailed: function(msg) { //onFailed回调
+  onFailed: function (msg) { //onFailed回调
     wx.hideLoading();
     if (msg) {
       wx.showToast({
@@ -509,7 +509,7 @@ Page({
     }
   },
   // 底部动画
-  chooseSezi: function(e) {
+  chooseSezi: function (e) {
     // 用that取代this，防止不必要的情况发生
     var that = this;
     // 创建一个动画实例
@@ -531,14 +531,14 @@ Page({
       chooseSize: true
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
-    setTimeout(function() {
+    setTimeout(function () {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export()
       })
     }, 200)
   },
-  hideModal: function(e) {
+  hideModal: function (e) {
     var that = this;
     var animation = wx.createAnimation({
       duration: 1000,
@@ -550,7 +550,7 @@ Page({
       animationData: animation.export()
 
     })
-    setTimeout(function() {
+    setTimeout(function () {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export(),

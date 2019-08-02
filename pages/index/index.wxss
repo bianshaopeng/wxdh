@@ -182,7 +182,8 @@ page {
 .ten_warp {
     width: 100%;
     padding-top: 20rpx;
-    height: 320rpx;
+    /* height: 320rpx; */
+    height: auto;
     background: #fff;
     display: flex;
     flex-wrap: wrap;

@@ -1,5 +1,5 @@
-// pages/me/me.js
 var netUtil = require("../../utils/netUtils.js");
+//  全局得实例对象
 var app = getApp();
 Page({
 
@@ -7,11 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openId:'',
-    isLogin:false,
-    userId:'',
-    memberInfoVO:{},
-    avatarUrl:'../../images/anthor.png',
+    openId: '',
+    isLogin: false,
+    userId: '',
+    memberInfoVO: {},
+    avatarUrl: '../../images/anthor.png',
     viewBoneItem: [{
       image: "../../images/shouhou4.png",
       text: "待付款"
@@ -28,14 +28,13 @@ Page({
 
   },
   //登录
-  loginClick:function(){
+  loginClick: function () {
     var that = this
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
-
             success: res => {
               console.log('res.userInfo')
               // 可以将 res 发送给后台解码出 unionId
@@ -52,45 +51,45 @@ Page({
         }
       }
     })
-   
-      wx.login({
-        success(res) {
-          if (res.code) {
-            //发起网络请求
-            wx.request({
-              url: app.globalData.urlIp + "/index/getOpenId",
-              data: {
-                code: res.code
-              },
-              success:function(res){
-                 console.log(res)
-                 that.data.openId = res.data
-                //  that.setData({
-                //    isLogin:true
-                //  })
-                wx.getUserInfo({
-                  
-                  success: function (res) {
-                    console.log(res)
-                    wx.setStorage({
-                      key: 'avatarUrl',
-                      data: res.userInfo.avatarUrl,
-                    })
-                    console.log(that.data.openId)
-                    wx.navigateTo({
-                      url: '/pages/login/login?openId='+that.data.openId,
-                    })
-                  }
-                })
-              }
-            })
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
+
+    wx.login({
+      success(res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: app.globalData.urlIp + "/index/getOpenId",
+            data: {
+              code: res.code
+            },
+            success: function (res) {
+              console.log(res)
+              that.data.openId = res.data
+              //  that.setData({
+              //    isLogin:true
+              //  })
+              wx.getUserInfo({
+
+                success: function (res) {
+                  console.log(res)
+                  wx.setStorage({
+                    key: 'avatarUrl',
+                    data: res.userInfo.avatarUrl,
+                  })
+                  console.log(that.data.openId)
+                  wx.navigateTo({
+                    url: '/pages/login/login?openId=' + that.data.openId,
+                  })
+                }
+              })
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
         }
-      })
+      }
+    })
     // 
-   
+
   },
   couponClick: function () {
     wx.navigateTo({
@@ -161,7 +160,7 @@ Page({
       url: 'recharge/recharge?type=1',
     })
   },
-  historyClick:function(){
+  historyClick: function () {
     wx.navigateTo({
       url: '/pages/hispayment/hispayment',
     })
@@ -170,15 +169,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-        
-    
+
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
+
 
   },
 
@@ -186,9 +185,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(wx.getStorageSync('userId')!=""){
+    if (wx.getStorageSync('userId') != "") {
       this.setData({
-        isLogin:true
+        isLogin: true
       })
       var url = app.globalData.urlIp + "user/selUserInfo";
       var params = {
@@ -197,7 +196,7 @@ Page({
 
       netUtil.getRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
     }
-    if (wx.getStorageSync('avatarUrl')!=""){
+    if (wx.getStorageSync('avatarUrl') != "") {
       this.setData({
         avatarUrl: wx.getStorageSync('avatarUrl')
       })
@@ -217,7 +216,7 @@ Page({
 
 
     })
-    
+
 
 
   },

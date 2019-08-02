@@ -12,7 +12,7 @@ Page({
     moneys: 0,
     index: 0,
     index1: 0,
-    issettle:false,
+    issettle: false,
     carselect: true,
     inputValue: null,
     showAll: false,
@@ -23,8 +23,8 @@ Page({
     ids: ["a", "b", "c", "d"],
     scorllId: "",
     informations: {
-      
-      
+
+
     },
 
 
@@ -46,37 +46,37 @@ Page({
   },
 
 
-  barClick1: function() {
+  barClick1: function () {
     this.setData({
       scorllId: "a"
     })
 
   },
-  barClick2: function() {
+  barClick2: function () {
     this.setData({
       scorllId: "b"
     })
 
   },
-  barClick3: function() {
+  barClick3: function () {
     this.setData({
       scorllId: "c"
     })
 
   },
-  barClick4: function() {
+  barClick4: function () {
     this.setData({
       scorllId: "d"
     })
   },
   //分类
-  typeClick: function(res) {
+  typeClick: function (res) {
     console.log(res.currentTarget.dataset.id)
     wx.navigateTo({
       url: '../indextype/indextype?typeId=' + res.currentTarget.dataset.id.id + '&text=' + res.currentTarget.dataset.id.text,
     })
   },
-  imgClick: function(res) {
+  imgClick: function (res) {
     console.log(res.currentTarget.dataset)
     wx.showToast({
       title: '添加购物车成功',
@@ -85,18 +85,18 @@ Page({
     })
   },
 
-  bindinput: function(e) {
+  bindinput: function (e) {
     wx.navigateTo({
       url: '../search/search',
 
     })
   },
-  detailsClick: function() {
+  detailsClick: function () {
 
   },
 
   // 底部动画
-  chooseSezi: function(e) {
+  chooseSezi: function (e) {
     // 用that取代this，防止不必要的情况发生
     var that = this;
     // 创建一个动画实例
@@ -118,14 +118,14 @@ Page({
       chooseSize: true
     })
     // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
-    setTimeout(function() {
+    setTimeout(function () {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export()
       })
     }, 200)
   },
-  hideModal: function(e) {
+  hideModal: function (e) {
     var that = this;
     var animation = wx.createAnimation({
       duration: 1000,
@@ -137,7 +137,7 @@ Page({
       animationData: animation.export()
 
     })
-    setTimeout(function() {
+    setTimeout(function () {
       animation.translateY(0).step()
       that.setData({
         animationData: animation.export(),
@@ -147,7 +147,7 @@ Page({
   },
 
   //加数量
-  addClick: function(res) {
+  addClick: function (res) {
     var that = this
     this.data.index = res.currentTarget.dataset.index
     //内层index
@@ -218,7 +218,7 @@ Page({
   },
 
   //减数量
-  reduceClick: function(res) {
+  reduceClick: function (res) {
     var that = this
     //外层index
     var index = res.currentTarget.dataset.index
@@ -254,7 +254,7 @@ Page({
       }
     }
   },
-  addToast: function(res) {
+  addToast: function (res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem2 = "cardesc[" + index + "].number";
@@ -273,7 +273,7 @@ Page({
       }
     }
   },
-  reduceToast: function(res) {
+  reduceToast: function (res) {
     var that = this
     var index = res.currentTarget.dataset.index
     var sItem2 = "cardesc[" + index + "].number";
@@ -315,7 +315,7 @@ Page({
     }
   },
   //结算
-  settle: function() {
+  settle: function () {
     this.data.issettle = true
     this.setData({
       carselect: true,
@@ -335,17 +335,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
-   
+
 
   },
-  onStart: function() { //onStart回调
+  onStart: function () { //onStart回调
     wx.showLoading({
       title: '正在加载',
     })
   },
-  onSuccess: function(res) { //onSuccess回调
+  onSuccess: function (res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
     if (res.msg == "首页获取成功") {
@@ -361,7 +361,7 @@ Page({
       //调用get方法情就是户数
     } else if (res.msg == "生成订单成功") {
       wx.navigateTo({
-        url: '../settle/index?orderId=' + res.order,
+        url: '../settle/index?orderId=' + `res.order,`
       })
     } else if (res.msg == "获取购物车成功") {
 
@@ -471,7 +471,7 @@ Page({
       }
     }
   },
-  onFailed: function(msg) { //onFailed回调
+  onFailed: function (msg) { //onFailed回调
     wx.hideLoading();
     if (msg) {
       wx.showToast({
@@ -479,7 +479,7 @@ Page({
       })
     }
   },
-  click: function(e) {
+  click: function (e) {
     this.setData({
 
       hiddenName: !this.data.hiddenName
@@ -489,14 +489,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     this.data.issettle = false
     var that = this
 
@@ -508,7 +508,7 @@ Page({
         var params = {
           lat: res.latitude,
           lon: res.longitude,
-          userId:wx.getStorageSync('userId')
+          userId: wx.getStorageSync('userId')
 
         }
 
@@ -524,7 +524,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
     if (this.data.carselect == false && this.data.issettle == false) {
       this.setData({
         carselect: true,
@@ -539,35 +539,35 @@ Page({
       }
       netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
     }
-  
 
-},
 
-/**
- * 生命周期函数--监听页面卸载
- */
-onUnload: function() {
+  },
 
-},
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
 
-/**
- * 页面相关事件处理函数--监听用户下拉动作
- */
-onPullDownRefresh: function() {
+  },
 
-},
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
 
-/**
- * 页面上拉触底事件的处理函数
- */
-onReachBottom: function() {
+  },
 
-},
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
 
-/**
- * 用户点击右上角分享
- */
-onShareAppMessage: function() {
+  },
 
-}
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 })

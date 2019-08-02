@@ -15,7 +15,6 @@ Page({
     orderInfoVO: {},
     address: {
       status: false,
-
       user: "里二狗",
       phone: "18965651515",
       desc: "甘肃省兰州市城关区名城广场3号楼3287"
@@ -54,7 +53,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var orderId = options.orderId
     console.log(orderId)
     var url = app.globalData.urlIp + "order/receivedAddress";
@@ -67,7 +66,7 @@ Page({
 
 
   },
-  payType: function(res) {
+  payType: function (res) {
     var type = res.currentTarget.dataset.id
     this.data.paytype = type
     for (var i in this.data.pay) {
@@ -75,11 +74,11 @@ Page({
       this.setData({
         [sItem]: !this.data.pay[i].ischecked,
       })
-      for (var i in this.data.pay){
-        if (this.data.pay[i].ischecked==true){
-          if(i==0){
+      for (var i in this.data.pay) {
+        if (this.data.pay[i].ischecked == true) {
+          if (i == 0) {
             this.data.paytype == '6'
-          }else{
+          } else {
             this.data.paytype == '1'
           }
         }
@@ -92,12 +91,12 @@ Page({
       url: "/pages/me/adress/adress"
     })
   },
-  onStart: function() { //onStart回调
+  onStart: function () { //onStart回调
     wx.showLoading({
       title: '正在加载',
     })
   },
-  onSuccess: function(res) { //onSuccess回调
+  onSuccess: function (res) { //onSuccess回调
     console.log(res)
     wx.hideLoading();
     var that = this
@@ -127,7 +126,7 @@ Page({
           console.log(res);
         }
       })
-    } else if (res.msg == "钱包支付成功"){
+    } else if (res.msg == "钱包支付成功") {
       wx.redirectTo({
         url: '/pages/success/index',
       })
@@ -135,7 +134,7 @@ Page({
 
 
   },
-  onFailed: function(msg) { //onFailed回调
+  onFailed: function (msg) { //onFailed回调
     wx.hideLoading();
     if (msg) {
       wx.showToast({
@@ -144,17 +143,19 @@ Page({
     }
   },
   paySure(e) {
+
     console.log(this.data.paytype)
+
     //微信支付
     var url = "http://192.168.31.40:8081/gainPrePay";
     var params = {
-      amount: '1',
+      amount: this.data.orderInfoVO.orderTotalMoney,
       tradeType: this.data.paytype,
       memberId: wx.getStorageSync('userId')
-
     }
     netUtil.postRequest(url, params, this.onStart, this.onSuccess, this.onFailed);
-   
+
+
 
   },
 

@@ -58,10 +58,11 @@
           </view>
         </view>
       </view>
-      <!-- 10个分类 -->
+      <!-- 向上按钮图片 -->
       <view class="ten_top">
         <image bindtap='click' src="../../images/dsj.png" mode="aspectFill" />
       </view>
+      <!-- 10个分类 -->
       <view class="ten_warp" hidden='{{hiddenName}}'>
         <block wx:for-items="{{informations.data.middle}}">
           <view class="ten_item" bindtap='typeClick' data-id='{{item}}'>

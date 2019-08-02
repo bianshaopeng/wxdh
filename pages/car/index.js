@@ -16,50 +16,52 @@ Page({
     unselect: "../../images/unselected.png",
     select: "../../images/selected.png",
     cardesc:[],
-    goods: [{
-      image: "../../images/list1.jpg",
-      title: "新疆薄皮核桃",
-      standard: "500g",
-      ischecked:true,
-      shop: "来自XXXX店铺",
-      price: 34,
-      price_smail: "￥00",
-      number: 1
-    }, {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        ischecked: true,
-        shop: "来自XXXX店铺",
-        price: 34,
-        price_smail: "￥00",
-        number: 2
-      }
+     goods: [
+     //  {
+    //   image: "../../images/list1.jpg",
+    //   title: "新疆薄皮核桃",
+    //   standard: "500g",
+    //   ischecked:true,
+    //   shop: "来自XXXX店铺",
+    //   price: 34,
+    //   price_smail: "￥00",
+    //   number: 1
+    // }, {
+    //     image: "../../images/list1.jpg",
+    //     title: "新疆薄皮核桃",
+    //     standard: "500g",
+    //     ischecked: true,
+    //     shop: "来自XXXX店铺",
+    //     price: 34,
+    //     price_smail: "￥00",
+    //     number: 2
+    //   }
     ],
  
      
    
-    guess_like: [{
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: 34,
-        price_smail: "￥00",
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: 35,
-        price_smail: "￥00",
-      },
-      {
-        image: "../../images/list1.jpg",
-        title: "新疆薄皮核桃",
-        standard: "500g",
-        price: 300,
-        price_smail: "￥00",
-      }
+    guess_like: [
+      // {
+      //   image: "../../images/list1.jpg",
+      //   title: "新疆薄皮核桃",
+      //   standard: "500g",
+      //   price: 34,
+      //   price_smail: "￥00",
+      // },
+      // {
+      //   image: "../../images/list1.jpg",
+      //   title: "新疆薄皮核桃",
+      //   standard: "500g",
+      //   price: 35,
+      //   price_smail: "￥00",
+      // },
+      // {
+      //   image: "../../images/list1.jpg",
+      //   title: "新疆薄皮核桃",
+      //   standard: "500g",
+      //   price: 300,
+      //   price_smail: "￥00",
+      // }
     ]
 
 
@@ -153,6 +155,9 @@ Page({
   
   },
   onShow:function(){
+    this.data.money = 0;
+   
+    this.data.counts = 0;
     this.data.issettle = true
     var url = app.globalData.urlIp + "cart/shoppingCart";
     var params = {

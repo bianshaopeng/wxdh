@@ -2,7 +2,7 @@
 <view class="sure">
     <!-- 顶部有地址 -->
     <view class="address" wx:if="{{!empty}}" bindtap="adDress">
-    
+
         <image class="" src="{{image}}" mode="aspectFill"> </image>
         <view class="address_title">
             <text class="title-user">{{address.name}}{{address.phone}}</text>
@@ -27,7 +27,7 @@
                 </view>
                 <view class="right">
                     <image wx:if="{{item.ischecked}}" class='icon' src='{{select}}'></image>
-                     <image wx:else class='icon' src='{{unselect}}'></image>
+                    <image wx:else class='icon' src='{{unselect}}'></image>
                 </view>
             </view>
         </block>
@@ -40,7 +40,7 @@
         <view class="msg_h2">订单信息</view>
         <!-- 商品信息 -->
         <view class="com_list">
-            <view class="center_item"  wx:for="{{goods}}">
+            <view class="center_item" wx:for="{{goods}}">
                 <image class="icon" src="{{item.image}}"></image>
                 <view class="text_box">
                     <view class="title">{{item.title}}</view>
@@ -53,7 +53,7 @@
                 <view class="left_title">订单时间</view>
                 <view class="right_number">{{orderInfoVO.createTime}}</view>
             </view>
-          
+
             <view class="msg_item">
                 <view class="left_title">订单总价</view>
                 <view class="right_number">{{orderInfoVO.orderTotalMoney}}</view>

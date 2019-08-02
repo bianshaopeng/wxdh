@@ -20,7 +20,8 @@
     "pages/me/refundesc/index",
     "pages/search/search",
     "pages/hispayment/hispayment",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/me/aftersale/index"
 
   ],
   "permission": {
@@ -37,8 +38,7 @@
   "tabBar": {
     "selectedColor": "#F95959",
     "color": "#838282",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/2.png",
